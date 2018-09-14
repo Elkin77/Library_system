@@ -7,7 +7,9 @@ package com.helloworld.apispring.controller;
 
 
 
+import com.helloworld.apispring.model.entity.Reserva;
 import com.helloworld.apispring.model.entity.Usuario;
+import com.helloworld.apispring.model.entity.Viaje;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1")
 public class Controller {
    
-   @Autowired
+    @Autowired
     private UsuarioServicio usuarioServ;
     
     @RequestMapping(value = "/usuarios/", method = RequestMethod.GET)
@@ -30,5 +32,21 @@ public class Controller {
         return new ResponseEntity<List<Usuario>>(usuarios, HttpStatus.OK);
     }
     
+    @Autowired
+    private ViajeServicio viajeServ;
     
+    @RequestMapping(value = "/viajes/", method = RequestMethod.GET)
+    public ResponseEntity<List<Viaje>> obtenerAllViajes() {
+        List<Viaje> viajes = viajeServ.obtenerAllViajes();
+        return new ResponseEntity<List<Viaje>>(viajes, HttpStatus.OK);
+    }
+    
+    @Autowired
+    private ReservaServicio reservaServ;
+    
+    @RequestMapping(value = "/reservas/", method = RequestMethod.GET)
+    public ResponseEntity<List<Reserva>> obtenerAllReservas() {
+        List<Reserva> reservas = reservaServ.obtenerAllReservas();
+        return new ResponseEntity<List<Reserva>>(reservas, HttpStatus.OK);
+    }
 }

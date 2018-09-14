@@ -38,17 +38,17 @@ public class UsuarioRepositorio {
         return criteria.list(); 
     }
     
-    public List<Reserva> obtenerAllReservas()
-    {
-        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Reserva.class); 
-        return criteria.list(); 
-    }
-    
-    public List<Viaje> obtenerAllViajes()
-    {
-        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Viaje.class); 
-        return criteria.list(); 
-    }
+//    public List<Reserva> obtenerAllReservas()
+//    {
+//        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Reserva.class); 
+//        return criteria.list(); 
+//    }
+//    
+//    public List<Viaje> obtenerAllViajes()
+//    {
+//        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Viaje.class); 
+//        return criteria.list(); 
+//    }
     
     
 }

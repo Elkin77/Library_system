@@ -5,11 +5,15 @@
  */
 package com.helloworld.apispring.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,20 +28,41 @@ public class Usuario {
     @Column(name = "usuario")
     private String usuario;
     
-    @Column (name = "password")
+    @Column
     private String password;
     
-    @Column (name = "nombre")
+    @Column
     private String nombre;
     
-    @Column (name = "telefono")
+    @Column
     private String telefono;
     
-    @Column (name = "correo")
+    @Column
     private String correo;
+    
+    @OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Reserva> reserva;
+
+    public List<Reserva> getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(List<Reserva> reserva) {
+        this.reserva = reserva;
+    }
     
 
     public Usuario() {
+    }
+
+    public Usuario(Integer idUsuario, String usuario, String password, String nombre, String telefono, String correo) {
+        this.idUsuario = idUsuario;
+        this.usuario = usuario;
+        this.password = password;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.correo = correo;
     }
 
     public Integer getIdUsuario() {

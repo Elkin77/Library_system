@@ -5,12 +5,16 @@
  */
 package com.helloworld.apispring.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,27 +26,38 @@ public class Viaje {
     @Column(name = "id_viaje")
     private Integer idViaje;
 
-    @Column(name = "fecha")
+    @Column
     private Date fecha;
     
-    @Column(name = "origen")
+    @Column
     private String origen;
     
-    @Column(name = "destino")
+    @Column
     private String destino;
     
-    @Column(name = "hora")
+    @Column
     private String hora;
     
-    @Column(name = "precio")
+    @Column
     private Double precio;
     
     @Column(name = "numero_cupos")
     private Integer  numeroCupos;
     
-    @Column(name = "estado")
+    @Column
     private String estado;
     
+    @OneToMany(mappedBy = "viaje",cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Reserva> reservas;
+
+    public List<Reserva> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(List<Reserva> reservas) {
+        this.reservas = reservas;
+    }
     
     public Viaje() {
     }
@@ -110,7 +125,5 @@ public class Viaje {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
-    
 
 }
