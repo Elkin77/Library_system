@@ -6,22 +6,25 @@
 package com.helloworld.apispring.controller;
 
 import com.helloworld.apispring.model.dao.UsuarioRepositorio;
+import com.helloworld.apispring.model.dao.ViajeRepositorio;
 import com.helloworld.apispring.model.entity.Usuario;
+import com.helloworld.apispring.model.entity.Viaje;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
-public class UsuarioServicio {
+public class ViajeServicio {
     
     @Autowired
-    private UsuarioRepositorio usuarioRepo;
+    private ViajeRepositorio viajeRepositorio;
 
-    public UsuarioServicio() {
+    public ViajeServicio() {
     }
     
-    public List<Usuario> obtenerAllUsuarios(){
-        return usuarioRepo.obtenerAllUsuarios();
+    public List<Viaje> obtenerAllViajes(){
+        return viajeRepositorio.obtenerAllViajes();
     }
 
 }

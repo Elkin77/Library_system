@@ -7,7 +7,6 @@ package com.helloworld.apispring.model.dao;
 
 import com.helloworld.apispring.model.entity.Reserva;
 import com.helloworld.apispring.model.entity.Usuario;
-import com.helloworld.apispring.model.entity.Viaje;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
@@ -15,9 +14,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ *
+ * @author Acer
+ */
 @Repository
 @Transactional
-public class UsuarioRepositorio {
+public class ReservaRepositorio {
     
     @Autowired
     private SessionFactory sessionFactory;
@@ -32,23 +35,9 @@ public class UsuarioRepositorio {
         this.sessionFactory = sessionFactory;
     }
     
-    public List<Usuario> obtenerAllUsuarios()
-    {
-        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Usuario.class); 
-        return criteria.list(); 
-    }
-    
     public List<Reserva> obtenerAllReservas()
     {
         Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Reserva.class); 
         return criteria.list(); 
     }
-    
-    public List<Viaje> obtenerAllViajes()
-    {
-        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Viaje.class); 
-        return criteria.list(); 
-    }
-    
-    
 }

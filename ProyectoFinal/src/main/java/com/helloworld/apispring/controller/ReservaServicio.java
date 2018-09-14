@@ -5,23 +5,25 @@
  */
 package com.helloworld.apispring.controller;
 
+import com.helloworld.apispring.model.dao.ReservaRepositorio;
 import com.helloworld.apispring.model.dao.UsuarioRepositorio;
+import com.helloworld.apispring.model.entity.Reserva;
 import com.helloworld.apispring.model.entity.Usuario;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UsuarioServicio {
+public class ReservaServicio {
     
     @Autowired
-    private UsuarioRepositorio usuarioRepo;
+    private ReservaRepositorio reservaRepositorio;
 
-    public UsuarioServicio() {
+    public ReservaServicio() {
     }
     
-    public List<Usuario> obtenerAllUsuarios(){
-        return usuarioRepo.obtenerAllUsuarios();
+    public List<Reserva> obtenerAllReservas(){
+        return reservaRepositorio.obtenerAllReservas();
     }
 
 }
