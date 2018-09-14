@@ -56,8 +56,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Integer idUsuario, String usuario, String password, String nombre, String telefono, String correo) {
-        this.idUsuario = idUsuario;
+    public Usuario(String usuario, String password, String nombre, String telefono, String correo) {
         this.usuario = usuario;
         this.password = password;
         this.nombre = nombre;

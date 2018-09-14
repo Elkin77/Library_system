@@ -8,6 +8,7 @@ package com.helloworld.apispring.model.dao;
 import com.helloworld.apispring.model.entity.Reserva;
 import com.helloworld.apispring.model.entity.Usuario;
 import com.helloworld.apispring.model.entity.Viaje;
+import java.io.Serializable;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
@@ -38,17 +39,10 @@ public class UsuarioRepositorio {
         return criteria.list(); 
     }
     
-//    public List<Reserva> obtenerAllReservas()
-//    {
-//        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Reserva.class); 
-//        return criteria.list(); 
-//    }
-//    
-//    public List<Viaje> obtenerAllViajes()
-//    {
-//        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Viaje.class); 
-//        return criteria.list(); 
-//    }
-    
+    @Transactional
+    public long crearUsuario(Usuario usuario) {
+        Serializable save = getSessionFactory().getCurrentSession().save(usuario);
+        return usuario.getIdUsuario();
+    }
     
 }

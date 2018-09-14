@@ -23,5 +23,9 @@ public class UsuarioServicio {
     public List<Usuario> obtenerAllUsuarios(){
         return usuarioRepo.obtenerAllUsuarios();
     }
+    
+    public long crearUsuario(Usuario usuario){
+        return usuarioRepo.crearUsuario(usuario);
+    }
 
 }
