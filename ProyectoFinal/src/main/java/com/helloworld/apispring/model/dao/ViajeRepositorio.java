@@ -80,4 +80,19 @@ public class ViajeRepositorio {
             return 0;  
         }
     }
+     public long  crearViaje(Viaje viaje) {
+        Serializable save = getSessionFactory().getCurrentSession().save(viaje);
+        return viaje.getIdViaje();
+    }
+     
+     public List<Viaje> obtenerDetallesViaje(Date fecha, String origen, String destino, String hora, Double precio, Integer numeroCupos){
+        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Viaje.class);
+        criteria.add(Restrictions.eq("fecha", fecha));
+        criteria.add(Restrictions.eq("origen", origen));
+        criteria.add(Restrictions.eq("destino", destino));
+        criteria.add(Restrictions.eq("hora", hora));
+        criteria.add(Restrictions.eq("precio", precio));
+        criteria.add(Restrictions.eq("numeroCupos", numeroCupos));
+        return criteria.list(); 
+   }
 }

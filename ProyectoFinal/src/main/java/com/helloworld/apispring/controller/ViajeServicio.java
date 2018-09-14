@@ -39,5 +39,13 @@ public class ViajeServicio {
     public long actualizarEstadoViajeByIdViaje(int idViaje, String estado) {
         return viajeRepositorio.actualizarEstadoViajeByIdViaje(idViaje, estado);
     }
+    
+    public long publicarViaje (Viaje viaje){
+        return viajeRepositorio.crearViaje(viaje);
+    }
+    
+    public List<Viaje> obtenerDetallesViaje(Date fecha, String origen, String destino, String hora, Double precio, Integer numeroCupos  ){
+        return viajeRepositorio.obtenerViajesByFechaOrigenAndDestino(fecha, origen, destino);
+    }
 
 }
