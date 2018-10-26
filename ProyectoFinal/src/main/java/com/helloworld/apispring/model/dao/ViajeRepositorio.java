@@ -68,6 +68,15 @@ public class ViajeRepositorio {
         return criteria.list(); 
    }
     
+    public List<Viaje> obtenerViajesDestinoOrigenNro(String origen, String destino, Integer nro){
+        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Viaje.class);
+  
+        criteria.add(Restrictions.eq("origen", origen));
+        criteria.add(Restrictions.eq("destino", destino));
+        criteria.add(Restrictions.eq("numeroCupos", nro));
+        return criteria.list(); 
+   }
+    
     @Transactional
     public long actualizarEstadoViajeByIdViaje(int idViaje, String estado) {
         List<Viaje> viaje = obtenerViajeByIdViaje(idViaje);

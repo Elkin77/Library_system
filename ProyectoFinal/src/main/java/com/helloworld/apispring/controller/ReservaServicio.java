@@ -25,5 +25,9 @@ public class ReservaServicio {
     public List<Reserva> obtenerAllReservas(){
         return reservaRepositorio.obtenerAllReservas();
     }
+    
+    public long crearReserva(Reserva reserva) {
+        return reservaRepositorio.crearReserva(reserva);
+    }
 
 }

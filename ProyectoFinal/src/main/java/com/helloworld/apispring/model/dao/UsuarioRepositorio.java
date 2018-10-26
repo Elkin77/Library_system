@@ -5,6 +5,7 @@
  */
 package com.helloworld.apispring.model.dao;
 
+import com.helloworld.apispring.model.entity.Login;
 import com.helloworld.apispring.model.entity.Reserva;
 import com.helloworld.apispring.model.entity.Usuario;
 import com.helloworld.apispring.model.entity.Viaje;
@@ -12,6 +13,7 @@ import java.io.Serializable;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,7 +37,7 @@ public class UsuarioRepositorio {
     
     public List<Usuario> obtenerAllUsuarios()
     {
-        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Usuario.class); 
+        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Usuario.class);
         return criteria.list(); 
     }
     
@@ -43,6 +45,45 @@ public class UsuarioRepositorio {
     public long crearUsuario(Usuario usuario) {
         Serializable save = getSessionFactory().getCurrentSession().save(usuario);
         return usuario.getIdUsuario();
+    }
+    
+    public Login login(String usuario, String password){
+        Login login;
+        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Usuario.class); 
+        criteria.add(Restrictions.eq("usuario", usuario));
+        
+        List<Usuario> lstUsuario = criteria.list();
+        
+        if(!lstUsuario.isEmpty()){
+            criteria.add(Restrictions.eq("password", password));
+            
+            lstUsuario = criteria.list();
+            
+            if(!lstUsuario.isEmpty()){
+                login = new Login(
+                        true,
+                        "",
+                        lstUsuario.get(0).getUsuario(),
+                        lstUsuario.get(0).getTipoUsuario()
+                );
+            }else{
+                login = new Login(
+                        false,
+                        "ERROR, Contraseña incorrecta",
+                        "",
+                        ""
+                );
+            }
+        }else{
+            login = new Login(
+                        false,
+                        "ERROR, Usuario y Contraseña incorrectas",
+                        "",
+                        ""
+                );
+        }
+        
+        return login;
     }
     
 }

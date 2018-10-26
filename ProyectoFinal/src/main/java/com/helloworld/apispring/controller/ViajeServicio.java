@@ -36,6 +36,10 @@ public class ViajeServicio {
         return viajeRepositorio.obtenerViajesByFechaOrigenAndDestino(fecha, origen, destino);
     }
     
+    public List<Viaje> obtenerViajesOrigenDestinoNro(String origen, String destino, Integer numeroCupos){
+        return viajeRepositorio.obtenerViajesDestinoOrigenNro(origen, destino, numeroCupos);
+    }
+    
     public long actualizarEstadoViajeByIdViaje(int idViaje, String estado) {
         return viajeRepositorio.actualizarEstadoViajeByIdViaje(idViaje, estado);
     }
@@ -45,7 +49,7 @@ public class ViajeServicio {
     }
     
     public List<Viaje> obtenerDetallesViaje(Date fecha, String origen, String destino, String hora, Double precio, Integer numeroCupos  ){
-        return viajeRepositorio.obtenerViajesByFechaOrigenAndDestino(fecha, origen, destino);
+        return viajeRepositorio.obtenerDetallesViaje(fecha, origen, destino, hora, precio, numeroCupos);
     }
 
 }

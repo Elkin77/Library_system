@@ -7,6 +7,7 @@ package com.helloworld.apispring.model.dao;
 
 import com.helloworld.apispring.model.entity.Reserva;
 import com.helloworld.apispring.model.entity.Usuario;
+import java.io.Serializable;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
@@ -39,5 +40,11 @@ public class ReservaRepositorio {
     {
         Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Reserva.class); 
         return criteria.list(); 
+    }
+    
+    @Transactional
+    public long crearReserva(Reserva reserva) {
+        Serializable save = getSessionFactory().getCurrentSession().save(reserva);
+        return reserva.getIdReserva();
     }
 }

@@ -40,6 +40,9 @@ public class Usuario {
     @Column
     private String correo;
     
+    @Column(name = "tipo_usuario")
+    private String tipoUsuario;
+    
     @OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Reserva> reserva;
@@ -56,12 +59,13 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String usuario, String password, String nombre, String telefono, String correo) {
+    public Usuario(String usuario, String password, String nombre, String telefono, String correo, String tipoUsuario) {
         this.usuario = usuario;
         this.password = password;
         this.nombre = nombre;
         this.telefono = telefono;
         this.correo = correo;
+        this.tipoUsuario = tipoUsuario;
     }
 
     public Integer getIdUsuario() {
@@ -111,4 +115,15 @@ public class Usuario {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
+    public String getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+    }
+    
+    
+    
 }

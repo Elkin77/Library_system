@@ -26,8 +26,7 @@ public class Viaje {
     @Column(name = "id_viaje")
     private Integer idViaje;
 
-    @Column
-    private Date fecha;
+
     
     @Column
     private String origen;
@@ -70,13 +69,13 @@ public class Viaje {
         this.idViaje = idViaje;
     }
 
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
+//    public Date getFecha() {
+//        return fecha;
+//    }
+//
+//    public void setFecha(Date fecha) {
+//        this.fecha = fecha;
+//    }
 
     public String getOrigen() {
         return origen;

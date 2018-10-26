@@ -6,6 +6,7 @@
 package com.helloworld.apispring.controller;
 
 import com.helloworld.apispring.model.dao.UsuarioRepositorio;
+import com.helloworld.apispring.model.entity.Login;
 import com.helloworld.apispring.model.entity.Usuario;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,10 @@ public class UsuarioServicio {
     
     public long crearUsuario(Usuario usuario){
         return usuarioRepo.crearUsuario(usuario);
+    }
+    
+    public Login login(String usuario, String password){
+        return usuarioRepo.login(usuario, password);
     }
 
 }
