@@ -5,7 +5,12 @@
  */
 package com.LibrarySystem.Entities;
 
+import com.LibrarySystem.Database.BibliotecaDB;
+import com.LibrarySystem.Database.CategoriaDB;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -17,6 +22,7 @@ public class Categoria {
     private String nombre;
     private String descripcion;
     private String codigo_registro;
+    private int id_biblioteca;
     private ArrayList<String> lista_temas;
     private ArrayList<String> lista_libros;
 
@@ -36,6 +42,26 @@ public class Categoria {
         this.lista_temas = lista_temas;
         this.lista_libros = lista_libros;
     }
+
+    public Categoria() {
+    }
+
+    public Categoria(String nombre, String descripcion, String codigo_registro, int id_biblioteca) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.codigo_registro = codigo_registro;
+        this.id_biblioteca = id_biblioteca;
+    }
+    
+
+    public int getId_biblioteca() {
+        return id_biblioteca;
+    }
+
+    public void setId_biblioteca(int id_biblioteca) {
+        this.id_biblioteca = id_biblioteca;
+    }
+    
 
     public int getId_categoria() {
         return id_categoria;
@@ -95,8 +121,16 @@ public class Categoria {
         return null;
     }
 
-    public boolean registrarCategoria() {
-        return false;
+    public boolean registrarCategoria(Categoria categoria) {
+        try {
+            CategoriaDB categoriadb = new CategoriaDB ();
+            categoriadb.insertarCategoria(categoria);
+            
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Biblioteca.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
     }
 
     public boolean editarCategoria() {
