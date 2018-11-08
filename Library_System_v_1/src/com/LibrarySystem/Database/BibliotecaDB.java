@@ -57,7 +57,7 @@ public class BibliotecaDB {
                 listBibliotecas.add(biblioteca);
             }
             
-            ConectionDB.cerrar();
+            //ConectionDB.cerrar();
             
         } catch (SQLException ex) {
             throw new SQLException(ex);

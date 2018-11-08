@@ -194,7 +194,14 @@ public class RegistroCategoria extends javax.swing.JFrame {
                 codigo_registro, id_biblioteca);
         validador = new_categoria.registrarCategoria(new_categoria);
         if (validador == true){
+            input_nombre.setText("");
+            input_codigo.setText("");
+            input_descripcion.setText("");
+            combo_box_bibliotecas.setSelectedItem("Seleccione");
             JOptionPane.showMessageDialog(null, "Transaccion exitosa!");
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Error en transaccion!");
         }
         }
         

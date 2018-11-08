@@ -32,7 +32,7 @@ public class CategoriaDB {
             procedure.setInt("id_bibliotecaIn", new_categoria.getId_biblioteca());
             procedure.execute();
 
-            ConectionDB.cerrar();
+            //ConectionDB.cerrar();
 
         } catch (SQLException ex) {
             throw new SQLException(ex);
