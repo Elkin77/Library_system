@@ -5,7 +5,11 @@
  */
 package com.LibrarySystem.Entities;
 
+import com.LibrarySystem.Database.LibroDB;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,6 +24,7 @@ public class Libro {
     private String autor;
     private String foto;
     private int id_biblioteca;
+    private int id_categoria;
 
     public Libro(int id_libro, String nombre, String descripcion, String ubicacion, String autor, String foto, int id_biblioteca) {
         this.id_libro = id_libro;
@@ -39,6 +44,30 @@ public class Libro {
         this.foto = foto;
         this.id_biblioteca = id_biblioteca;
     }
+
+    public Libro(String nombre, String descripcion, String ubicacion, String autor, String foto, int id_biblioteca, int id_categoria) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.ubicacion = ubicacion;
+        this.autor = autor;
+        this.foto = foto;
+        this.id_biblioteca = id_biblioteca;
+        this.id_categoria = id_categoria;
+    }
+
+    public Libro() {
+    }
+    
+
+    public int getId_categoria() {
+        return id_categoria;
+    }
+
+    public void setId_categoria(int id_categoria) {
+        this.id_categoria = id_categoria;
+    }
+    
+    
 
     public int getId_libro() {
         return id_libro;
@@ -106,8 +135,16 @@ public class Libro {
         return null;
     }
 
-    public boolean registrarLibro() {
-        return false;
+    public boolean registrarLibro(Libro libro) {
+        
+        LibroDB new_libro=new LibroDB();
+        try {
+            new_libro.insertarLibro(libro);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Libro.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
     }
 
     public boolean editarLibro() {

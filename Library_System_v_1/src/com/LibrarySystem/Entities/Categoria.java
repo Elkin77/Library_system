@@ -46,6 +46,14 @@ public class Categoria {
     public Categoria() {
     }
 
+    public Categoria(int id_categoria, String nombre, String codigo_registro) {
+        this.id_categoria = id_categoria;
+        this.nombre = nombre;
+        this.codigo_registro = codigo_registro;
+    }
+
+    
+    
     public Categoria(String nombre, String descripcion, String codigo_registro, int id_biblioteca) {
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -116,9 +124,18 @@ public class Categoria {
     a los procedimientos almacenados programados en el paquete 
     com.LibrarySystem.Database
      */
-    public ArrayList<String> listarCategorias() {
-
-        return null;
+    public ArrayList<Categoria> listarCategorias() {
+        ArrayList<Categoria> listCategorias = new ArrayList<>();
+        CategoriaDB categoriadb = new CategoriaDB();
+        try {
+            listCategorias = categoriadb.obtenerAllCategorias();
+            return listCategorias;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Categoria.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        
     }
 
     public boolean registrarCategoria(Categoria categoria) {

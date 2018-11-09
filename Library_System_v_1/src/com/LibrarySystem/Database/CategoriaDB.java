@@ -5,10 +5,13 @@
  */
 package com.LibrarySystem.Database;
 
+import com.LibrarySystem.Entities.Biblioteca;
 import com.LibrarySystem.Entities.Categoria;
 import com.mysql.jdbc.Connection;
 import java.sql.CallableStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -40,5 +43,33 @@ public class CategoriaDB {
             throw new ClassCastException(ex.getMessage());
         }
     }
+    
+    public ArrayList<Categoria> obtenerAllCategorias() throws SQLException{ 
+        ArrayList<Categoria> listCategorias = new ArrayList<>();
+        try{
+            cnx = ConectionDB.obtener();
+            CallableStatement procedure = cnx.prepareCall("{call PA_Categoria_SelectAll()}");
+            procedure.execute();
+            ResultSet rs = procedure.getResultSet();
+            
+            while(rs.next()){
+                Categoria categoria = new Categoria(
+                        rs.getInt("id_categoria"),
+                        rs.getString("nombre"),
+                        rs.getString("codigo_registro")
+                );
+                listCategorias.add(categoria);
+            }
+            
+            //ConectionDB.cerrar();
+            
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
+         } catch (ClassNotFoundException ex) {
+            throw new ClassCastException(ex.getMessage());
+         }
+        return listCategorias;
+    }
+    
 
 }

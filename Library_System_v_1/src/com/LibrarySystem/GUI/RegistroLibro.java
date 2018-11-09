@@ -5,6 +5,24 @@
  */
 package com.LibrarySystem.GUI;
 
+import com.LibrarySystem.Entities.Biblioteca;
+import com.LibrarySystem.Entities.Categoria;
+import com.LibrarySystem.Entities.Libro;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.CopyOption;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author Acer
@@ -14,8 +32,27 @@ public class RegistroLibro extends javax.swing.JFrame {
     /**
      * Creates new form RegistroLibro
      */
+    private String nombreArchivo;
+    private String ruta;
+    private String nuevaRuta = null;
+    private File archivo;
+
     public RegistroLibro() {
         initComponents();
+        ArrayList<Biblioteca> listBibliotecas = new ArrayList<>();
+        ArrayList<Categoria> listCategorias = new ArrayList<>();
+        Biblioteca biblioteca = new Biblioteca();
+        Categoria categoria = new Categoria();
+        listBibliotecas = biblioteca.listarBibliotecas();
+        listCategorias = categoria.listarCategorias();
+        combo_box_biblioteca.removeAllItems();
+        combo_box_categoria.removeAllItems();
+        for (int i = 0; i < listBibliotecas.size(); i++) {
+            combo_box_biblioteca.addItem(listBibliotecas.get(i).getId_biblioteca() + "-" + listBibliotecas.get(i).getNombre());
+        }
+        for (int i = 0; i < listCategorias.size(); i++) {
+            combo_box_categoria.addItem(listCategorias.get(i).getId_categoria() + "-" + listCategorias.get(i).getNombre());
+        }
     }
 
     /**
@@ -27,21 +64,286 @@ public class RegistroLibro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        label_title = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        btn_registrar = new javax.swing.JButton();
+        btn_atras = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        input_autor = new javax.swing.JTextField();
+        combo_box_biblioteca = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        input_titulo = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        combo_box_categoria = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        input_ubicacion = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        input_descripcion = new javax.swing.JTextArea();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lblFoto = new javax.swing.JButton();
+        label_url_imagen = new javax.swing.JLabel();
+        label_imagen = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        label_title.setBackground(new java.awt.Color(255, 255, 255));
+        label_title.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        label_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_title.setText("Registrar Libro");
+
+        jPanel2.setBackground(new java.awt.Color(248, 148, 6));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 44, Short.MAX_VALUE)
+        );
+
+        btn_registrar.setText("Registrar");
+        btn_registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_registrarActionPerformed(evt);
+            }
+        });
+
+        btn_atras.setText("Atras");
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Titulo:");
+
+        input_autor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_autorActionPerformed(evt);
+            }
+        });
+
+        combo_box_biblioteca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Ubicacion:");
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Autor:");
+
+        input_titulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_tituloActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Categoria: ");
+
+        combo_box_categoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Biblioteca");
+
+        input_descripcion.setColumns(20);
+        input_descripcion.setRows(5);
+        jScrollPane1.setViewportView(input_descripcion);
+
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Descripcin:");
+
+        jLabel1.setText("Imagen:");
+
+        lblFoto.setText("Cargar Imagen");
+        lblFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lblFotoActionPerformed(evt);
+            }
+        });
+
+        label_url_imagen.setText("Portada:");
+
+        label_imagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_imagen.setBorder(new javax.swing.border.MatteBorder(null));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(251, 251, 251)
+                        .addComponent(label_title))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addGap(65, 65, 65)
+                            .addComponent(input_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(input_ubicacion, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(combo_box_biblioteca, javax.swing.GroupLayout.Alignment.LEADING, 0, 271, Short.MAX_VALUE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(label_url_imagen, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(input_autor)
+                    .addComponent(combo_box_categoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblFoto, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                    .addComponent(label_imagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(374, 374, 374)
+                .addComponent(btn_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(label_title)
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(input_autor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(input_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(combo_box_biblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(combo_box_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(input_ubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFoto)
+                    .addComponent(jLabel1))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel10)
+                    .addComponent(jScrollPane1)
+                    .addComponent(label_url_imagen)
+                    .addComponent(label_imagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_atras)
+                    .addComponent(btn_registrar))
+                .addGap(25, 25, 25))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarActionPerformed
+        // TODO add your handling code here:
+        boolean validador = false;
+
+        String text_combobox_biblioteca = (String) combo_box_biblioteca.getSelectedItem();
+        String text_combobox_categoria = (String) combo_box_categoria.getSelectedItem();
+        String var_split_biblioteca[] = text_combobox_biblioteca.split("-");
+        int id_biblioteca = Integer.parseInt(var_split_biblioteca[0]);
+        String var_split_categoria[] = text_combobox_categoria.split("-");
+        int id_categoria = Integer.parseInt(var_split_categoria[0]);
+
+        Libro new_libro = new Libro(input_titulo.getText(), input_descripcion.getText(),
+                input_ubicacion.getText(), input_autor.getText(), nuevaRuta,
+                id_biblioteca, id_categoria);
+        validador = new_libro.registrarLibro(new_libro);
+
+        if (validador == true) {
+            copiarArchivo(ruta, nuevaRuta);
+            input_titulo.setText("");
+            input_descripcion.setText("");
+            input_autor.setText("");
+            input_ubicacion.setText("");
+            combo_box_biblioteca.setSelectedItem("Seleccione");
+            combo_box_categoria.setSelectedItem("Seleccione");
+            JOptionPane.showMessageDialog(null, "Transaccion exitosa!");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Error en transaccion!");
+        }
+
+    }//GEN-LAST:event_btn_registrarActionPerformed
+     private void input_autorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_autorActionPerformed
+         // TODO add your handling code here:
+    }//GEN-LAST:event_input_autorActionPerformed
+
+    private void input_tituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_tituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_tituloActionPerformed
+
+    public static void copiarArchivo(String origen, String destino) {
+        try {
+            Path rutaOrigen = Paths.get(origen);
+            Path rutaDestino = Paths.get(destino);
+            CopyOption[] opciones = new CopyOption[]{
+                StandardCopyOption.REPLACE_EXISTING,
+                StandardCopyOption.COPY_ATTRIBUTES
+            };
+            Files.copy(rutaOrigen, rutaDestino, opciones);
+        } catch (IOException err) {
+            JOptionPane.showMessageDialog(null, "Error 9:" + err.getMessage());
+        }
+    }
+
+    File fichero;
+    private void lblFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblFotoActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jfcAbrirArchivo = new JFileChooser();
+        //fc.setDialogTitle("Buscar Foto o Imagen");
+
+        //if(fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION){
+        //  File archivo = new File(fc.getSelectedFile().toString());
+        //}
+        try {
+            ImageIcon imagen; //permite almacenar la imagen que se abre con el JFileChooser
+            FileNameExtensionFilter filtro = new FileNameExtensionFilter("PNG,JPG", "png", "jpg");
+            jfcAbrirArchivo.setFileFilter(filtro);
+
+            int abrir = jfcAbrirArchivo.showOpenDialog(this);
+
+            if (abrir == JFileChooser.APPROVE_OPTION) {
+                archivo = jfcAbrirArchivo.getSelectedFile();
+                ruta = archivo.getAbsolutePath();
+                nombreArchivo = archivo.getName();
+                nuevaRuta = System.getProperty("user.dir") + "\\src\\portadas\\" + nombreArchivo;
+                System.out.println("ruta:" + nuevaRuta);
+                imagen = new ImageIcon(ruta);
+
+                this.label_url_imagen.setText(nombreArchivo);
+                Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(label_imagen.getWidth(), label_imagen.getHeight(), Image.SCALE_DEFAULT));
+
+                label_imagen.setText(null);
+
+                label_imagen.setIcon(icono);
+                //this.label_imagen.setIcon(imagen);
+
+                copiarArchivo(ruta, nuevaRuta);
+            }
+        } catch (NullPointerException err) {
+            JOptionPane.showMessageDialog(null, "Error 8:" + err.getMessage());
+        }
+
+
+    }//GEN-LAST:event_lblFotoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +381,26 @@ public class RegistroLibro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_atras;
+    private javax.swing.JButton btn_registrar;
+    private javax.swing.JComboBox<String> combo_box_biblioteca;
+    private javax.swing.JComboBox<String> combo_box_categoria;
+    private javax.swing.JTextField input_autor;
+    private javax.swing.JTextArea input_descripcion;
+    private javax.swing.JTextField input_titulo;
+    private javax.swing.JTextField input_ubicacion;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel label_imagen;
+    private javax.swing.JLabel label_title;
+    private javax.swing.JLabel label_url_imagen;
+    private javax.swing.JButton lblFoto;
     // End of variables declaration//GEN-END:variables
 }
