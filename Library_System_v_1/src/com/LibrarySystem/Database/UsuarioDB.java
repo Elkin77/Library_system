@@ -24,7 +24,7 @@ public class UsuarioDB {
     public void insertarUsuario(Usuario u) throws SQLException{
         
         try{
-            cnx = ConectionDB.obtener();
+            cnx = new ConectionDB().obtener();
             CallableStatement procedure = cnx.prepareCall("{call PA_Usuario_Insert(?,?,?,?,?)}");
             procedure.setString("nombreIn", u.getNombre());
             procedure.setString("userIn", u.getUser());
@@ -34,41 +34,42 @@ public class UsuarioDB {
             
             procedure.execute();
             
-            ConectionDB.cerrar();
-            
         } catch (SQLException ex) {
             throw new SQLException(ex);
          } catch (ClassNotFoundException ex) {
             throw new ClassCastException(ex.getMessage());
          }
+//        finally{
+//            ConectionDB.cerrar();
+//        }
     }
     
     public void actualizarUsuario(Usuario u) throws SQLException{
         try{
-            cnx = ConectionDB.obtener();
-            CallableStatement procedure = cnx.prepareCall("{call PA_Usuario_Update(?,?,?,?,?,?)}");
-            procedure.setInt("id_userIn", u.getIdUsuario());
+            cnx = new ConectionDB().obtener();
+            CallableStatement procedure = cnx.prepareCall("{call PA_Usuario_Update(?,?,?,?,?)}");
             procedure.setString("nombreIn", u.getNombre());
             procedure.setString("userIn", u.getUser());
             procedure.setString("passwordIn", u.getPassword());
             procedure.setString("nombre_comunidadIn", u.getNombreComunidad());
             procedure.setString("rolIn", u.getRol());
             
-            procedure.execute();
-            
-            ConectionDB.cerrar();
+            procedure.execute();   
             
         } catch (SQLException ex) {
             throw new SQLException(ex);
          } catch (ClassNotFoundException ex) {
             throw new ClassCastException(ex.getMessage());
          }
+        finally{
+            ConectionDB.cerrar();
+        }
     }
     
     public ArrayList<Usuario> obtenerAllUsuarios() throws SQLException{ 
         ArrayList<Usuario> lstUsuarios = new ArrayList<>();
         try{
-            cnx = ConectionDB.obtener();
+            cnx = new ConectionDB().obtener();
             CallableStatement procedure = cnx.prepareCall("{call PA_Usuario_SelectAll()}");
             procedure.execute();
             ResultSet rs = procedure.getResultSet();
@@ -85,20 +86,21 @@ public class UsuarioDB {
                 lstUsuarios.add(usuario);
             }
             
-            ConectionDB.cerrar();
-            
         } catch (SQLException ex) {
             throw new SQLException(ex);
          } catch (ClassNotFoundException ex) {
             throw new ClassCastException(ex.getMessage());
          }
+//        finally{
+//            ConectionDB.cerrar();
+//        }
         return lstUsuarios;
     }
     
     public Usuario obtenerUsuarioByUser(String user) throws SQLException{
         Usuario usuario = new Usuario();
         try{
-            cnx = ConectionDB.obtener();
+            cnx = new ConectionDB().obtener();
             CallableStatement procedure = cnx.prepareCall("{call PA_Usuario_SelectByUser(?)}");
             procedure.setString("userIn", user);
             procedure.execute();
@@ -115,30 +117,32 @@ public class UsuarioDB {
                 );
             }
             
-            ConectionDB.cerrar();
-            
         } catch (SQLException ex) {
             throw new SQLException(ex);
          } catch (ClassNotFoundException ex) {
             throw new ClassCastException(ex.getMessage());
          }
+//        finally{
+//            ConectionDB.cerrar();
+//        }
         return usuario;
     }
     
     public void eliminarUsuario(String user) throws SQLException{
         try{
-            cnx = ConectionDB.obtener();
+            cnx = new ConectionDB().obtener();
             CallableStatement procedure = cnx.prepareCall("{call PA_Usuario_Delete(?)}");
             procedure.setString("userIn", user);
             
             procedure.execute();
-            
-            ConectionDB.cerrar();
             
         } catch (SQLException ex) {
             throw new SQLException(ex);
          } catch (ClassNotFoundException ex) {
             throw new ClassCastException(ex.getMessage());
          }
+//        finally{
+//            ConectionDB.cerrar();
+//        }
     }
 }
