@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -280,6 +281,9 @@ public class RegistroUsuario extends javax.swing.JFrame {
             );
             UsuarioDB usuarioDB=new UsuarioDB();
             usuarioDB.insertarUsuario(usuario);
+            
+            JOptionPane.showMessageDialog(null, "Usuario registrado correctamente");
+            
         }catch (SQLException ex) {
                 Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
