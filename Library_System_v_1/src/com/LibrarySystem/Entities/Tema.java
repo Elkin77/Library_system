@@ -22,6 +22,8 @@ public class Tema {
     private String codigoRegistro;
 
     private int idCategoria;
+    
+    private String categoria;
 
     public Tema() {
     }
@@ -31,6 +33,14 @@ public class Tema {
         this.descripcion = descripcion;
         this.codigoRegistro = codigoRegistro;
         this.idCategoria = idCategoria;
+    }
+    
+    public Tema(int idTema, String nombre, String descripcion, String codigoRegistro, String categoria) {
+        this.idTema = idTema;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.codigoRegistro = codigoRegistro;
+        this.categoria = categoria;
     }
 
     public Tema(int idTema, String nombre, String descripcion, String codigoRegistro, int idCategoria) {
