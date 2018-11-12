@@ -61,7 +61,7 @@ public class TemaDB {
         ArrayList<Tema> lstTemas = new ArrayList<>();
         try{
             cnx = ConectionDB.obtener();
-            CallableStatement procedure = cnx.prepareCall("{call PA_Temas_SelectAll()}");
+            CallableStatement procedure = cnx.prepareCall("{call PA_Tema_SelectAll()}");
             procedure.execute();
             ResultSet rs = procedure.getResultSet();
             
@@ -71,7 +71,7 @@ public class TemaDB {
                         rs.getString("nombre"),
                         rs.getString("descripcion"),
                         rs.getString("codigo_registro"),
-                        rs.getInt("id_categoria")
+                        rs.getString("categoria")
                 );
                 lstTemas.add(tema);
             }
