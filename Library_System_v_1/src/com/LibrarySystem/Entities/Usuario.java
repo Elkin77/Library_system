@@ -98,7 +98,7 @@ public class Usuario {
     a los procedimientos almacenados programados en el paquete 
     com.LibrarySystem.Database
      */
-    public ArrayList<String> listarUsuarios() {
+    public ArrayList<Usuario> listarUsuarios() {
 
         return null;
     }

@@ -5,6 +5,8 @@
  */
 package com.LibrarySystem.GUI;
 
+import com.LibrarySystem.Entities.Seguridad;
+import com.LibrarySystem.Entities.Usuario;
 import javax.swing.JFrame;
 
 /**
@@ -37,9 +39,9 @@ public class Login extends javax.swing.JFrame {
         lblMinimizar = new javax.swing.JLabel();
         lblUser = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
-        txtUser = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        txtPassword = new javax.swing.JPasswordField();
+        input_usuario = new javax.swing.JTextField();
+        bnt_ingresar = new javax.swing.JButton();
+        input_password = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -110,33 +112,33 @@ public class Login extends javax.swing.JFrame {
         lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPassword.setText("Digite su Contraseña:");
 
-        txtUser.setBackground(new java.awt.Color(108, 122, 137));
-        txtUser.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        txtUser.setForeground(new java.awt.Color(228, 241, 254));
-        txtUser.setToolTipText("Usuario");
-        txtUser.addActionListener(new java.awt.event.ActionListener() {
+        input_usuario.setBackground(new java.awt.Color(108, 122, 137));
+        input_usuario.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        input_usuario.setForeground(new java.awt.Color(228, 241, 254));
+        input_usuario.setToolTipText("Usuario");
+        input_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUserActionPerformed(evt);
+                input_usuarioActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(34, 167, 240));
-        jButton1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Ingresar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        bnt_ingresar.setBackground(new java.awt.Color(34, 167, 240));
+        bnt_ingresar.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        bnt_ingresar.setForeground(new java.awt.Color(255, 255, 255));
+        bnt_ingresar.setText("Ingresar");
+        bnt_ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                bnt_ingresarActionPerformed(evt);
             }
         });
 
-        txtPassword.setBackground(new java.awt.Color(108, 122, 137));
-        txtPassword.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        txtPassword.setForeground(new java.awt.Color(228, 241, 254));
-        txtPassword.setToolTipText("Contraseña");
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+        input_password.setBackground(new java.awt.Color(108, 122, 137));
+        input_password.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        input_password.setForeground(new java.awt.Color(228, 241, 254));
+        input_password.setToolTipText("Contraseña");
+        input_password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
+                input_passwordActionPerformed(evt);
             }
         });
 
@@ -152,15 +154,15 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBodyLayout.createSequentialGroup()
                 .addGap(238, 238, 238)
-                .addComponent(txtUser, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                .addComponent(input_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
                 .addGap(228, 228, 228))
             .addGroup(pnlBodyLayout.createSequentialGroup()
                 .addGap(238, 238, 238)
-                .addComponent(txtPassword)
+                .addComponent(input_password)
                 .addGap(228, 228, 228))
             .addGroup(pnlBodyLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bnt_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlBodyLayout.setVerticalGroup(
@@ -170,13 +172,13 @@ public class Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(lblUser)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(input_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(lblPassword)
                 .addGap(18, 18, 18)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(input_password, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bnt_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
 
@@ -202,17 +204,27 @@ public class Login extends javax.swing.JFrame {
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_lblMinimizarMouseClicked
 
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+    private void input_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_passwordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
+    }//GEN-LAST:event_input_passwordActionPerformed
 
-    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
+    private void input_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_usuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUserActionPerformed
+    }//GEN-LAST:event_input_usuarioActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void bnt_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnt_ingresarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        String usuario = input_usuario.getText();
+        String password = input_password.getText();
+        boolean acceso = false;
+        Seguridad new_session = new Seguridad();
+        acceso = new_session.iniciar_sesion(usuario, password);
+        if(acceso == true){
+            this.dispose();
+        }
+        
+        
+    }//GEN-LAST:event_bnt_ingresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,7 +263,9 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton bnt_ingresar;
+    private javax.swing.JPasswordField input_password;
+    private javax.swing.JTextField input_usuario;
     private javax.swing.JLabel lblCerrar;
     private javax.swing.JLabel lblMinimizar;
     private javax.swing.JLabel lblPassword;
@@ -259,7 +273,5 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel lblUser;
     private javax.swing.JPanel pnlBody;
     private javax.swing.JPanel pnlHeader;
-    private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
