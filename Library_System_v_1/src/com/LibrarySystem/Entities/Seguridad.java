@@ -24,6 +24,7 @@ public class Seguridad {
         ArrayList<Usuario> lista_usuarios = new ArrayList<>();
         UsuarioDB new_session = new UsuarioDB();
         try {
+            System.out.println("entrooo");
             lista_usuarios = new_session.obtenerAllUsuarios();
         } catch (SQLException ex) {
             Logger.getLogger(Seguridad.class.getName()).log(Level.SEVERE, null, ex);
@@ -34,6 +35,7 @@ public class Seguridad {
 
             if (usuario.equals(lista_usuarios.get(i).getUser())) {
                 if (lista_usuarios.get(i).getPassword().equals(password)) {
+                    System.out.println("correcto");
                     acceso = true;
                     if (lista_usuarios.get(i).getRol().equals("Administrador")) {
                         PaginaPrincipalAdmin ventana_admin = new PaginaPrincipalAdmin();
@@ -45,11 +47,14 @@ public class Seguridad {
 
                 } else {
                     acceso = false;
-                    JOptionPane.showConfirmDialog(null, "Contraseña incorrecta!");
+                    JOptionPane.showMessageDialog(null, "Contraseña incorrecta!");
+                    System.out.println("incorrecto");
                 }
+                break;
             } else {
                 acceso = false;
-                JOptionPane.showConfirmDialog(null, "Este usuario no existe!");
+                JOptionPane.showMessageDialog(null, "Este usuario no existe!");
+                System.out.println("incorrecto");
 
             }
         }
