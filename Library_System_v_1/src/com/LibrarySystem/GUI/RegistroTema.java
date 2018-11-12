@@ -5,17 +5,33 @@
  */
 package com.LibrarySystem.GUI;
 
+import com.LibrarySystem.Database.CategoriaDB;
+import com.LibrarySystem.Database.TemaDB;
+import com.LibrarySystem.Database.UsuarioDB;
+import com.LibrarySystem.Entities.Categoria;
+import com.LibrarySystem.Entities.Tema;
+import com.LibrarySystem.Entities.Usuario;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ComboBoxModel;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author Acer
+ * @author brayan
  */
 public class RegistroTema extends javax.swing.JFrame {
 
     /**
-     * Creates new form RegistroTema
+     * Creates new form Login
      */
     public RegistroTema() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
+        cargarDatos();
     }
 
     /**
@@ -27,21 +43,234 @@ public class RegistroTema extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlBody = new javax.swing.JPanel();
+        pnlHeader = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
+        lblCerrar = new javax.swing.JLabel();
+        lblMinimizar = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        lblCodigoRegistro = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtDescripcion = new javax.swing.JTextArea();
+        btnGuardar = new javax.swing.JButton();
+        lblDescripcion1 = new javax.swing.JLabel();
+        txtCodigoRegistro = new javax.swing.JTextField();
+        lblCodigoRegistro1 = new javax.swing.JLabel();
+        cbCategoria = new javax.swing.JComboBox<>();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+
+        pnlBody.setBackground(new java.awt.Color(44, 62, 80));
+
+        pnlHeader.setBackground(new java.awt.Color(248, 148, 6));
+
+        lblTitulo.setBackground(java.awt.Color.white);
+        lblTitulo.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        lblTitulo.setForeground(java.awt.Color.white);
+        lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LibrarySystem/Icons/theme-white.png"))); // NOI18N
+        lblTitulo.setText("Registro Tema");
+
+        lblCerrar.setBackground(java.awt.Color.white);
+        lblCerrar.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        lblCerrar.setForeground(java.awt.Color.white);
+        lblCerrar.setText("X");
+        lblCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCerrarMouseClicked(evt);
+            }
+        });
+
+        lblMinimizar.setBackground(java.awt.Color.white);
+        lblMinimizar.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        lblMinimizar.setForeground(java.awt.Color.white);
+        lblMinimizar.setText("-");
+        lblMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMinimizarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
+        pnlHeader.setLayout(pnlHeaderLayout);
+        pnlHeaderLayout.setHorizontalGroup(
+            pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHeaderLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(lblTitulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 572, Short.MAX_VALUE)
+                .addComponent(lblMinimizar)
+                .addGap(18, 18, 18)
+                .addComponent(lblCerrar)
+                .addGap(22, 22, 22))
+        );
+        pnlHeaderLayout.setVerticalGroup(
+            pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHeaderLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTitulo)
+                    .addComponent(lblCerrar)
+                    .addComponent(lblMinimizar))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        lblNombre.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(236, 240, 241));
+        lblNombre.setText("Nombre:");
+
+        txtNombre.setBackground(new java.awt.Color(108, 122, 137));
+        txtNombre.setForeground(new java.awt.Color(228, 241, 254));
+
+        lblCodigoRegistro.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        lblCodigoRegistro.setForeground(new java.awt.Color(236, 240, 241));
+        lblCodigoRegistro.setText("Categoria:");
+
+        txtDescripcion.setBackground(new java.awt.Color(108, 122, 137));
+        txtDescripcion.setColumns(20);
+        txtDescripcion.setForeground(new java.awt.Color(228, 241, 254));
+        txtDescripcion.setRows(5);
+        jScrollPane1.setViewportView(txtDescripcion);
+
+        btnGuardar.setBackground(new java.awt.Color(34, 167, 240));
+        btnGuardar.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+
+        lblDescripcion1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        lblDescripcion1.setForeground(new java.awt.Color(236, 240, 241));
+        lblDescripcion1.setText("Descripción:");
+
+        txtCodigoRegistro.setBackground(new java.awt.Color(108, 122, 137));
+        txtCodigoRegistro.setForeground(new java.awt.Color(228, 241, 254));
+
+        lblCodigoRegistro1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        lblCodigoRegistro1.setForeground(new java.awt.Color(236, 240, 241));
+        lblCodigoRegistro1.setText("Código Registro:");
+
+        cbCategoria.setBackground(new java.awt.Color(108, 122, 137));
+        cbCategoria.setForeground(new java.awt.Color(228, 241, 254));
+        cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No hay Registros" }));
+
+        javax.swing.GroupLayout pnlBodyLayout = new javax.swing.GroupLayout(pnlBody);
+        pnlBody.setLayout(pnlBodyLayout);
+        pnlBodyLayout.setHorizontalGroup(
+            pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlBodyLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBodyLayout.createSequentialGroup()
+                        .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDescripcion1)
+                            .addComponent(lblCodigoRegistro1)
+                            .addComponent(lblCodigoRegistro))
+                        .addGap(23, 23, 23)
+                        .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCodigoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlBodyLayout.createSequentialGroup()
+                        .addComponent(lblNombre)
+                        .addGap(93, 93, 93)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnlBodyLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlBodyLayout.setVerticalGroup(
+            pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBodyLayout.createSequentialGroup()
+                .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombre)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDescripcion1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCodigoRegistro1)
+                    .addComponent(txtCodigoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCodigoRegistro)
+                    .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(pnlBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cargarDatos(){
+        try {
+            ArrayList<Categoria> lstCategorias = new CategoriaDB().obtenerAllCategorias();
+            if(lstCategorias.size() > 0 ){
+                cbCategoria.removeAllItems();
+            }    
+            
+            for (int i = 0; i < lstCategorias.size(); i++) {
+                cbCategoria.addItem(lstCategorias.get(i).getNombre());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RegistroTema.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void lblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_lblCerrarMouseClicked
+
+    private void lblMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizarMouseClicked
+        this.setState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_lblMinimizarMouseClicked
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        try{
+            
+            ArrayList<Categoria> lstCategorias = new CategoriaDB().obtenerAllCategorias();
+            
+            Tema tema = new Tema
+            (
+                txtNombre.getText(),
+                txtDescripcion.getText(),
+                txtCodigoRegistro.getText(),
+                lstCategorias.get(cbCategoria.getSelectedIndex()).getId_categoria()
+            );
+            TemaDB temaDB = new TemaDB();
+            temaDB.insertarTema(tema);
+            
+            JOptionPane.showMessageDialog(null, "Tema registrado correctamente");
+            
+        }catch (SQLException ex) {
+                Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -69,6 +298,9 @@ public class RegistroTema extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(RegistroTema.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -79,5 +311,20 @@ public class RegistroTema extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JComboBox<String> cbCategoria;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCerrar;
+    private javax.swing.JLabel lblCodigoRegistro;
+    private javax.swing.JLabel lblCodigoRegistro1;
+    private javax.swing.JLabel lblDescripcion1;
+    private javax.swing.JLabel lblMinimizar;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPanel pnlBody;
+    private javax.swing.JPanel pnlHeader;
+    private javax.swing.JTextField txtCodigoRegistro;
+    private javax.swing.JTextArea txtDescripcion;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
