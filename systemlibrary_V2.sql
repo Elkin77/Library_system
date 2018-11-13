@@ -232,34 +232,31 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  ADD CONSTRAINT `categoria_ibfk_1` FOREIGN KEY (`id_biblioteca`) REFERENCES `biblioteca` (`id_biblioteca`);
-
+  ADD CONSTRAINT `categoria_ibfk_1` FOREIGN KEY (`id_biblioteca`) REFERENCES `biblioteca` (`id_biblioteca`) ON DELETE CASCADE;
 --
 -- Filtros para la tabla `libro`
 --
 ALTER TABLE `libro`
-  ADD CONSTRAINT `libro_ibfk_1` FOREIGN KEY (`id_biblioteca`) REFERENCES `biblioteca` (`id_biblioteca`),
-  ADD CONSTRAINT `libro_ibfk_2` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`);
-
+  ADD CONSTRAINT `libro_ibfk_2` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`) ON DELETE CASCADE;
 --
 -- Filtros para la tabla `prestamo`
 --
 ALTER TABLE `prestamo`
-  ADD CONSTRAINT `prestamo_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
-  ADD CONSTRAINT `prestamo_ibfk_2` FOREIGN KEY (`id_libro`) REFERENCES `libro` (`id_libro`);
+  ADD CONSTRAINT `prestamo_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE CASCADE,
+  ADD CONSTRAINT `prestamo_ibfk_2` FOREIGN KEY (`id_libro`) REFERENCES `libro` (`id_libro`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `tema`
 --
 ALTER TABLE `tema`
-  ADD CONSTRAINT `tema_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`);
+  ADD CONSTRAINT `tema_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `temalibro`
 --
 ALTER TABLE `temalibro`
-  ADD CONSTRAINT `temalibro_ibfk_1` FOREIGN KEY (`id_libro`) REFERENCES `libro` (`id_libro`),
-  ADD CONSTRAINT `temalibro_ibfk_2` FOREIGN KEY (`id_tema`) REFERENCES `tema` (`id_tema`);
+  ADD CONSTRAINT `temalibro_ibfk_1` FOREIGN KEY (`id_libro`) REFERENCES `libro` (`id_libro`) ON DELETE CASCADE,
+  ADD CONSTRAINT `temalibro_ibfk_2` FOREIGN KEY (`id_tema`) REFERENCES `tema` (`id_tema`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
