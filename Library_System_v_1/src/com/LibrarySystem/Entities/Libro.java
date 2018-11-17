@@ -36,6 +36,15 @@ public class Libro {
         this.id_biblioteca = id_biblioteca;
     }
 
+    public Libro(int id_libro, String nombre, String descripcion, String ubicacion, String autor, String foto) {
+        this.id_libro = id_libro;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.ubicacion = ubicacion;
+        this.autor = autor;
+        this.foto = foto;
+    }
+
     public Libro(String nombre, String descripcion, String ubicacion, String autor, String foto, int id_biblioteca) {
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -57,6 +66,26 @@ public class Libro {
 
     public Libro() {
     }
+
+    public Libro(int id_libro, String nombre, String descripcion, String ubicacion, String autor, String foto, int id_biblioteca, int id_categoria) {
+        this.id_libro = id_libro;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.ubicacion = ubicacion;
+        this.autor = autor;
+        this.foto = foto;
+        this.id_biblioteca = id_biblioteca;
+        this.id_categoria = id_categoria;
+    }
+
+    public Libro(int id_libro, String nombre, String descripcion, String ubicacion, String autor) {
+        this.id_libro = id_libro;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.ubicacion = ubicacion;
+        this.autor = autor;
+    }
+    
     
 
     public int getId_categoria() {
@@ -66,8 +95,6 @@ public class Libro {
     public void setId_categoria(int id_categoria) {
         this.id_categoria = id_categoria;
     }
-    
-    
 
     public int getId_libro() {
         return id_libro;
@@ -136,8 +163,8 @@ public class Libro {
     }
 
     public boolean registrarLibro(Libro libro) {
-        
-        LibroDB new_libro=new LibroDB();
+
+        LibroDB new_libro = new LibroDB();
         try {
             new_libro.insertarLibro(libro);
             return true;

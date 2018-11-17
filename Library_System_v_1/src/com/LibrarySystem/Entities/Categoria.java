@@ -46,6 +46,23 @@ public class Categoria {
     public Categoria() {
     }
 
+    public Categoria(int id_categoria, String nombre, String descripcion, String codigo_registro, int id_biblioteca) {
+        this.id_categoria = id_categoria;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.codigo_registro = codigo_registro;
+        this.id_biblioteca = id_biblioteca;
+    }
+
+    public Categoria(int id_categoria, String nombre, String descripcion, String codigo_registro) {
+        this.id_categoria = id_categoria;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.codigo_registro = codigo_registro;
+    }
+    
+    
+    
     public Categoria(int id_categoria, String nombre, String codigo_registro) {
         this.id_categoria = id_categoria;
         this.nombre = nombre;

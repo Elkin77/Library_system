@@ -23,7 +23,9 @@ public class RegistroBiblioteca extends javax.swing.JFrame {
      */
     public RegistroBiblioteca() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -178,14 +180,7 @@ public class RegistroBiblioteca extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_input_nombreActionPerformed
-    
-    private void lblCerrarMouseClicked(java.awt.event.MouseEvent evt) {                                       
-        System.exit(0);
-    }                                      
 
-    private void lblMinimizarMouseClicked(java.awt.event.MouseEvent evt) {                                          
-        this.setState(JFrame.ICONIFIED);
-    }  
     
     /**
      * @param args the command line arguments
@@ -234,4 +229,9 @@ public class RegistroBiblioteca extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel label_title;
     // End of variables declaration//GEN-END:variables
+    private javax.swing.JPanel pnlBody;
+    private javax.swing.JPanel pnlHeader;
+    private javax.swing.JLabel lblCerrar;
+    private javax.swing.JLabel lblMinimizar;
+    private javax.swing.JLabel lblTitulo;
 }

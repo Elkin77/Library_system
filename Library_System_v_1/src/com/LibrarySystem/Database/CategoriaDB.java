@@ -56,7 +56,9 @@ public class CategoriaDB {
                 Categoria categoria = new Categoria(
                         rs.getInt("id_categoria"),
                         rs.getString("nombre"),
-                        rs.getString("codigo_registro")
+                        rs.getString("descripcion"),
+                        rs.getString("codigo_registro"),
+                        rs.getInt("id_biblioteca")
                 );
                 listCategorias.add(categoria);
             }
@@ -71,5 +73,42 @@ public class CategoriaDB {
         return listCategorias;
     }
     
-
+        public void actualizarCategoria(Categoria c) throws SQLException{
+        try{
+            cnx = new ConectionDB().obtener();
+            CallableStatement procedure = cnx.prepareCall("{call PA_Categoria_Update(?,?,?,?)}");
+            procedure.setString("nombreIn", c.getNombre());
+            procedure.setString("descripcionIn", c.getDescripcion());
+            procedure.setString("codigo_registroIn", c.getCodigo_registro());
+            procedure.setInt("idIn", c.getId_categoria());
+            procedure.execute();
+            
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
+         } catch (ClassNotFoundException ex) {
+            throw new ClassCastException(ex.getMessage());
+         }
+        finally{
+            ConectionDB.cerrar();
+        }
+    }
+    
+    public void eliminarCategoria(int id_categoria) throws SQLException{
+        try{
+            cnx = new ConectionDB().obtener();
+            CallableStatement procedure = cnx.prepareCall("{call PA_Categoria_Delete(?)}");
+            procedure.setInt("id_categoriaIn", id_categoria);
+            
+            procedure.execute();
+            
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
+         } catch (ClassNotFoundException ex) {
+            throw new ClassCastException(ex.getMessage());
+         }
+//        finally{
+//            ConectionDB.cerrar();
+//        }
+    }
+    
 }
