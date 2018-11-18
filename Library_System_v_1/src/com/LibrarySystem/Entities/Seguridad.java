@@ -40,21 +40,25 @@ public class Seguridad {
                     if (lista_usuarios.get(i).getRol().equals("Administrador")) {
                         PaginaPrincipalAdmin ventana_admin = new PaginaPrincipalAdmin();
                         ventana_admin.setVisible(true);
+                        break;
                     } else {
                         PaginaPrincipalUsuario ventana_usuario = new PaginaPrincipalUsuario();
                         ventana_usuario.setVisible(true);
+                        break;
                     }
 
                 } else {
                     acceso = false;
                     JOptionPane.showMessageDialog(null, "Contraseña incorrecta!");
                     System.out.println("incorrecto");
+                    break;
                 }
-                break;
+               
             } else {
                 acceso = false;
                 JOptionPane.showMessageDialog(null, "Este usuario no existe!");
                 System.out.println("incorrecto");
+                break;
 
             }
         }

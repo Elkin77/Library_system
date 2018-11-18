@@ -5,10 +5,19 @@
  */
 package com.LibrarySystem.GUI;
 
+import com.LIbrarySystem.Componentes.Render;
+import com.LibrarySystem.Database.LibroDB;
+import com.LibrarySystem.Entities.Libro;
 import com.LibrarySystem.Entities.Seguridad;
 import com.LibrarySystem.Entities.Usuario;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,8 +31,70 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
     public PaginaPrincipalAdmin() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
+        cargarTabla();
     }
+    
+    private void tblBibliotecasMouseClicked(java.awt.event.MouseEvent evt) {
+        int column = tbl_libros.getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY() / tbl_libros.getRowHeight();
 
+        if (row < tbl_libros.getRowCount() && row >= 0
+                && column < tbl_libros.getColumnCount() && column >= 0) {
+            Object value = tbl_libros.getValueAt(row, column);
+            if (value instanceof JButton) {
+                ((JButton) value).doClick();
+                JButton boton = (JButton) value;
+
+                if (boton.getName().equals("ver_mas")) {
+                    // para agregar logica
+                    DetallesLibro libro = new DetallesLibro();
+                    libro.mostrarDetalle((int) tbl_libros.getValueAt(row, 0));
+                    libro.setVisible(true);
+                    this.dispose();
+
+                } 
+            }
+        }
+
+    }
+    
+    public void cargarTabla() {
+        try {
+            tbl_libros.setDefaultRenderer(Object.class, new Render());
+            DefaultTableModel modelo = new DefaultTableModel() {
+                public boolean isCellEditable(int row, int column) {
+                    return (column >= 0) ? false : true;
+                }
+            };
+
+            ArrayList<Libro> list_libros = new LibroDB().obtenerAllLibros();
+            modelo.setColumnIdentifiers(new Object[]{"ID", "Nombre", "Descripcion",
+                "Ubicación", "Autor", "Portada", "Biblioteca", "Categoria", "Acción"});
+            JButton btnVerMas = new JButton("Ver Más");
+            btnVerMas.setName("ver_mas");
+            for (int i = 0; i < list_libros.size(); i++) {
+                //cbRol.setSelectedIndex((lstUsuarios.get(i).getRol().equals("Usuario"))?0:1);
+
+                Object[] libros = {
+                    list_libros.get(i).getId_libro(),
+                    list_libros.get(i).getNombre(),
+                    list_libros.get(i).getDescripcion(),
+                    list_libros.get(i).getUbicacion(),
+                    list_libros.get(i).getAutor(),
+                    list_libros.get(i).getFoto(),
+                    list_libros.get(i).getId_biblioteca(),
+                    list_libros.get(i).getId_categoria(),
+                    btnVerMas,
+                };
+                modelo.addRow(libros);
+            }
+            tbl_libros.setModel(modelo);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionBiblioteca.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,6 +112,8 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         lblGestionarUsuarios = new javax.swing.JLabel();
         lblGestionarBibliotecas = new javax.swing.JLabel();
         lblSalir = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbl_libros = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -146,17 +219,46 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        tbl_libros.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tbl_libros.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tbl_libros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_librosMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tbl_libros);
+
         javax.swing.GroupLayout pnlBodyLayout = new javax.swing.GroupLayout(pnlBody);
         pnlBody.setLayout(pnlBodyLayout);
         pnlBodyLayout.setHorizontalGroup(
             pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlBodyLayout.createSequentialGroup()
+                    .addGap(47, 47, 47)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
+                    .addGap(48, 48, 48)))
         );
         pnlBodyLayout.setVerticalGroup(
             pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBodyLayout.createSequentialGroup()
                 .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(315, Short.MAX_VALUE))
+            .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlBodyLayout.createSequentialGroup()
+                    .addGap(125, 125, 125)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(120, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -173,6 +275,7 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+        
     private void lblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarMouseClicked
         System.exit(0);
     }//GEN-LAST:event_lblCerrarMouseClicked
@@ -187,6 +290,11 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
 
     private void lblGestionarBibliotecasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarBibliotecasMouseClicked
         // TODO add your handling code here:
+        
+            GestionarBiblioteca gestionar = new GestionarBiblioteca();
+            gestionar.setVisible(true);
+            dispose();
+        
     }//GEN-LAST:event_lblGestionarBibliotecasMouseClicked
 
     private void lblSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseClicked
@@ -197,6 +305,15 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
             dispose();
         }
     }//GEN-LAST:event_lblSalirMouseClicked
+
+    private void tbl_librosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_librosMouseClicked
+        // TODO add your handling code here:
+        tbl_libros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblBibliotecasMouseClicked(evt);
+            }
+        });
+    }//GEN-LAST:event_tbl_librosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -237,6 +354,7 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCerrar;
     private javax.swing.JLabel lblGestionarBibliotecas;
     private javax.swing.JLabel lblGestionarUsuarios;
@@ -245,5 +363,6 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlBody;
     private javax.swing.JPanel pnlHeader;
+    private javax.swing.JTable tbl_libros;
     // End of variables declaration//GEN-END:variables
 }

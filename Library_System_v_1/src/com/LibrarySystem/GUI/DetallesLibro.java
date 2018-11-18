@@ -5,8 +5,14 @@
  */
 package com.LibrarySystem.GUI;
 
+import com.LibrarySystem.Database.LibroDB;
+import com.LibrarySystem.Entities.Libro;
 import com.LibrarySystem.Entities.Seguridad;
 import com.LibrarySystem.Entities.Usuario;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -22,6 +28,21 @@ public class DetallesLibro extends javax.swing.JFrame {
     public DetallesLibro() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
+    }
+    
+    public void mostrarDetalle (int id_libro){
+        ArrayList<Libro> list_libro = new ArrayList<>();
+        LibroDB libro = new  LibroDB ();
+        try {
+            list_libro = libro.obtenerLibroByLibro(id_libro);
+            label_titulo.setText(list_libro.get(0).toString());
+            
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DetallesLibro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     /**
@@ -42,7 +63,7 @@ public class DetallesLibro extends javax.swing.JFrame {
         lblGestionarBibliotecas = new javax.swing.JLabel();
         lblSalir = new javax.swing.JLabel();
         lblAtras = new javax.swing.JLabel();
-        lblGestionarUsuarios1 = new javax.swing.JLabel();
+        label_titulo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblGestionarUsuarios2 = new javax.swing.JLabel();
         lblGestionarUsuarios3 = new javax.swing.JLabel();
@@ -170,14 +191,14 @@ public class DetallesLibro extends javax.swing.JFrame {
             }
         });
 
-        lblGestionarUsuarios1.setBackground(new java.awt.Color(255, 255, 255));
-        lblGestionarUsuarios1.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
-        lblGestionarUsuarios1.setForeground(new java.awt.Color(255, 255, 255));
-        lblGestionarUsuarios1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblGestionarUsuarios1.setText("Titulo Libro");
-        lblGestionarUsuarios1.addMouseListener(new java.awt.event.MouseAdapter() {
+        label_titulo.setBackground(new java.awt.Color(255, 255, 255));
+        label_titulo.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        label_titulo.setForeground(new java.awt.Color(255, 255, 255));
+        label_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_titulo.setText("Titulo Libro");
+        label_titulo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblGestionarUsuarios1MouseClicked(evt);
+                label_tituloMouseClicked(evt);
             }
         });
 
@@ -295,7 +316,7 @@ public class DetallesLibro extends javax.swing.JFrame {
         pnlBodyLayout.setHorizontalGroup(
             pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(lblGestionarUsuarios1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(label_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlBodyLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,7 +351,7 @@ public class DetallesLibro extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblAtras)
                 .addGap(18, 18, 18)
-                .addComponent(lblGestionarUsuarios1)
+                .addComponent(label_titulo)
                 .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlBodyLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -401,9 +422,9 @@ public class DetallesLibro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lblAtrasMouseClicked
 
-    private void lblGestionarUsuarios1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuarios1MouseClicked
+    private void label_tituloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_tituloMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblGestionarUsuarios1MouseClicked
+    }//GEN-LAST:event_label_tituloMouseClicked
 
     private void lblGestionarUsuarios2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuarios2MouseClicked
         // TODO add your handling code here:
@@ -487,11 +508,11 @@ public class DetallesLibro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnTomarPrestado;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel label_titulo;
     private javax.swing.JLabel lblAtras;
     private javax.swing.JLabel lblCerrar;
     private javax.swing.JLabel lblGestionarBibliotecas;
     private javax.swing.JLabel lblGestionarUsuarios;
-    private javax.swing.JLabel lblGestionarUsuarios1;
     private javax.swing.JLabel lblGestionarUsuarios2;
     private javax.swing.JLabel lblGestionarUsuarios3;
     private javax.swing.JLabel lblGestionarUsuarios4;
