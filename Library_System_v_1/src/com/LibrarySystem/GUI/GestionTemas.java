@@ -269,7 +269,7 @@ public class GestionTemas extends javax.swing.JFrame {
             }    
             
             for (int i = 0; i < lstCategorias.size(); i++) {
-                cbCategoria.addItem(lstCategorias.get(i).getNombre());
+                cbCategoria.addItem(lstCategorias.get(i).getId_categoria() + " " + lstCategorias.get(i).getNombre());
             }
             JButton btnEditar = new JButton("Guardar");
             btnEditar.setName("guardar");
@@ -279,10 +279,10 @@ public class GestionTemas extends javax.swing.JFrame {
                 //cbRol.setSelectedIndex((lstUsuarios.get(i).getRol().equals("Usuario"))?0:1);
                 
                 Object[] tema = {
-                    lstCategorias.get(i).getNombre(),
-                    lstCategorias.get(i).getDescripcion(),
-                    lstCategorias.get(i).getCodigo_registro(),
-                    lstCategorias.get(i).getId_categoria(),
+                    lstTemas.get(i).getNombre(),
+                    lstTemas.get(i).getDescripcion(),
+                    lstTemas.get(i).getCodigoRegistro(),
+                    lstTemas.get(i).getCategoria(),
                     btnEditar,
                     btnEliminar
                 };
