@@ -26,9 +26,9 @@ public class Reserva {
     private Integer idReserva;
 
     @Column
-    private Date fecha;
+    private String fecha;
     
-    @Column(name = "numero_cupos")
+    @Column(name = "nroCupos")
     private Integer numeroCupos;
     
     @ManyToOne
@@ -73,11 +73,11 @@ public class Reserva {
         this.idReserva = idReserva;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

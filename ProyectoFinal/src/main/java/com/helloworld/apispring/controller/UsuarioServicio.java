@@ -25,6 +25,10 @@ public class UsuarioServicio {
         return usuarioRepo.obtenerAllUsuarios();
     }
     
+    public Usuario obtenerUsuarioByUsuario(String usuario){
+        return usuarioRepo.obtenerUsuarioByUsuario(usuario);
+    }
+    
     public long crearUsuario(Usuario usuario){
         return usuarioRepo.crearUsuario(usuario);
     }

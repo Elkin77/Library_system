@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,15 +39,19 @@ public class ViajeRepositorio {
     
     public List<Viaje> obtenerAllViajes()
     {
-        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Viaje.class); 
+        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Viaje.class);
+        criteria.add(Restrictions.eq("estado", "disponible"));
         return criteria.list(); 
     }
     
-    public List<Viaje> obtenerViajeByIdViaje(int idViaje){
+    public Viaje obtenerViajeByIdViaje(int idViaje){
         Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Viaje.class);
         
         criteria.add(Restrictions.eq("idViaje", idViaje));
-        return criteria.list();
+        
+        List<Viaje> lstViajes = criteria.list();
+        
+        return lstViajes.get(0);
     }
     
     public List<Viaje> obtenerUltimos10Viajes(){
@@ -59,11 +64,20 @@ public class ViajeRepositorio {
         }
     }
     
-    public List<Viaje> obtenerViajesByFechaOrigenAndDestino(Date fecha, String origen, String destino){
+    /*public List<Viaje> obtenerViajesByFechaOrigenAndDestino(Date fecha, String origen, String destino){
         Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Viaje.class);
-        criteria.add(Restrictions.eq("fecha", fecha));
-        criteria.add(Restrictions.eq("origen", origen));
-        criteria.add(Restrictions.eq("destino", destino));
+        criteria.add(Restrictions.like("fecha", "%"+fecha+"%" ,MatchMode.ANYWHERE));
+        criteria.add(Restrictions.like("origen", "%"+origen+"%",MatchMode.ANYWHERE));
+        criteria.add(Restrictions.like("destino", "%"+destino+"%",MatchMode.ANYWHERE));
+        
+        return criteria.list(); 
+   }*/
+    
+     public List<Viaje> obtenerViajesByFechaOrigenAndDestino(String origen, String destino){
+        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Viaje.class);
+        criteria.add(Restrictions.like("origen", "%"+origen+"%",MatchMode.ANYWHERE));
+        criteria.add(Restrictions.like("destino", "%"+destino+"%",MatchMode.ANYWHERE));
+        criteria.add(Restrictions.eq("estado", "disponible"));
         
         return criteria.list(); 
    }
@@ -77,13 +91,26 @@ public class ViajeRepositorio {
         return criteria.list(); 
    }
     
+     @Transactional
+     public long actualizarNroCuposByIdViaje(int idViaje, int nroCupos){
+         Viaje viaje = obtenerViajeByIdViaje(idViaje);
+         try{
+            viaje.setNumeroCupos(nroCupos);
+            Serializable save = getSessionFactory().getCurrentSession().save(viaje);
+            return viaje.getIdViaje();
+        }
+        catch(Exception e){
+            return 0;  
+        }
+     }
+    
     @Transactional
     public long actualizarEstadoViajeByIdViaje(int idViaje, String estado) {
-        List<Viaje> viaje = obtenerViajeByIdViaje(idViaje);
+        Viaje viaje = obtenerViajeByIdViaje(idViaje);
         try{
-            viaje.get(0).setEstado(estado);
-            Serializable save = getSessionFactory().getCurrentSession().save(viaje.get(0));
-            return viaje.get(0).getIdViaje();
+            viaje.setEstado(estado);
+            Serializable save = getSessionFactory().getCurrentSession().save(viaje);
+            return viaje.getIdViaje();
         }
         catch(Exception e){
             return 0;  

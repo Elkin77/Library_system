@@ -26,7 +26,8 @@ public class Viaje {
     @Column(name = "id_viaje")
     private Integer idViaje;
 
-
+    @Column
+    private String fecha;
     
     @Column
     private String origen;
@@ -40,7 +41,7 @@ public class Viaje {
     @Column
     private Double precio;
     
-    @Column(name = "numero_cupos")
+    @Column(name = "numCupos")
     private Integer  numeroCupos;
     
     @Column
@@ -69,13 +70,13 @@ public class Viaje {
         this.idViaje = idViaje;
     }
 
-//    public Date getFecha() {
-//        return fecha;
-//    }
-//
-//    public void setFecha(Date fecha) {
-//        this.fecha = fecha;
-//    }
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
 
     public String getOrigen() {
         return origen;

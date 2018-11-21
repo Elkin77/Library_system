@@ -36,6 +36,12 @@ public class Controller {
         List<Usuario> usuarios = usuarioServ.obtenerAllUsuarios();
         return new ResponseEntity<List<Usuario>>(usuarios, HttpStatus.OK);
     }
+    
+    @RequestMapping(value = "/usuario/", method = RequestMethod.GET)
+    public ResponseEntity<Usuario> obtenerUsuarioByUsuario(@RequestParam("usuario") String usuario) {
+        Usuario usuarios = usuarioServ.obtenerUsuarioByUsuario(usuario);
+        return new ResponseEntity<Usuario>(usuarios, HttpStatus.OK);
+    }
 
     @RequestMapping(value = "/usuario/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> crearUsuario(@RequestBody Usuario usuario) {
@@ -57,6 +63,12 @@ public class Controller {
         List<Viaje> viajes = viajeServ.obtenerAllViajes();
         return new ResponseEntity<List<Viaje>>(viajes, HttpStatus.OK);
     }
+    
+    @RequestMapping(value = "/viajeId/", method = RequestMethod.GET)
+    public ResponseEntity<Viaje> obtenerViajeByIdViaje(@RequestParam("idViaje") int idViaje) {
+        Viaje viaje = viajeServ.obtenerViajeByIdViaje(idViaje);
+        return new ResponseEntity<Viaje>(viaje, HttpStatus.OK);
+    }
 
     @RequestMapping(value = "/viajes10/", method = RequestMethod.GET)
     public ResponseEntity<List<Viaje>> obtenerUltimos10Viajes() {
@@ -70,9 +82,15 @@ public class Controller {
         return ResponseEntity.ok().body("Estado del viaje con ID:" + id + " actualizado correctamente");
     }
 
-    @RequestMapping(value = "/viajes", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/viajes", method = RequestMethod.GET)
     public ResponseEntity<List<Viaje>> obtenerViajesByFechaOrigenAndDestinoenerAllViajes(@RequestParam("fecha") Date fecha, @RequestParam("origen") String origen, @RequestParam("destino") String destino) {
         List<Viaje> viajes = viajeServ.obtenerViajesByFechaOrigenAndDestino(fecha, origen, destino);
+        return new ResponseEntity<List<Viaje>>(viajes, HttpStatus.OK);
+    }*/
+    
+    @RequestMapping(value = "/viajes", method = RequestMethod.GET)
+    public ResponseEntity<List<Viaje>> obtenerViajesByFechaOrigenAndDestinoenerAllViajes(@RequestParam("origen") String origen, @RequestParam("destino") String destino) {
+        List<Viaje> viajes = viajeServ.obtenerViajesByFechaOrigenAndDestino(origen, destino);
         return new ResponseEntity<List<Viaje>>(viajes, HttpStatus.OK);
     }
     
@@ -95,6 +113,11 @@ public class Controller {
     @RequestMapping(value = "/reserva/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> crearReserva(@RequestBody Reserva reserva) {
         long id = reservaServ.crearReserva(reserva);
+        int nroCupos = (reserva.getViaje().getNumeroCupos() - reserva.getNumeroCupos());
+        long idViaje = viajeServ.actualizarNroCuposByIdViaje(reserva.getViaje().getIdViaje(), nroCupos);
+        if(nroCupos == 0){
+            idViaje = viajeServ.actualizarEstadoViajeByIdViaje(reserva.getViaje().getIdViaje(), "no disponible");
+        }
         return ResponseEntity.ok().body("Nueva reserva creada con ID:" + id);
     }
 

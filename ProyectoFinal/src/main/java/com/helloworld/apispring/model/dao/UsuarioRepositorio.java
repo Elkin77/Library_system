@@ -41,6 +41,13 @@ public class UsuarioRepositorio {
         return criteria.list(); 
     }
     
+    public Usuario obtenerUsuarioByUsuario(String usuario)
+    {
+        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Usuario.class);
+        criteria.add(Restrictions.eq("usuario", usuario));
+        return (Usuario) criteria.list().get(0); 
+    }
+    
     @Transactional
     public long crearUsuario(Usuario usuario) {
         Serializable save = getSessionFactory().getCurrentSession().save(usuario);
