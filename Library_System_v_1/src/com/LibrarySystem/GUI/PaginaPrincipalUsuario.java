@@ -90,7 +90,7 @@ public class PaginaPrincipalUsuario extends javax.swing.JFrame {
             tbl_libros.setModel(modelo);
 
         } catch (SQLException ex) {
-            Logger.getLogger(GestionBiblioteca.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GestionarBiblioteca.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

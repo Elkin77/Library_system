@@ -209,7 +209,7 @@ public class EditarCategoria extends javax.swing.JFrame {
                         
                         
                     } catch (SQLException ex) {
-                        Logger.getLogger(GestionBiblioteca.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(ListaBibliotecas.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     
                     
@@ -232,7 +232,7 @@ public class EditarCategoria extends javax.swing.JFrame {
                             
                             cargarTabla();
                         } catch (SQLException ex) {
-                            Logger.getLogger(GestionBiblioteca.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(ListaBibliotecas.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         
                     }
@@ -280,7 +280,7 @@ public class EditarCategoria extends javax.swing.JFrame {
             
             
         } catch (SQLException ex) {
-            Logger.getLogger(GestionBiblioteca.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ListaBibliotecas.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }

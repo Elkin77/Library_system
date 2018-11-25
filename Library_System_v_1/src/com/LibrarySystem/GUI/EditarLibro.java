@@ -206,7 +206,7 @@ public class EditarLibro extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "Usuario actualizado correctamente");
 
                     } catch (SQLException ex) {
-                        Logger.getLogger(GestionBiblioteca.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(ListaBibliotecas.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
                 } else {
@@ -227,7 +227,7 @@ public class EditarLibro extends javax.swing.JFrame {
 
                             cargarTabla();
                         } catch (SQLException ex) {
-                            Logger.getLogger(GestionBiblioteca.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(ListaBibliotecas.class.getName()).log(Level.SEVERE, null, ex);
                         }
 
                     }
@@ -273,7 +273,7 @@ public class EditarLibro extends javax.swing.JFrame {
             tblLibros.setModel(modelo);
 
         } catch (SQLException ex) {
-            Logger.getLogger(GestionBiblioteca.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ListaBibliotecas.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
