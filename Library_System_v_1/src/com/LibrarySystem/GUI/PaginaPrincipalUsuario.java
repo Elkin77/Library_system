@@ -65,29 +65,6 @@ public class PaginaPrincipalUsuario extends javax.swing.JFrame {
         }
     }
     
-        private void tblBibliotecasMouseClicked(java.awt.event.MouseEvent evt) {
-        int column = tbl_libros.getColumnModel().getColumnIndexAtX(evt.getX());
-        int row = evt.getY() / tbl_libros.getRowHeight();
-
-        if (row < tbl_libros.getRowCount() && row >= 0
-                && column < tbl_libros.getColumnCount() && column >= 0) {
-            Object value = tbl_libros.getValueAt(row, column);
-            if (value instanceof JButton) {
-                ((JButton) value).doClick();
-                JButton boton = (JButton) value;
-
-                if (boton.getName().equals("ver_mas")) {
-                    // para agregar logica
-                    DetallesLibro libro = new DetallesLibro();
-                    libro.mostrarDetalle((int) tbl_libros.getValueAt(row, 0));
-                    libro.setVisible(true);
-                    this.dispose();
-
-                } 
-            }
-        }
-
-    }
     public void cargarTabla(ArrayList<Libro> list_libros) {
         tbl_libros.removeAll();
         tbl_libros.setDefaultRenderer(Object.class, new Render());
@@ -361,6 +338,10 @@ public class PaginaPrincipalUsuario extends javax.swing.JFrame {
                 
                 if(boton.getName().equals("Ver Más")){
                     int idLibro = (int) tbl_libros.getValueAt(row, 0);
+                    DetallesLibro detalleLibro = new DetallesLibro();
+                    detalleLibro.mostrarDetalle((int) tbl_libros.getValueAt(row, 0));
+                    detalleLibro.setVisible(true);
+                    this.dispose();
                     
                 }
             }

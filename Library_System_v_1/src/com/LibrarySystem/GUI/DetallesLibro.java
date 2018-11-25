@@ -25,19 +25,23 @@ public class DetallesLibro extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    
     public DetallesLibro() {
+
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
     }
     
-    public void mostrarDetalle (int id_libro){
+    public void mostrarDetalle (int idLibro){
         ArrayList<Libro> list_libro = new ArrayList<>();
         LibroDB libro = new  LibroDB ();
         try {
-            list_libro = libro.obtenerLibroByLibro(id_libro);
-            label_titulo.setText(list_libro.get(0).toString());
-            
-            
+            list_libro = libro.obtenerLibroByLibro(idLibro);
+            label_titulo.setText(list_libro.get(0).getNombre());
+            lblDescripcion.setText(list_libro.get(0).getDescripcion());
+            lblUbicacion.setText(list_libro.get(0).getUbicacion());
+            lblCategoria.setText(list_libro.get(0).getId_categoria()+"");
+            lblAutor.setText(list_libro.get(0).getAutor());
             
         } catch (SQLException ex) {
             Logger.getLogger(DetallesLibro.class.getName()).log(Level.SEVERE, null, ex);
@@ -66,13 +70,13 @@ public class DetallesLibro extends javax.swing.JFrame {
         label_titulo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblGestionarUsuarios2 = new javax.swing.JLabel();
-        lblGestionarUsuarios3 = new javax.swing.JLabel();
+        lblDescripcion = new javax.swing.JLabel();
         lblGestionarUsuarios4 = new javax.swing.JLabel();
-        lblGestionarUsuarios5 = new javax.swing.JLabel();
+        lblUbicacion = new javax.swing.JLabel();
         lblGestionarUsuarios6 = new javax.swing.JLabel();
-        lblGestionarUsuarios7 = new javax.swing.JLabel();
+        lblCategoria = new javax.swing.JLabel();
         lblGestionarUsuarios8 = new javax.swing.JLabel();
-        lblGestionarUsuarios9 = new javax.swing.JLabel();
+        lblAutor = new javax.swing.JLabel();
         btnTomarPrestado = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -224,14 +228,14 @@ public class DetallesLibro extends javax.swing.JFrame {
             }
         });
 
-        lblGestionarUsuarios3.setBackground(new java.awt.Color(255, 255, 255));
-        lblGestionarUsuarios3.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        lblGestionarUsuarios3.setForeground(new java.awt.Color(255, 255, 255));
-        lblGestionarUsuarios3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblGestionarUsuarios3.setText("<html>Descripción del Libro</html>");
-        lblGestionarUsuarios3.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblDescripcion.setBackground(new java.awt.Color(255, 255, 255));
+        lblDescripcion.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
+        lblDescripcion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblDescripcion.setText("<html>Descripción del Libro</html>");
+        lblDescripcion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblGestionarUsuarios3MouseClicked(evt);
+                lblDescripcionMouseClicked(evt);
             }
         });
 
@@ -246,14 +250,14 @@ public class DetallesLibro extends javax.swing.JFrame {
             }
         });
 
-        lblGestionarUsuarios5.setBackground(new java.awt.Color(255, 255, 255));
-        lblGestionarUsuarios5.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        lblGestionarUsuarios5.setForeground(new java.awt.Color(255, 255, 255));
-        lblGestionarUsuarios5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblGestionarUsuarios5.setText("<html>Ubicación del Libro</html>");
-        lblGestionarUsuarios5.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblUbicacion.setBackground(new java.awt.Color(255, 255, 255));
+        lblUbicacion.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        lblUbicacion.setForeground(new java.awt.Color(255, 255, 255));
+        lblUbicacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblUbicacion.setText("<html>Ubicación del Libro</html>");
+        lblUbicacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblGestionarUsuarios5MouseClicked(evt);
+                lblUbicacionMouseClicked(evt);
             }
         });
 
@@ -268,14 +272,14 @@ public class DetallesLibro extends javax.swing.JFrame {
             }
         });
 
-        lblGestionarUsuarios7.setBackground(new java.awt.Color(255, 255, 255));
-        lblGestionarUsuarios7.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        lblGestionarUsuarios7.setForeground(new java.awt.Color(255, 255, 255));
-        lblGestionarUsuarios7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblGestionarUsuarios7.setText("<html>Categorias del Libro</html>");
-        lblGestionarUsuarios7.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblCategoria.setBackground(new java.awt.Color(255, 255, 255));
+        lblCategoria.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        lblCategoria.setForeground(new java.awt.Color(255, 255, 255));
+        lblCategoria.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblCategoria.setText("<html>Categorias del Libro</html>");
+        lblCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblGestionarUsuarios7MouseClicked(evt);
+                lblCategoriaMouseClicked(evt);
             }
         });
 
@@ -290,14 +294,14 @@ public class DetallesLibro extends javax.swing.JFrame {
             }
         });
 
-        lblGestionarUsuarios9.setBackground(new java.awt.Color(255, 255, 255));
-        lblGestionarUsuarios9.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        lblGestionarUsuarios9.setForeground(new java.awt.Color(255, 255, 255));
-        lblGestionarUsuarios9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblGestionarUsuarios9.setText("<html>Autor del Libro</html>");
-        lblGestionarUsuarios9.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblAutor.setBackground(new java.awt.Color(255, 255, 255));
+        lblAutor.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        lblAutor.setForeground(new java.awt.Color(255, 255, 255));
+        lblAutor.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblAutor.setText("<html>Autor del Libro</html>");
+        lblAutor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblGestionarUsuarios9MouseClicked(evt);
+                lblAutorMouseClicked(evt);
             }
         });
 
@@ -334,10 +338,10 @@ public class DetallesLibro extends javax.swing.JFrame {
                             .addComponent(lblGestionarUsuarios8, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(67, 67, 67)
                         .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblGestionarUsuarios9)
-                            .addComponent(lblGestionarUsuarios7)
-                            .addComponent(lblGestionarUsuarios5)
-                            .addComponent(lblGestionarUsuarios3)))
+                            .addComponent(lblAutor)
+                            .addComponent(lblCategoria)
+                            .addComponent(lblUbicacion)
+                            .addComponent(lblDescripcion)))
                     .addGroup(pnlBodyLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnTomarPrestado)
@@ -357,19 +361,19 @@ public class DetallesLibro extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblGestionarUsuarios2)
-                            .addComponent(lblGestionarUsuarios3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblGestionarUsuarios4)
-                            .addComponent(lblGestionarUsuarios5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblGestionarUsuarios6)
-                            .addComponent(lblGestionarUsuarios7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblGestionarUsuarios8)
-                            .addComponent(lblGestionarUsuarios9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnlBodyLayout.createSequentialGroup()
                         .addGap(51, 51, 51)
@@ -430,33 +434,33 @@ public class DetallesLibro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lblGestionarUsuarios2MouseClicked
 
-    private void lblGestionarUsuarios3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuarios3MouseClicked
+    private void lblDescripcionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDescripcionMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblGestionarUsuarios3MouseClicked
+    }//GEN-LAST:event_lblDescripcionMouseClicked
 
     private void lblGestionarUsuarios4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuarios4MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_lblGestionarUsuarios4MouseClicked
 
-    private void lblGestionarUsuarios5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuarios5MouseClicked
+    private void lblUbicacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUbicacionMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblGestionarUsuarios5MouseClicked
+    }//GEN-LAST:event_lblUbicacionMouseClicked
 
     private void lblGestionarUsuarios6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuarios6MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_lblGestionarUsuarios6MouseClicked
 
-    private void lblGestionarUsuarios7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuarios7MouseClicked
+    private void lblCategoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCategoriaMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblGestionarUsuarios7MouseClicked
+    }//GEN-LAST:event_lblCategoriaMouseClicked
 
     private void lblGestionarUsuarios8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuarios8MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_lblGestionarUsuarios8MouseClicked
 
-    private void lblGestionarUsuarios9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuarios9MouseClicked
+    private void lblAutorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAutorMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblGestionarUsuarios9MouseClicked
+    }//GEN-LAST:event_lblAutorMouseClicked
 
     private void btnTomarPrestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTomarPrestadoActionPerformed
 
@@ -510,20 +514,20 @@ public class DetallesLibro extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label_titulo;
     private javax.swing.JLabel lblAtras;
+    private javax.swing.JLabel lblAutor;
+    private javax.swing.JLabel lblCategoria;
     private javax.swing.JLabel lblCerrar;
+    private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblGestionarBibliotecas;
     private javax.swing.JLabel lblGestionarUsuarios;
     private javax.swing.JLabel lblGestionarUsuarios2;
-    private javax.swing.JLabel lblGestionarUsuarios3;
     private javax.swing.JLabel lblGestionarUsuarios4;
-    private javax.swing.JLabel lblGestionarUsuarios5;
     private javax.swing.JLabel lblGestionarUsuarios6;
-    private javax.swing.JLabel lblGestionarUsuarios7;
     private javax.swing.JLabel lblGestionarUsuarios8;
-    private javax.swing.JLabel lblGestionarUsuarios9;
     private javax.swing.JLabel lblMinimizar;
     private javax.swing.JLabel lblSalir;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblUbicacion;
     private javax.swing.JPanel pnlBody;
     private javax.swing.JPanel pnlHeader;
     // End of variables declaration//GEN-END:variables

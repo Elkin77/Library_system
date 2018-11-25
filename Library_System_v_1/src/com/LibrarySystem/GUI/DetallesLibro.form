@@ -65,10 +65,10 @@
                           </Group>
                           <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblGestionarUsuarios9" max="32767" attributes="0"/>
-                              <Component id="lblGestionarUsuarios7" max="32767" attributes="0"/>
-                              <Component id="lblGestionarUsuarios5" max="32767" attributes="0"/>
-                              <Component id="lblGestionarUsuarios3" max="32767" attributes="0"/>
+                              <Component id="lblAutor" max="32767" attributes="0"/>
+                              <Component id="lblCategoria" max="32767" attributes="0"/>
+                              <Component id="lblUbicacion" max="32767" attributes="0"/>
+                              <Component id="lblDescripcion" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -94,22 +94,22 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblGestionarUsuarios2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblGestionarUsuarios3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblGestionarUsuarios4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblGestionarUsuarios5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblUbicacion" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblGestionarUsuarios6" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblGestionarUsuarios7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblGestionarUsuarios8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblGestionarUsuarios9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblAutor" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -359,7 +359,7 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblGestionarUsuarios2MouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblGestionarUsuarios3">
+        <Component class="javax.swing.JLabel" name="lblDescripcion">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -374,7 +374,7 @@
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Descripci&#xf3;n del Libro&lt;/html&gt;"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblGestionarUsuarios3MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblDescripcionMouseClicked"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblGestionarUsuarios4">
@@ -395,7 +395,7 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblGestionarUsuarios4MouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblGestionarUsuarios5">
+        <Component class="javax.swing.JLabel" name="lblUbicacion">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -410,7 +410,7 @@
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Ubicaci&#xf3;n del Libro&lt;/html&gt;"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblGestionarUsuarios5MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblUbicacionMouseClicked"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblGestionarUsuarios6">
@@ -431,7 +431,7 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblGestionarUsuarios6MouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblGestionarUsuarios7">
+        <Component class="javax.swing.JLabel" name="lblCategoria">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -446,7 +446,7 @@
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Categorias del Libro&lt;/html&gt;"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblGestionarUsuarios7MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblCategoriaMouseClicked"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblGestionarUsuarios8">
@@ -467,7 +467,7 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblGestionarUsuarios8MouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblGestionarUsuarios9">
+        <Component class="javax.swing.JLabel" name="lblAutor">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -482,7 +482,7 @@
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Autor del Libro&lt;/html&gt;"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblGestionarUsuarios9MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblAutorMouseClicked"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnTomarPrestado">
