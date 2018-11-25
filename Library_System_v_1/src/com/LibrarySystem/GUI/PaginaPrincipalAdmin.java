@@ -6,7 +6,11 @@
 package com.LibrarySystem.GUI;
 
 import com.LIbrarySystem.Componentes.Render;
+import com.LibrarySystem.Database.BibliotecaDB;
+import com.LibrarySystem.Database.CategoriaDB;
 import com.LibrarySystem.Database.LibroDB;
+import com.LibrarySystem.Entities.Biblioteca;
+import com.LibrarySystem.Entities.Categoria;
 import com.LibrarySystem.Entities.Libro;
 import com.LibrarySystem.Entities.Seguridad;
 import com.LibrarySystem.Entities.Usuario;
@@ -31,8 +35,35 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
     public PaginaPrincipalAdmin() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
-        cargarTabla();
+        ArrayList<Libro> list_libros = new ArrayList<Libro>();
+        try {
+            list_libros = new LibroDB().obtenerAllLibros();
+        } catch (SQLException ex) {
+            Logger.getLogger(PaginaPrincipalUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        cargarTabla(list_libros);
+        cargarComboBox();
     }
+    
+    private void cargarComboBox(){
+        ArrayList<Biblioteca> lstBibliotecas;
+        ArrayList<Categoria> lstCategorias;
+        try {
+            lstBibliotecas = new BibliotecaDB().obtenerAllBibliotecas();
+            lstCategorias = new CategoriaDB().obtenerAllCategorias();
+            cbBiblioteca.removeAllItems();
+            cbCategoria.removeAllItems();
+            for (int i = 0; i < lstBibliotecas.size(); i++) {
+                cbBiblioteca.addItem(lstBibliotecas.get(i).getId_biblioteca() + " " + lstBibliotecas.get(i).getNombre());
+            }
+            for (int i = 0; i < lstCategorias.size(); i++) {
+                cbCategoria.addItem(lstCategorias.get(i).getId_categoria() + " " + lstCategorias.get(i).getNombre());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PaginaPrincipalUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     
     private void tblBibliotecasMouseClicked(java.awt.event.MouseEvent evt) {
         int column = tbl_libros.getColumnModel().getColumnIndexAtX(evt.getX());
@@ -58,41 +89,35 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
 
     }
     
-    public void cargarTabla() {
-        try {
-            tbl_libros.setDefaultRenderer(Object.class, new Render());
-            DefaultTableModel modelo = new DefaultTableModel() {
-                public boolean isCellEditable(int row, int column) {
-                    return (column >= 0) ? false : true;
-                }
-            };
-
-            ArrayList<Libro> list_libros = new LibroDB().obtenerAllLibros();
-            modelo.setColumnIdentifiers(new Object[]{"ID", "Nombre", "Descripcion",
-                "Ubicación", "Autor", "Portada", "Biblioteca", "Categoria", "Acción"});
-            JButton btnVerMas = new JButton("Ver Más");
-            btnVerMas.setName("ver_mas");
-            for (int i = 0; i < list_libros.size(); i++) {
-                //cbRol.setSelectedIndex((lstUsuarios.get(i).getRol().equals("Usuario"))?0:1);
-
-                Object[] libros = {
-                    list_libros.get(i).getId_libro(),
-                    list_libros.get(i).getNombre(),
-                    list_libros.get(i).getDescripcion(),
-                    list_libros.get(i).getUbicacion(),
-                    list_libros.get(i).getAutor(),
-                    list_libros.get(i).getFoto(),
-                    list_libros.get(i).getId_biblioteca(),
-                    list_libros.get(i).getId_categoria(),
-                    btnVerMas,
-                };
-                modelo.addRow(libros);
+    public void cargarTabla(ArrayList<Libro> list_libros) {
+        tbl_libros.removeAll();
+        tbl_libros.setDefaultRenderer(Object.class, new Render());
+        DefaultTableModel modelo = new DefaultTableModel() {
+            public boolean isCellEditable(int row, int column) {
+                return (column >= 0) ? false : true;
             }
-            tbl_libros.setModel(modelo);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(GestionarBiblioteca.class.getName()).log(Level.SEVERE, null, ex);
+        };
+        modelo.setColumnIdentifiers(new Object[]{"ID", "Nombre", "Descripcion",
+            "Ubicación", "Autor", "Portada", "Biblioteca", "Categoria", "Acción"});
+        JButton btnVerMas = new JButton("Ver Más");
+        btnVerMas.setName("ver_mas");
+        for (int i = 0; i < list_libros.size(); i++) {
+            //cbRol.setSelectedIndex((lstUsuarios.get(i).getRol().equals("Usuario"))?0:1);
+            
+            Object[] libros = {
+                list_libros.get(i).getId_libro(),
+                list_libros.get(i).getNombre(),
+                list_libros.get(i).getDescripcion(),
+                list_libros.get(i).getUbicacion(),
+                list_libros.get(i).getAutor(),
+                list_libros.get(i).getFoto(),
+                list_libros.get(i).getId_biblioteca(),
+                list_libros.get(i).getId_categoria(),
+                btnVerMas,
+            };
+            modelo.addRow(libros);
         }
+        tbl_libros.setModel(modelo);
 
     }
     /**
@@ -111,6 +136,7 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         lblGestionarUsuarios = new javax.swing.JLabel();
         lblGestionarBibliotecas = new javax.swing.JLabel();
         lblSalir = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_libros = new javax.swing.JTable();
         cbBiblioteca = new javax.swing.JComboBox<>();
@@ -178,6 +204,12 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
             }
         });
 
+        lblTitulo.setBackground(java.awt.Color.white);
+        lblTitulo.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        lblTitulo.setForeground(java.awt.Color.white);
+        lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LibrarySystem/Icons/user-white.png"))); // NOI18N
+        lblTitulo.setText("Administrador");
+
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
         pnlHeader.setLayout(pnlHeaderLayout);
         pnlHeaderLayout.setHorizontalGroup(
@@ -191,9 +223,10 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
                         .addComponent(lblGestionarBibliotecas, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblSalir)
-                        .addGap(0, 396, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pnlHeaderLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(652, 652, 652)
                         .addComponent(lblMinimizar)
                         .addGap(18, 18, 18)
                         .addComponent(lblCerrar)
@@ -202,10 +235,11 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         pnlHeaderLayout.setVerticalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHeaderLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(21, 21, 21)
                 .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCerrar)
-                    .addComponent(lblMinimizar))
+                    .addComponent(lblMinimizar)
+                    .addComponent(lblTitulo))
                 .addGap(18, 18, 18)
                 .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblGestionarUsuarios)
@@ -245,6 +279,11 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         btnBuscar.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
+        btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarMouseClicked(evt);
+            }
+        });
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
@@ -259,7 +298,7 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
             .addGroup(pnlBodyLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 844, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(pnlBodyLayout.createSequentialGroup()
                         .addComponent(cbBiblioteca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(38, 38, 38)
@@ -273,7 +312,7 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         pnlBodyLayout.setVerticalGroup(
             pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBodyLayout.createSequentialGroup()
-                .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -343,6 +382,17 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
+        int idBiblioteca = Integer.parseInt(cbBiblioteca.getSelectedItem().toString().split(" ")[0]);
+        int idCategoria = Integer.parseInt(cbCategoria.getSelectedItem().toString().split(" ")[0]);
+        try {
+            ArrayList<Libro> lstLibros = new LibroDB().obtenerLibroByParameters(idBiblioteca, idCategoria, txtSearch.getText());
+            cargarTabla(lstLibros);
+        } catch (SQLException ex) {
+            Logger.getLogger(PaginaPrincipalUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnBuscarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -391,6 +441,7 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel lblGestionarUsuarios;
     private javax.swing.JLabel lblMinimizar;
     private javax.swing.JLabel lblSalir;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlBody;
     private javax.swing.JPanel pnlHeader;
     private javax.swing.JTable tbl_libros;

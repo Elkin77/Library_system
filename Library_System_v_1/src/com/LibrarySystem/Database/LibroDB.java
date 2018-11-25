@@ -148,5 +148,42 @@ public class LibroDB {
 //            ConectionDB.cerrar();
 //        }
     }
-
+    
+    public ArrayList<Libro> obtenerLibroByParameters(int idBiblioteca, int idCategoria, String nombreLibro) throws SQLException{
+        ArrayList<Libro> listlibros = new ArrayList<>();
+        Libro libro = new Libro();
+        try{
+            cnx = new ConectionDB().obtener();
+            CallableStatement procedure = cnx.prepareCall("{call PA_Libro_SelectByParameters(?,?,?)}");
+            procedure.setInt("id_bibliotecaIn", idBiblioteca);
+            procedure.setInt("id_categoriaIn", idCategoria);
+            procedure.setString("nombreIn", nombreLibro);
+            
+            procedure.execute();
+            ResultSet rs = procedure.getResultSet();
+            
+            while(rs.next()){
+                libro = new Libro(
+                        rs.getInt("id_libro"),
+                        rs.getString("nombre"),
+                        rs.getString("descripcion"),
+                        rs.getString("ubicacion"),
+                        rs.getString("autor"),
+                        rs.getString("foto"),
+                        rs.getInt("id_biblioteca"),
+                        rs.getInt("id_categoria")
+                );
+                listlibros.add(libro);
+            }
+            
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
+         } catch (ClassNotFoundException ex) {
+            throw new ClassCastException(ex.getMessage());
+         }
+//        finally{
+//            ConectionDB.cerrar();
+//        }
+        return listlibros;
+    }
 }

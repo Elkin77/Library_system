@@ -6,7 +6,12 @@
 package com.LibrarySystem.GUI;
 
 import com.LIbrarySystem.Componentes.Render;
+import com.LibrarySystem.Database.BibliotecaDB;
+import com.LibrarySystem.Database.CategoriaDB;
+import com.LibrarySystem.Database.ConectionDB;
 import com.LibrarySystem.Database.LibroDB;
+import com.LibrarySystem.Entities.Biblioteca;
+import com.LibrarySystem.Entities.Categoria;
 import com.LibrarySystem.Entities.Libro;
 import com.LibrarySystem.Entities.Seguridad;
 import com.LibrarySystem.Entities.Usuario;
@@ -31,7 +36,33 @@ public class PaginaPrincipalUsuario extends javax.swing.JFrame {
     public PaginaPrincipalUsuario() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
-        cargarTabla();
+        ArrayList<Libro> list_libros = new ArrayList<Libro>();
+        try {
+            list_libros = new LibroDB().obtenerAllLibros();
+        } catch (SQLException ex) {
+            Logger.getLogger(PaginaPrincipalUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        cargarTabla(list_libros);
+        cargarComboBox();
+    }
+    
+    private void cargarComboBox(){
+        ArrayList<Biblioteca> lstBibliotecas;
+        ArrayList<Categoria> lstCategorias;
+        try {
+            lstBibliotecas = new BibliotecaDB().obtenerAllBibliotecas();
+            lstCategorias = new CategoriaDB().obtenerAllCategorias();
+            cbBiblioteca.removeAllItems();
+            cbCategoria.removeAllItems();
+            for (int i = 0; i < lstBibliotecas.size(); i++) {
+                cbBiblioteca.addItem(lstBibliotecas.get(i).getId_biblioteca() + " " + lstBibliotecas.get(i).getNombre());
+            }
+            for (int i = 0; i < lstCategorias.size(); i++) {
+                cbCategoria.addItem(lstCategorias.get(i).getId_categoria() + " " + lstCategorias.get(i).getNombre());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PaginaPrincipalUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
         private void tblBibliotecasMouseClicked(java.awt.event.MouseEvent evt) {
@@ -57,41 +88,35 @@ public class PaginaPrincipalUsuario extends javax.swing.JFrame {
         }
 
     }
-    public void cargarTabla() {
-        try {
-            tbl_libros.setDefaultRenderer(Object.class, new Render());
-            DefaultTableModel modelo = new DefaultTableModel() {
-                public boolean isCellEditable(int row, int column) {
-                    return (column >= 0) ? false : true;
-                }
-            };
-
-            ArrayList<Libro> list_libros = new LibroDB().obtenerAllLibros();
-            modelo.setColumnIdentifiers(new Object[]{"ID", "Nombre", "Descripcion",
-                "Ubicación", "Autor", "Portada", "Biblioteca", "Categoria", "Acción"});
-            JButton btnVerMas = new JButton("Ver Más");
-            btnVerMas.setName("ver_mas");
-            for (int i = 0; i < list_libros.size(); i++) {
-                //cbRol.setSelectedIndex((lstUsuarios.get(i).getRol().equals("Usuario"))?0:1);
-
-                Object[] libros = {
-                    list_libros.get(i).getId_libro(),
-                    list_libros.get(i).getNombre(),
-                    list_libros.get(i).getDescripcion(),
-                    list_libros.get(i).getUbicacion(),
-                    list_libros.get(i).getAutor(),
-                    list_libros.get(i).getFoto(),
-                    list_libros.get(i).getId_biblioteca(),
-                    list_libros.get(i).getId_categoria(),
-                    btnVerMas,
-                };
-                modelo.addRow(libros);
+    public void cargarTabla(ArrayList<Libro> list_libros) {
+        tbl_libros.removeAll();
+        tbl_libros.setDefaultRenderer(Object.class, new Render());
+        DefaultTableModel modelo = new DefaultTableModel() {
+            public boolean isCellEditable(int row, int column) {
+                return (column >= 0) ? false : true;
             }
-            tbl_libros.setModel(modelo);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(GestionarBiblioteca.class.getName()).log(Level.SEVERE, null, ex);
+        };
+        modelo.setColumnIdentifiers(new Object[]{"ID", "Nombre", "Descripcion",
+            "Ubicación", "Autor", "Portada", "Biblioteca", "Categoria", "Acción"});
+        JButton btnVerMas = new JButton("Ver Más");
+        btnVerMas.setName("ver_mas");
+        for (int i = 0; i < list_libros.size(); i++) {
+            //cbRol.setSelectedIndex((lstUsuarios.get(i).getRol().equals("Usuario"))?0:1);
+            
+            Object[] libros = {
+                list_libros.get(i).getId_libro(),
+                list_libros.get(i).getNombre(),
+                list_libros.get(i).getDescripcion(),
+                list_libros.get(i).getUbicacion(),
+                list_libros.get(i).getAutor(),
+                list_libros.get(i).getFoto(),
+                list_libros.get(i).getId_biblioteca(),
+                list_libros.get(i).getId_categoria(),
+                btnVerMas,
+            };
+            modelo.addRow(libros);
         }
+        tbl_libros.setModel(modelo);
 
     }
     /**
@@ -210,16 +235,19 @@ public class PaginaPrincipalUsuario extends javax.swing.JFrame {
 
         cbCategoria.setBackground(new java.awt.Color(255, 255, 255));
         cbCategoria.setForeground(new java.awt.Color(0, 0, 0));
-        cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Administrador" }));
 
         cbBiblioteca.setBackground(new java.awt.Color(255, 255, 255));
         cbBiblioteca.setForeground(new java.awt.Color(0, 0, 0));
-        cbBiblioteca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Administrador" }));
 
         btnBuscar.setBackground(new java.awt.Color(34, 167, 240));
         btnBuscar.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
+        btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarMouseClicked(evt);
+            }
+        });
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
@@ -321,13 +349,35 @@ public class PaginaPrincipalUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void tbl_librosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_librosMouseClicked
-        // TODO add your handling code here:
-        tbl_libros.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblBibliotecasMouseClicked(evt);
+        int column = tbl_libros.getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY()/tbl_libros.getRowHeight();
+        
+        if(row < tbl_libros.getRowCount() && row >= 0 &&
+                column < tbl_libros.getColumnCount() && column >= 0){
+            Object value = tbl_libros.getValueAt(row, column);
+            if(value instanceof JButton){
+                ((JButton)value).doClick();
+                JButton boton = (JButton) value;
+                
+                if(boton.getName().equals("Ver Más")){
+                    int idLibro = (int) tbl_libros.getValueAt(row, 0);
+                    
+                }
             }
-        });
+        }
     }//GEN-LAST:event_tbl_librosMouseClicked
+
+    private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
+        int idBiblioteca = Integer.parseInt(cbBiblioteca.getSelectedItem().toString().split(" ")[0]);
+        int idCategoria = Integer.parseInt(cbCategoria.getSelectedItem().toString().split(" ")[0]);
+        try {
+            ArrayList<Libro> lstLibros = new LibroDB().obtenerLibroByParameters(idBiblioteca, idCategoria, txtSearch.getText());
+            cargarTabla(lstLibros);
+        } catch (SQLException ex) {
+            Logger.getLogger(PaginaPrincipalUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_btnBuscarMouseClicked
 
     /**
      * @param args the command line arguments
