@@ -6,6 +6,7 @@
 package com.LibrarySystem.Entities;
 
 import com.LibrarySystem.Database.UsuarioDB;
+import com.LibrarySystem.GUI.Login;
 import com.LibrarySystem.GUI.PaginaPrincipalAdmin;
 import com.LibrarySystem.GUI.PaginaPrincipalUsuario;
 import java.sql.SQLException;
@@ -23,6 +24,7 @@ public class Seguridad {
     public boolean iniciar_sesion(String usuario, String password) {
         ArrayList<Usuario> lista_usuarios = new ArrayList<>();
         UsuarioDB new_session = new UsuarioDB();
+        int validador_user = 0;
         try {
             System.out.println("entrooo");
             lista_usuarios = new_session.obtenerAllUsuarios();
@@ -32,8 +34,9 @@ public class Seguridad {
 
         boolean acceso = false;
         for (int i = 0; i < lista_usuarios.size(); i++) {
-
+            System.out.println("usuario ingresado: "+ usuario + "Usuario en arreglo: "+lista_usuarios.get(i).getUser());
             if (usuario.equals(lista_usuarios.get(i).getUser())) {
+                validador_user = 1;
                 if (lista_usuarios.get(i).getPassword().equals(password)) {
                     System.out.println("correcto");
                     acceso = true;
@@ -54,15 +57,16 @@ public class Seguridad {
                     break;
                 }
                
-            } else {
+            }
+            if(lista_usuarios.size()-1 == i && validador_user == 0) {
                 acceso = false;
                 JOptionPane.showMessageDialog(null, "Este usuario no existe!");
                 System.out.println("incorrecto");
-                break;
-
+                //Login recargar = new Login();
+                //recargar.setVisible(true);
             }
         }
 
-        return true;
+        return acceso;
     }
 }

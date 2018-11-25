@@ -53,7 +53,7 @@ public class RegistroBiblioteca extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(44, 62, 80));
 
-        jPanel2.setBackground(new java.awt.Color(248, 148, 6));
+        jPanel2.setBackground(new java.awt.Color(23, 165, 137));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

@@ -106,7 +106,6 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
 
         pnlBody = new javax.swing.JPanel();
         pnlHeader = new javax.swing.JPanel();
-        lblTitulo = new javax.swing.JLabel();
         lblCerrar = new javax.swing.JLabel();
         lblMinimizar = new javax.swing.JLabel();
         lblGestionarUsuarios = new javax.swing.JLabel();
@@ -114,6 +113,10 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         lblSalir = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_libros = new javax.swing.JTable();
+        cbBiblioteca = new javax.swing.JComboBox<>();
+        cbCategoria = new javax.swing.JComboBox<>();
+        txtSearch = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -121,12 +124,6 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         pnlBody.setBackground(new java.awt.Color(52, 73, 94));
 
         pnlHeader.setBackground(new java.awt.Color(23, 165, 137));
-
-        lblTitulo.setBackground(java.awt.Color.white);
-        lblTitulo.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
-        lblTitulo.setForeground(java.awt.Color.white);
-        lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LibrarySystem/Icons/user-white.png"))); // NOI18N
-        lblTitulo.setText("Administrador");
 
         lblCerrar.setBackground(java.awt.Color.white);
         lblCerrar.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
@@ -194,10 +191,9 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
                         .addComponent(lblGestionarBibliotecas, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblSalir)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 396, Short.MAX_VALUE))
                     .addGroup(pnlHeaderLayout.createSequentialGroup()
-                        .addComponent(lblTitulo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 568, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblMinimizar)
                         .addGap(18, 18, 18)
                         .addComponent(lblCerrar)
@@ -208,7 +204,6 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
             .addGroup(pnlHeaderLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTitulo)
                     .addComponent(lblCerrar)
                     .addComponent(lblMinimizar))
                 .addGap(18, 18, 18)
@@ -238,27 +233,56 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbl_libros);
 
+        cbBiblioteca.setBackground(new java.awt.Color(255, 255, 255));
+        cbBiblioteca.setForeground(new java.awt.Color(0, 0, 0));
+        cbBiblioteca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Administrador" }));
+
+        cbCategoria.setBackground(new java.awt.Color(255, 255, 255));
+        cbCategoria.setForeground(new java.awt.Color(0, 0, 0));
+        cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Administrador" }));
+
+        btnBuscar.setBackground(new java.awt.Color(34, 167, 240));
+        btnBuscar.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlBodyLayout = new javax.swing.GroupLayout(pnlBody);
         pnlBody.setLayout(pnlBodyLayout);
         pnlBodyLayout.setHorizontalGroup(
             pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlBodyLayout.createSequentialGroup()
-                    .addGap(47, 47, 47)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
-                    .addGap(48, 48, 48)))
+            .addGroup(pnlBodyLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 844, Short.MAX_VALUE)
+                    .addGroup(pnlBodyLayout.createSequentialGroup()
+                        .addComponent(cbBiblioteca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(38, 38, 38)
+                        .addComponent(cbCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(29, 29, 29)
+                        .addComponent(txtSearch)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         pnlBodyLayout.setVerticalGroup(
             pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBodyLayout.createSequentialGroup()
                 .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(315, Short.MAX_VALUE))
-            .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlBodyLayout.createSequentialGroup()
-                    .addGap(125, 125, 125)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(120, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -315,6 +339,10 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_tbl_librosMouseClicked
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -354,15 +382,18 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JComboBox<String> cbBiblioteca;
+    private javax.swing.JComboBox<String> cbCategoria;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCerrar;
     private javax.swing.JLabel lblGestionarBibliotecas;
     private javax.swing.JLabel lblGestionarUsuarios;
     private javax.swing.JLabel lblMinimizar;
     private javax.swing.JLabel lblSalir;
-    private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlBody;
     private javax.swing.JPanel pnlHeader;
     private javax.swing.JTable tbl_libros;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
