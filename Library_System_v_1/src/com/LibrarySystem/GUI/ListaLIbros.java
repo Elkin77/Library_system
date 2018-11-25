@@ -221,7 +221,7 @@ public class ListaLIbros extends javax.swing.JFrame {
             tbl_libros.setModel(modelo);
 
         } catch (SQLException ex) {
-            Logger.getLogger(GestionBiblioteca.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ListaBibliotecas.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

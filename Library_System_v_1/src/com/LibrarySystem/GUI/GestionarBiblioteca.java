@@ -41,8 +41,13 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
         lblGestionarUsuarios = new javax.swing.JLabel();
         lblGestionarBibliotecas = new javax.swing.JLabel();
         lblSalir = new javax.swing.JLabel();
-        btnEditarEliminarUsuario = new javax.swing.JButton();
-        btnRegistrarUsuario = new javax.swing.JButton();
+        btnEditarEliminarBiblioteca = new javax.swing.JButton();
+        btnRegistrarBiblioteca = new javax.swing.JButton();
+        btnRegistrarCategoria = new javax.swing.JButton();
+        btnEditarEliminarCategoria = new javax.swing.JButton();
+        btnRegistrarLibro = new javax.swing.JButton();
+        btnEditarEliminarLibro = new javax.swing.JButton();
+        btnHistorialPrestamos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -126,7 +131,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pnlHeaderLayout.createSequentialGroup()
                         .addComponent(lblTitulo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 516, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblMinimizar)
                         .addGap(18, 18, 18)
                         .addComponent(lblCerrar)
@@ -148,23 +153,73 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnEditarEliminarUsuario.setBackground(new java.awt.Color(23, 165, 137));
-        btnEditarEliminarUsuario.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        btnEditarEliminarUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        btnEditarEliminarUsuario.setText("Ver, Editar o Eliminar Usuarios");
-        btnEditarEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
+        btnEditarEliminarBiblioteca.setBackground(new java.awt.Color(23, 165, 137));
+        btnEditarEliminarBiblioteca.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        btnEditarEliminarBiblioteca.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditarEliminarBiblioteca.setText("<html><center>Ver, Editar o Eliminar Bibliotecas</center></html>");
+        btnEditarEliminarBiblioteca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarEliminarUsuarioActionPerformed(evt);
+                btnEditarEliminarBibliotecaActionPerformed(evt);
             }
         });
 
-        btnRegistrarUsuario.setBackground(new java.awt.Color(23, 165, 137));
-        btnRegistrarUsuario.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        btnRegistrarUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegistrarUsuario.setText("Registrar Nuevo Usuario");
-        btnRegistrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrarBiblioteca.setBackground(new java.awt.Color(23, 165, 137));
+        btnRegistrarBiblioteca.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        btnRegistrarBiblioteca.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarBiblioteca.setText("<html><center>Registrar Nueva Biblioteca</center></html>");
+        btnRegistrarBiblioteca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarUsuarioActionPerformed(evt);
+                btnRegistrarBibliotecaActionPerformed(evt);
+            }
+        });
+
+        btnRegistrarCategoria.setBackground(new java.awt.Color(23, 165, 137));
+        btnRegistrarCategoria.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        btnRegistrarCategoria.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarCategoria.setText("<html><center>Registrar Nueva Categoria</center></html>");
+        btnRegistrarCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarCategoriaActionPerformed(evt);
+            }
+        });
+
+        btnEditarEliminarCategoria.setBackground(new java.awt.Color(23, 165, 137));
+        btnEditarEliminarCategoria.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        btnEditarEliminarCategoria.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditarEliminarCategoria.setText("<html><center>Ver, Editar o Eliminar Categorias</center></html>");
+        btnEditarEliminarCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarEliminarCategoriaActionPerformed(evt);
+            }
+        });
+
+        btnRegistrarLibro.setBackground(new java.awt.Color(23, 165, 137));
+        btnRegistrarLibro.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        btnRegistrarLibro.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarLibro.setText("<html><center>Registrar Nuevo Libro</center></html>");
+        btnRegistrarLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarLibroActionPerformed(evt);
+            }
+        });
+
+        btnEditarEliminarLibro.setBackground(new java.awt.Color(23, 165, 137));
+        btnEditarEliminarLibro.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        btnEditarEliminarLibro.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditarEliminarLibro.setText("<html><center>Ver, Editar o Eliminar Libros</center></html>");
+        btnEditarEliminarLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarEliminarLibroActionPerformed(evt);
+            }
+        });
+
+        btnHistorialPrestamos.setBackground(new java.awt.Color(23, 165, 137));
+        btnHistorialPrestamos.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        btnHistorialPrestamos.setForeground(new java.awt.Color(255, 255, 255));
+        btnHistorialPrestamos.setText("<html><center>Ver Historial de Prestamos</center></html>");
+        btnHistorialPrestamos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistorialPrestamosActionPerformed(evt);
             }
         });
 
@@ -173,22 +228,42 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
         pnlBodyLayout.setHorizontalGroup(
             pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBodyLayout.createSequentialGroup()
-                .addGap(115, 115, 115)
-                .addComponent(btnRegistrarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(70, 70, 70)
-                .addComponent(btnEditarEliminarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(121, 121, 121))
+            .addGroup(pnlBodyLayout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBodyLayout.createSequentialGroup()
+                        .addComponent(btnRegistrarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(80, 80, 80)
+                        .addComponent(btnEditarEliminarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(80, 80, 80)
+                        .addComponent(btnRegistrarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(pnlBodyLayout.createSequentialGroup()
+                        .addComponent(btnEditarEliminarCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                        .addGap(80, 80, 80)
+                        .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnHistorialPrestamos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(btnRegistrarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(80, 80, 80)
+                        .addComponent(btnEditarEliminarLibro, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)))
+                .addGap(113, 113, 113))
         );
         pnlBodyLayout.setVerticalGroup(
             pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBodyLayout.createSequentialGroup()
                 .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEditarEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRegistrarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnEditarEliminarBiblioteca, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                    .addComponent(btnRegistrarBiblioteca)
+                    .addComponent(btnRegistrarCategoria))
+                .addGap(67, 67, 67)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEditarEliminarCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                    .addComponent(btnRegistrarLibro)
+                    .addComponent(btnEditarEliminarLibro))
+                .addGap(67, 67, 67)
+                .addComponent(btnHistorialPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -230,17 +305,37 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lblSalirMouseClicked
 
-    private void btnEditarEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEliminarUsuarioActionPerformed
+    private void btnEditarEliminarBibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEliminarBibliotecaActionPerformed
         ListaUsuarios listaUsuarios = new ListaUsuarios();
         listaUsuarios.setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnEditarEliminarUsuarioActionPerformed
+    }//GEN-LAST:event_btnEditarEliminarBibliotecaActionPerformed
 
-    private void btnRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarUsuarioActionPerformed
+    private void btnRegistrarBibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarBibliotecaActionPerformed
         RegistroUsuario registroUsuario = new RegistroUsuario();
         registroUsuario.setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnRegistrarUsuarioActionPerformed
+    }//GEN-LAST:event_btnRegistrarBibliotecaActionPerformed
+
+    private void btnEditarEliminarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEliminarCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarEliminarCategoriaActionPerformed
+
+    private void btnRegistrarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarLibroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarLibroActionPerformed
+
+    private void btnEditarEliminarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEliminarLibroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarEliminarLibroActionPerformed
+
+    private void btnHistorialPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialPrestamosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHistorialPrestamosActionPerformed
+
+    private void btnRegistrarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarCategoriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -293,8 +388,13 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEditarEliminarUsuario;
-    private javax.swing.JButton btnRegistrarUsuario;
+    private javax.swing.JButton btnEditarEliminarBiblioteca;
+    private javax.swing.JButton btnEditarEliminarCategoria;
+    private javax.swing.JButton btnEditarEliminarLibro;
+    private javax.swing.JButton btnHistorialPrestamos;
+    private javax.swing.JButton btnRegistrarBiblioteca;
+    private javax.swing.JButton btnRegistrarCategoria;
+    private javax.swing.JButton btnRegistrarLibro;
     private javax.swing.JLabel lblCerrar;
     private javax.swing.JLabel lblGestionarBibliotecas;
     private javax.swing.JLabel lblGestionarUsuarios;
