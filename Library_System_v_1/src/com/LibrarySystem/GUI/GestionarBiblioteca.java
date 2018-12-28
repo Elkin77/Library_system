@@ -62,7 +62,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
         lblTitulo.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         lblTitulo.setForeground(java.awt.Color.white);
         lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LibrarySystem/Icons/users-white.png"))); // NOI18N
-        lblTitulo.setText("Gestionar Usuarios");
+        lblTitulo.setText("Gestionar Biblioteca");
 
         lblCerrar.setBackground(java.awt.Color.white);
         lblCerrar.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
@@ -158,6 +158,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
         btnEditarEliminarBiblioteca.setBackground(new java.awt.Color(23, 135, 137));
         btnEditarEliminarBiblioteca.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnEditarEliminarBiblioteca.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditarEliminarBiblioteca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LibrarySystem/Icons/gestionar01.png"))); // NOI18N
         btnEditarEliminarBiblioteca.setText("<html><center>Ver, Editar o Eliminar Bibliotecas</center></html>");
         btnEditarEliminarBiblioteca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,6 +169,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
         btnRegistrarBiblioteca.setBackground(new java.awt.Color(23, 135, 137));
         btnRegistrarBiblioteca.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnRegistrarBiblioteca.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarBiblioteca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LibrarySystem/Icons/biblioteca03.png"))); // NOI18N
         btnRegistrarBiblioteca.setText("<html><center>Registrar Nueva Biblioteca</center></html>");
         btnRegistrarBiblioteca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,6 +180,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
         btnRegistrarCategoria.setBackground(new java.awt.Color(23, 135, 137));
         btnRegistrarCategoria.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnRegistrarCategoria.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LibrarySystem/Icons/categoria.png"))); // NOI18N
         btnRegistrarCategoria.setText("<html><center>Registrar Nueva Categoria</center></html>");
         btnRegistrarCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,6 +191,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
         btnEditarEliminarCategoria.setBackground(new java.awt.Color(23, 135, 137));
         btnEditarEliminarCategoria.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnEditarEliminarCategoria.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditarEliminarCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LibrarySystem/Icons/gestionar02.png"))); // NOI18N
         btnEditarEliminarCategoria.setText("<html><center>Ver, Editar o Eliminar Categorias</center></html>");
         btnEditarEliminarCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,6 +202,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
         btnRegistrarLibro.setBackground(new java.awt.Color(23, 135, 137));
         btnRegistrarLibro.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnRegistrarLibro.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarLibro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LibrarySystem/Icons/icono_bibliotecas.png"))); // NOI18N
         btnRegistrarLibro.setText("<html><center>Registrar Nuevo Libro</center></html>");
         btnRegistrarLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,6 +213,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
         btnEditarEliminarLibro.setBackground(new java.awt.Color(23, 135, 137));
         btnEditarEliminarLibro.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnEditarEliminarLibro.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditarEliminarLibro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LibrarySystem/Icons/gestionar01.png"))); // NOI18N
         btnEditarEliminarLibro.setText("<html><center>Ver, Editar o Eliminar Libros</center></html>");
         btnEditarEliminarLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -218,6 +224,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
         btnHistorialPrestamos.setBackground(new java.awt.Color(23, 135, 137));
         btnHistorialPrestamos.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnHistorialPrestamos.setForeground(new java.awt.Color(255, 255, 255));
+        btnHistorialPrestamos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LibrarySystem/Icons/historial.png"))); // NOI18N
         btnHistorialPrestamos.setText("<html><center>Ver Historial de Prestamos</center></html>");
         btnHistorialPrestamos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,30 +249,30 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
                     .addComponent(btnEditarEliminarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEditarEliminarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBodyLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlBodyLayout.createSequentialGroup()
+                .addGap(335, 335, 335)
                 .addComponent(btnHistorialPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(323, 323, 323))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlBodyLayout.setVerticalGroup(
             pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBodyLayout.createSequentialGroup()
                 .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(74, 74, 74)
-                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistrarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEditarEliminarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistrarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEditarEliminarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistrarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEditarEliminarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(88, 88, 88)
-                .addComponent(btnHistorialPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(140, 140, 140))
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnRegistrarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarEliminarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnRegistrarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarEliminarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnRegistrarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarEliminarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(68, 68, 68)
+                .addComponent(btnHistorialPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(180, 180, 180))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -326,6 +333,9 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
 
     private void btnEditarEliminarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEliminarCategoriaActionPerformed
         // TODO add your handling code here:
+        EditarCategoria categoria = new EditarCategoria();
+        categoria.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnEditarEliminarCategoriaActionPerformed
 
     private void btnRegistrarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarLibroActionPerformed
@@ -337,6 +347,9 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
 
     private void btnEditarEliminarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEliminarLibroActionPerformed
         // TODO add your handling code here:
+        EditarLibro libro = new EditarLibro ();
+        libro.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnEditarEliminarLibroActionPerformed
 
     private void btnHistorialPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialPrestamosActionPerformed

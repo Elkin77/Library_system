@@ -33,141 +33,12 @@ public class ListaBibliotecas extends javax.swing.JFrame {
      * Creates new form GestionBiblioteca
      */
     public ListaBibliotecas() {
-        initComponent();
+        initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         cargarTabla();
     }
     
-    public void initComponent(){
-        pnlBody = new javax.swing.JPanel();
-        pnlHeader = new javax.swing.JPanel();
-        lblTitulo = new javax.swing.JLabel();
-        lblCerrar = new javax.swing.JLabel();
-        lblMinimizar = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblBibliotecas = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
-
-        pnlBody.setBackground(new java.awt.Color(44, 62, 80));
-
-        pnlHeader.setBackground(new java.awt.Color(248, 148, 6));
-
-        lblTitulo.setBackground(java.awt.Color.white);
-        lblTitulo.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
-        lblTitulo.setForeground(java.awt.Color.white);
-        lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LibrarySystem/Icons/users-white.png"))); // NOI18N
-        lblTitulo.setText("Gestión de Bibliotecas");
-
-        lblCerrar.setBackground(java.awt.Color.white);
-        lblCerrar.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
-        lblCerrar.setForeground(java.awt.Color.white);
-        lblCerrar.setText("X");
-        lblCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCerrarMouseClicked(evt);
-            }
-        });
-
-        lblMinimizar.setBackground(java.awt.Color.white);
-        lblMinimizar.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
-        lblMinimizar.setForeground(java.awt.Color.white);
-        lblMinimizar.setText("-");
-        lblMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblMinimizarMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
-        pnlHeader.setLayout(pnlHeaderLayout);
-        pnlHeaderLayout.setHorizontalGroup(
-            pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlHeaderLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(lblTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblMinimizar)
-                .addGap(18, 18, 18)
-                .addComponent(lblCerrar)
-                .addGap(22, 22, 22))
-        );
-        pnlHeaderLayout.setVerticalGroup(
-            pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlHeaderLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTitulo)
-                    .addComponent(lblCerrar)
-                    .addComponent(lblMinimizar))
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-
-        tblBibliotecas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "NOMBRE", "NUMERO DE LIBROS", "CODIGO DE REGISTRO", "", ""
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                true, false, true, true, true, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tblBibliotecas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblBibliotecasMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tblBibliotecas);
-
-        javax.swing.GroupLayout pnlBodyLayout = new javax.swing.GroupLayout(pnlBody);
-        pnlBody.setLayout(pnlBodyLayout);
-        pnlBodyLayout.setHorizontalGroup(
-            pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBodyLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
-                .addGap(150, 150, 150))
-        );
-        pnlBodyLayout.setVerticalGroup(
-            pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBodyLayout.createSequentialGroup()
-                .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                .addGap(303, 303, 303))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        pack();
-        
-        
-    }
     private void lblCerrarMouseClicked(java.awt.event.MouseEvent evt) {                                       
         System.exit(0);
     }                                      
@@ -296,6 +167,15 @@ public class ListaBibliotecas extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblBibliotecas = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        btn_atras1 = new javax.swing.JButton();
+        pnlHeader1 = new javax.swing.JPanel();
+        lblTitulo1 = new javax.swing.JLabel();
+        lblCerrar1 = new javax.swing.JLabel();
+        lblMinimizar1 = new javax.swing.JLabel();
+        lblGestionarUsuarios1 = new javax.swing.JLabel();
+        lblGestionarBibliotecas1 = new javax.swing.JLabel();
+        lblSalir1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -314,25 +194,198 @@ public class ListaBibliotecas extends javax.swing.JFrame {
         tblBibliotecas.setAlignmentY(1.0F);
         jScrollPane1.setViewportView(tblBibliotecas);
 
+        jPanel1.setBackground(new java.awt.Color(239, 248, 248));
+
+        btn_atras1.setText("Atras");
+        btn_atras1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_atras1ActionPerformed(evt);
+            }
+        });
+
+        pnlHeader1.setBackground(new java.awt.Color(23, 135, 137));
+        pnlHeader1.setForeground(new java.awt.Color(239, 248, 248));
+
+        lblTitulo1.setBackground(java.awt.Color.white);
+        lblTitulo1.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        lblTitulo1.setForeground(java.awt.Color.white);
+        lblTitulo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LibrarySystem/Icons/users-white.png"))); // NOI18N
+        lblTitulo1.setText("Gestionar Bibliotecas");
+
+        lblCerrar1.setBackground(java.awt.Color.white);
+        lblCerrar1.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        lblCerrar1.setForeground(java.awt.Color.white);
+        lblCerrar1.setText("X");
+        lblCerrar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCerrar1MouseClicked(evt);
+            }
+        });
+
+        lblMinimizar1.setBackground(java.awt.Color.white);
+        lblMinimizar1.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        lblMinimizar1.setForeground(java.awt.Color.white);
+        lblMinimizar1.setText("-");
+        lblMinimizar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMinimizar1MouseClicked(evt);
+            }
+        });
+
+        lblGestionarUsuarios1.setBackground(new java.awt.Color(255, 255, 255));
+        lblGestionarUsuarios1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        lblGestionarUsuarios1.setForeground(new java.awt.Color(255, 255, 255));
+        lblGestionarUsuarios1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblGestionarUsuarios1.setText("Gestionar Usuarios");
+        lblGestionarUsuarios1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblGestionarUsuarios1MouseClicked(evt);
+            }
+        });
+
+        lblGestionarBibliotecas1.setBackground(new java.awt.Color(255, 255, 255));
+        lblGestionarBibliotecas1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        lblGestionarBibliotecas1.setForeground(new java.awt.Color(255, 255, 255));
+        lblGestionarBibliotecas1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblGestionarBibliotecas1.setText("Gestionar Bibliotecas");
+        lblGestionarBibliotecas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblGestionarBibliotecas1MouseClicked(evt);
+            }
+        });
+
+        lblSalir1.setBackground(new java.awt.Color(255, 255, 255));
+        lblSalir1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        lblSalir1.setForeground(new java.awt.Color(255, 255, 255));
+        lblSalir1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSalir1.setText("Salir");
+        lblSalir1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSalir1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlHeader1Layout = new javax.swing.GroupLayout(pnlHeader1);
+        pnlHeader1.setLayout(pnlHeader1Layout);
+        pnlHeader1Layout.setHorizontalGroup(
+            pnlHeader1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHeader1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(pnlHeader1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlHeader1Layout.createSequentialGroup()
+                        .addComponent(lblGestionarUsuarios1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblGestionarBibliotecas1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblSalir1)
+                        .addGap(0, 437, Short.MAX_VALUE))
+                    .addGroup(pnlHeader1Layout.createSequentialGroup()
+                        .addComponent(lblTitulo1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblMinimizar1)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblCerrar1)
+                        .addGap(22, 22, 22))))
+        );
+        pnlHeader1Layout.setVerticalGroup(
+            pnlHeader1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHeader1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(pnlHeader1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTitulo1)
+                    .addComponent(lblCerrar1)
+                    .addComponent(lblMinimizar1))
+                .addGap(18, 18, 18)
+                .addGroup(pnlHeader1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblGestionarUsuarios1)
+                    .addComponent(lblGestionarBibliotecas1)
+                    .addComponent(lblSalir1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(pnlHeader1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(btn_atras1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(pnlHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_atras1)
+                .addContainerGap(507, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 891, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(95, 95, 95)
+                .addGap(209, 209, 209)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(271, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_atras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atras1ActionPerformed
+        // TODO add your handling code here:
+        GestionarBiblioteca gestionar = new GestionarBiblioteca();
+        gestionar.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_atras1ActionPerformed
+
+    private void lblCerrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrar1MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_lblCerrar1MouseClicked
+
+    private void lblMinimizar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizar1MouseClicked
+        this.setState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_lblMinimizar1MouseClicked
+
+    private void lblGestionarUsuarios1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuarios1MouseClicked
+        GestionarUsuarios gestionarUsuario = new GestionarUsuarios();
+        gestionarUsuario.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblGestionarUsuarios1MouseClicked
+
+    private void lblGestionarBibliotecas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarBibliotecas1MouseClicked
+        // TODO add your handling code here:
+        GestionarBiblioteca gestionar = new GestionarBiblioteca();
+        gestionar.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblGestionarBibliotecas1MouseClicked
+
+    private void lblSalir1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalir1MouseClicked
+        int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Alerta!", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+        if(resp == 0){
+            Login login = new Login();
+            login.setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_lblSalir1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -371,7 +424,16 @@ public class ListaBibliotecas extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_atras1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCerrar1;
+    private javax.swing.JLabel lblGestionarBibliotecas1;
+    private javax.swing.JLabel lblGestionarUsuarios1;
+    private javax.swing.JLabel lblMinimizar1;
+    private javax.swing.JLabel lblSalir1;
+    private javax.swing.JLabel lblTitulo1;
+    private javax.swing.JPanel pnlHeader1;
     private javax.swing.JTable tblBibliotecas;
     // End of variables declaration//GEN-END:variables
     private javax.swing.JPanel pnlBody;

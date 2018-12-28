@@ -70,10 +70,10 @@
                   </Group>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="335" max="-2" attributes="0"/>
                   <Component id="btnHistorialPrestamos" min="-2" pref="326" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="323" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -82,23 +82,23 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="pnlHeader" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnRegistrarBiblioteca" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
-                      <Component id="btnEditarEliminarBiblioteca" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="btnRegistrarBiblioteca" min="-2" pref="85" max="-2" attributes="0"/>
+                      <Component id="btnEditarEliminarBiblioteca" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="45" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnRegistrarCategoria" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="btnEditarEliminarCategoria" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="btnRegistrarCategoria" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="btnEditarEliminarCategoria" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="72" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnRegistrarLibro" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
-                      <Component id="btnEditarEliminarLibro" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="btnRegistrarLibro" min="-2" pref="79" max="-2" attributes="0"/>
+                      <Component id="btnEditarEliminarLibro" min="-2" pref="79" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-                  <Component id="btnHistorialPrestamos" min="-2" pref="52" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                  <Component id="btnHistorialPrestamos" min="-2" pref="87" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -175,7 +175,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/com/LibrarySystem/Icons/users-white.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Gestionar Usuarios"/>
+                <Property name="text" type="java.lang.String" value="Gestionar Biblioteca"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblCerrar">
@@ -279,6 +279,9 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/com/LibrarySystem/Icons/gestionar01.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;Ver, Editar o Eliminar Bibliotecas&lt;/center&gt;&lt;/html&gt;"/>
           </Properties>
           <Events>
@@ -295,6 +298,9 @@
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/com/LibrarySystem/Icons/biblioteca03.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;Registrar Nueva Biblioteca&lt;/center&gt;&lt;/html&gt;"/>
           </Properties>
@@ -313,6 +319,9 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/com/LibrarySystem/Icons/categoria.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;Registrar Nueva Categoria&lt;/center&gt;&lt;/html&gt;"/>
           </Properties>
           <Events>
@@ -329,6 +338,9 @@
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/com/LibrarySystem/Icons/gestionar02.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;Ver, Editar o Eliminar Categorias&lt;/center&gt;&lt;/html&gt;"/>
           </Properties>
@@ -347,6 +359,9 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/com/LibrarySystem/Icons/icono_bibliotecas.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;Registrar Nuevo Libro&lt;/center&gt;&lt;/html&gt;"/>
           </Properties>
           <Events>
@@ -364,6 +379,9 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/com/LibrarySystem/Icons/gestionar01.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;Ver, Editar o Eliminar Libros&lt;/center&gt;&lt;/html&gt;"/>
           </Properties>
           <Events>
@@ -380,6 +398,9 @@
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/com/LibrarySystem/Icons/historial.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;Ver Historial de Prestamos&lt;/center&gt;&lt;/html&gt;"/>
           </Properties>
