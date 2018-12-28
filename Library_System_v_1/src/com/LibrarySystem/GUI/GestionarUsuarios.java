@@ -43,13 +43,15 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         lblSalir = new javax.swing.JLabel();
         btnEditarEliminarUsuario = new javax.swing.JButton();
         btnRegistrarUsuario = new javax.swing.JButton();
+        lblGestionarUsuarios1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        pnlBody.setBackground(new java.awt.Color(52, 73, 94));
+        pnlBody.setBackground(new java.awt.Color(248, 248, 248));
+        pnlBody.setForeground(new java.awt.Color(23, 135, 137));
 
-        pnlHeader.setBackground(new java.awt.Color(23, 165, 137));
+        pnlHeader.setBackground(new java.awt.Color(23, 135, 137));
 
         lblTitulo.setBackground(java.awt.Color.white);
         lblTitulo.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
@@ -148,7 +150,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnEditarEliminarUsuario.setBackground(new java.awt.Color(23, 165, 137));
+        btnEditarEliminarUsuario.setBackground(new java.awt.Color(23, 135, 137));
         btnEditarEliminarUsuario.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnEditarEliminarUsuario.setForeground(new java.awt.Color(255, 255, 255));
         btnEditarEliminarUsuario.setText("Ver, Editar o Eliminar Usuarios");
@@ -158,13 +160,25 @@ public class GestionarUsuarios extends javax.swing.JFrame {
             }
         });
 
-        btnRegistrarUsuario.setBackground(new java.awt.Color(23, 165, 137));
+        btnRegistrarUsuario.setBackground(new java.awt.Color(23, 135, 137));
         btnRegistrarUsuario.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnRegistrarUsuario.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarUsuario.setText("Registrar Nuevo Usuario");
         btnRegistrarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarUsuarioActionPerformed(evt);
+            }
+        });
+
+        lblGestionarUsuarios1.setBackground(new java.awt.Color(23, 135, 137));
+        lblGestionarUsuarios1.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        lblGestionarUsuarios1.setForeground(new java.awt.Color(23, 135, 137));
+        lblGestionarUsuarios1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblGestionarUsuarios1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LibrarySystem/Icons/back-white.png"))); // NOI18N
+        lblGestionarUsuarios1.setText("Atras");
+        lblGestionarUsuarios1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblGestionarUsuarios1MouseClicked(evt);
             }
         });
 
@@ -179,12 +193,18 @@ public class GestionarUsuarios extends javax.swing.JFrame {
                 .addGap(70, 70, 70)
                 .addComponent(btnEditarEliminarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(121, 121, 121))
+            .addGroup(pnlBodyLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblGestionarUsuarios1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlBodyLayout.setVerticalGroup(
             pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBodyLayout.createSequentialGroup()
                 .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblGestionarUsuarios1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEditarEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRegistrarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -214,11 +234,16 @@ public class GestionarUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_lblMinimizarMouseClicked
 
     private void lblGestionarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuariosMouseClicked
-        
+        GestionarUsuarios gestionarUsuario = new GestionarUsuarios();
+        gestionarUsuario.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblGestionarUsuariosMouseClicked
 
     private void lblGestionarBibliotecasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarBibliotecasMouseClicked
         // TODO add your handling code here:
+        GestionarBiblioteca gestionar = new GestionarBiblioteca();
+        gestionar.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblGestionarBibliotecasMouseClicked
 
     private void lblSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseClicked
@@ -241,6 +266,12 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         registroUsuario.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnRegistrarUsuarioActionPerformed
+
+    private void lblGestionarUsuarios1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuarios1MouseClicked
+        PaginaPrincipalAdmin atras = new PaginaPrincipalAdmin();
+        atras.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblGestionarUsuarios1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -290,6 +321,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel lblCerrar;
     private javax.swing.JLabel lblGestionarBibliotecas;
     private javax.swing.JLabel lblGestionarUsuarios;
+    private javax.swing.JLabel lblGestionarUsuarios1;
     private javax.swing.JLabel lblMinimizar;
     private javax.swing.JLabel lblSalir;
     private javax.swing.JLabel lblTitulo;

@@ -24,12 +24,19 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlBody" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="pnlBody" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlBody" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="pnlBody" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -37,7 +44,10 @@
     <Container class="javax.swing.JPanel" name="pnlBody">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="5e" green="49" red="34" type="rgb"/>
+          <Color blue="f8" green="f8" red="ef" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="f8" green="f8" red="ef" type="rgb"/>
         </Property>
       </Properties>
 
@@ -45,28 +55,25 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="pnlHeader" alignment="1" max="32767" attributes="0"/>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="btnRegistrarBiblioteca" pref="0" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                          <Component id="btnEditarEliminarBiblioteca" pref="0" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                          <Component id="btnRegistrarCategoria" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="btnEditarEliminarCategoria" pref="170" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnHistorialPrestamos" alignment="1" pref="170" max="32767" attributes="0"/>
-                              <Component id="btnRegistrarLibro" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                          <Component id="btnEditarEliminarLibro" pref="170" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="btnRegistrarCategoria" min="-2" pref="326" max="-2" attributes="0"/>
+                      <Component id="btnRegistrarBiblioteca" min="-2" pref="326" max="-2" attributes="0"/>
+                      <Component id="btnRegistrarLibro" min="-2" pref="326" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
+                  <EmptySpace pref="298" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btnEditarEliminarCategoria" min="-2" pref="326" max="-2" attributes="0"/>
+                      <Component id="btnEditarEliminarBiblioteca" min="-2" pref="326" max="-2" attributes="0"/>
+                      <Component id="btnEditarEliminarLibro" min="-2" pref="326" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="btnHistorialPrestamos" min="-2" pref="326" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="323" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -74,21 +81,24 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="pnlHeader" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="btnEditarEliminarBiblioteca" pref="130" max="32767" attributes="0"/>
-                      <Component id="btnRegistrarBiblioteca" max="32767" attributes="0"/>
-                      <Component id="btnRegistrarCategoria" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnRegistrarBiblioteca" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="btnEditarEliminarBiblioteca" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnEditarEliminarCategoria" pref="131" max="32767" attributes="0"/>
-                      <Component id="btnRegistrarLibro" max="32767" attributes="0"/>
-                      <Component id="btnEditarEliminarLibro" alignment="0" max="32767" attributes="0"/>
+                  <EmptySpace pref="45" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnRegistrarCategoria" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btnEditarEliminarCategoria" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                  <Component id="btnHistorialPrestamos" min="-2" pref="125" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                  <EmptySpace pref="72" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnRegistrarLibro" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="btnEditarEliminarLibro" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                  <Component id="btnHistorialPrestamos" min="-2" pref="52" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -97,7 +107,10 @@
         <Container class="javax.swing.JPanel" name="pnlHeader">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="89" green="a5" red="17" type="rgb"/>
+              <Color blue="89" green="87" red="17" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f8" green="f8" red="ef" type="rgb"/>
             </Property>
           </Properties>
 
@@ -258,7 +271,7 @@
         <Component class="javax.swing.JButton" name="btnEditarEliminarBiblioteca">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="89" green="a5" red="17" type="rgb"/>
+              <Color blue="89" green="87" red="17" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ubuntu" size="18" style="1"/>
@@ -275,7 +288,7 @@
         <Component class="javax.swing.JButton" name="btnRegistrarBiblioteca">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="89" green="a5" red="17" type="rgb"/>
+              <Color blue="89" green="87" red="17" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ubuntu" size="18" style="1"/>
@@ -292,7 +305,7 @@
         <Component class="javax.swing.JButton" name="btnRegistrarCategoria">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="89" green="a5" red="17" type="rgb"/>
+              <Color blue="89" green="87" red="17" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ubuntu" size="18" style="1"/>
@@ -309,7 +322,7 @@
         <Component class="javax.swing.JButton" name="btnEditarEliminarCategoria">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="89" green="a5" red="17" type="rgb"/>
+              <Color blue="89" green="87" red="17" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ubuntu" size="18" style="1"/>
@@ -326,7 +339,7 @@
         <Component class="javax.swing.JButton" name="btnRegistrarLibro">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="89" green="a5" red="17" type="rgb"/>
+              <Color blue="89" green="87" red="17" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ubuntu" size="18" style="1"/>
@@ -343,7 +356,7 @@
         <Component class="javax.swing.JButton" name="btnEditarEliminarLibro">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="89" green="a5" red="17" type="rgb"/>
+              <Color blue="89" green="87" red="17" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ubuntu" size="18" style="1"/>
@@ -360,7 +373,7 @@
         <Component class="javax.swing.JButton" name="btnHistorialPrestamos">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="89" green="a5" red="17" type="rgb"/>
+              <Color blue="89" green="87" red="17" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ubuntu" size="18" style="1"/>

@@ -122,9 +122,9 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        pnlBody.setBackground(new java.awt.Color(52, 73, 94));
+        pnlBody.setBackground(new java.awt.Color(239, 248, 248));
 
-        pnlHeader.setBackground(new java.awt.Color(23, 165, 137));
+        pnlHeader.setBackground(new java.awt.Color(23, 135, 137));
 
         lblCerrar.setBackground(java.awt.Color.white);
         lblCerrar.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
@@ -220,10 +220,12 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
                     .addComponent(lblGestionarUsuarios)
                     .addComponent(lblGestionarBibliotecas)
                     .addComponent(lblSalir))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
+        tbl_libros.setBackground(new java.awt.Color(239, 248, 248));
         tbl_libros.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tbl_libros.setForeground(new java.awt.Color(23, 135, 137));
         tbl_libros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -235,6 +237,9 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbl_libros.setGridColor(new java.awt.Color(23, 135, 137));
+        tbl_libros.setSelectionBackground(new java.awt.Color(23, 135, 137));
+        tbl_libros.setSelectionForeground(new java.awt.Color(239, 248, 248));
         tbl_libros.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbl_librosMouseClicked(evt);
@@ -250,7 +255,7 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         cbCategoria.setForeground(new java.awt.Color(0, 0, 0));
         cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Administrador" }));
 
-        btnBuscar.setBackground(new java.awt.Color(34, 167, 240));
+        btnBuscar.setBackground(new java.awt.Color(23, 135, 137));
         btnBuscar.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
@@ -287,7 +292,7 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         pnlBodyLayout.setVerticalGroup(
             pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBodyLayout.createSequentialGroup()
-                .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -323,7 +328,9 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_lblMinimizarMouseClicked
 
     private void lblGestionarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuariosMouseClicked
-        
+        GestionarUsuarios gestionarUsuario = new GestionarUsuarios();
+        gestionarUsuario.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblGestionarUsuariosMouseClicked
 
     private void lblGestionarBibliotecasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarBibliotecasMouseClicked
@@ -331,7 +338,7 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         
             GestionarBiblioteca gestionar = new GestionarBiblioteca();
             gestionar.setVisible(true);
-            dispose();
+            this.dispose();
         
     }//GEN-LAST:event_lblGestionarBibliotecasMouseClicked
 
@@ -340,7 +347,7 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         if(resp == 0){
             Login login = new Login();
             login.setVisible(true);
-            dispose();
+            this.dispose();
         }
     }//GEN-LAST:event_lblSalirMouseClicked
 

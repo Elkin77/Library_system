@@ -60,9 +60,9 @@ public class ListaUsuarios extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        pnlBody.setBackground(new java.awt.Color(44, 62, 80));
+        pnlBody.setBackground(new java.awt.Color(239, 248, 248));
 
-        pnlHeader.setBackground(new java.awt.Color(23, 165, 137));
+        pnlHeader.setBackground(new java.awt.Color(23, 135, 137));
 
         lblTitulo.setBackground(java.awt.Color.white);
         lblTitulo.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
@@ -161,9 +161,9 @@ public class ListaUsuarios extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tblUsuarios.setBackground(new java.awt.Color(23, 165, 137));
+        tblUsuarios.setBackground(new java.awt.Color(239, 248, 248));
         tblUsuarios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tblUsuarios.setForeground(new java.awt.Color(255, 255, 255));
+        tblUsuarios.setForeground(new java.awt.Color(23, 135, 137));
         tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -188,6 +188,8 @@ public class ListaUsuarios extends javax.swing.JFrame {
             }
         });
         tblUsuarios.setGridColor(new java.awt.Color(23, 165, 137));
+        tblUsuarios.setSelectionBackground(new java.awt.Color(23, 135, 137));
+        tblUsuarios.setSelectionForeground(new java.awt.Color(239, 248, 248));
         tblUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblUsuariosMouseClicked(evt);
@@ -195,9 +197,9 @@ public class ListaUsuarios extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblUsuarios);
 
-        lblGestionarUsuarios1.setBackground(new java.awt.Color(255, 255, 255));
+        lblGestionarUsuarios1.setBackground(new java.awt.Color(23, 135, 137));
         lblGestionarUsuarios1.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        lblGestionarUsuarios1.setForeground(new java.awt.Color(255, 255, 255));
+        lblGestionarUsuarios1.setForeground(new java.awt.Color(23, 135, 137));
         lblGestionarUsuarios1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblGestionarUsuarios1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LibrarySystem/Icons/back-white.png"))); // NOI18N
         lblGestionarUsuarios1.setText("Atras");
@@ -325,11 +327,16 @@ public class ListaUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_tblUsuariosMouseClicked
 
     private void lblGestionarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuariosMouseClicked
-
+        GestionarUsuarios gestionarUsuario = new GestionarUsuarios();
+        gestionarUsuario.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblGestionarUsuariosMouseClicked
 
     private void lblGestionarBibliotecasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarBibliotecasMouseClicked
         // TODO add your handling code here:
+        GestionarBiblioteca gestionar = new GestionarBiblioteca();
+        gestionar.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblGestionarBibliotecasMouseClicked
 
     private void lblSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseClicked
@@ -343,6 +350,9 @@ public class ListaUsuarios extends javax.swing.JFrame {
 
     private void lblGestionarUsuarios1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuarios1MouseClicked
         // TODO add your handling code here:
+        GestionarUsuarios atras = new GestionarUsuarios();
+        atras.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblGestionarUsuarios1MouseClicked
 
     private void cargarDatos(){

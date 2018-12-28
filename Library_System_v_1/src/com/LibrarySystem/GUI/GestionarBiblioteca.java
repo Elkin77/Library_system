@@ -52,9 +52,11 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        pnlBody.setBackground(new java.awt.Color(52, 73, 94));
+        pnlBody.setBackground(new java.awt.Color(239, 248, 248));
+        pnlBody.setForeground(new java.awt.Color(239, 248, 248));
 
-        pnlHeader.setBackground(new java.awt.Color(23, 165, 137));
+        pnlHeader.setBackground(new java.awt.Color(23, 135, 137));
+        pnlHeader.setForeground(new java.awt.Color(239, 248, 248));
 
         lblTitulo.setBackground(java.awt.Color.white);
         lblTitulo.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
@@ -153,7 +155,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnEditarEliminarBiblioteca.setBackground(new java.awt.Color(23, 165, 137));
+        btnEditarEliminarBiblioteca.setBackground(new java.awt.Color(23, 135, 137));
         btnEditarEliminarBiblioteca.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnEditarEliminarBiblioteca.setForeground(new java.awt.Color(255, 255, 255));
         btnEditarEliminarBiblioteca.setText("<html><center>Ver, Editar o Eliminar Bibliotecas</center></html>");
@@ -163,7 +165,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
             }
         });
 
-        btnRegistrarBiblioteca.setBackground(new java.awt.Color(23, 165, 137));
+        btnRegistrarBiblioteca.setBackground(new java.awt.Color(23, 135, 137));
         btnRegistrarBiblioteca.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnRegistrarBiblioteca.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarBiblioteca.setText("<html><center>Registrar Nueva Biblioteca</center></html>");
@@ -173,7 +175,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
             }
         });
 
-        btnRegistrarCategoria.setBackground(new java.awt.Color(23, 165, 137));
+        btnRegistrarCategoria.setBackground(new java.awt.Color(23, 135, 137));
         btnRegistrarCategoria.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnRegistrarCategoria.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarCategoria.setText("<html><center>Registrar Nueva Categoria</center></html>");
@@ -183,7 +185,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
             }
         });
 
-        btnEditarEliminarCategoria.setBackground(new java.awt.Color(23, 165, 137));
+        btnEditarEliminarCategoria.setBackground(new java.awt.Color(23, 135, 137));
         btnEditarEliminarCategoria.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnEditarEliminarCategoria.setForeground(new java.awt.Color(255, 255, 255));
         btnEditarEliminarCategoria.setText("<html><center>Ver, Editar o Eliminar Categorias</center></html>");
@@ -193,7 +195,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
             }
         });
 
-        btnRegistrarLibro.setBackground(new java.awt.Color(23, 165, 137));
+        btnRegistrarLibro.setBackground(new java.awt.Color(23, 135, 137));
         btnRegistrarLibro.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnRegistrarLibro.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarLibro.setText("<html><center>Registrar Nuevo Libro</center></html>");
@@ -203,7 +205,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
             }
         });
 
-        btnEditarEliminarLibro.setBackground(new java.awt.Color(23, 165, 137));
+        btnEditarEliminarLibro.setBackground(new java.awt.Color(23, 135, 137));
         btnEditarEliminarLibro.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnEditarEliminarLibro.setForeground(new java.awt.Color(255, 255, 255));
         btnEditarEliminarLibro.setText("<html><center>Ver, Editar o Eliminar Libros</center></html>");
@@ -213,7 +215,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
             }
         });
 
-        btnHistorialPrestamos.setBackground(new java.awt.Color(23, 165, 137));
+        btnHistorialPrestamos.setBackground(new java.awt.Color(23, 135, 137));
         btnHistorialPrestamos.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnHistorialPrestamos.setForeground(new java.awt.Color(255, 255, 255));
         btnHistorialPrestamos.setText("<html><center>Ver Historial de Prestamos</center></html>");
@@ -228,53 +230,58 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
         pnlBodyLayout.setHorizontalGroup(
             pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(pnlBodyLayout.createSequentialGroup()
-                .addGap(83, 83, 83)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBodyLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlBodyLayout.createSequentialGroup()
-                        .addComponent(btnRegistrarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(80, 80, 80)
-                        .addComponent(btnEditarEliminarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(80, 80, 80)
-                        .addComponent(btnRegistrarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addGroup(pnlBodyLayout.createSequentialGroup()
-                        .addComponent(btnEditarEliminarCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                        .addGap(80, 80, 80)
-                        .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnHistorialPrestamos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(btnRegistrarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addGap(80, 80, 80)
-                        .addComponent(btnEditarEliminarLibro, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)))
-                .addGap(113, 113, 113))
+                    .addComponent(btnRegistrarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegistrarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegistrarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEditarEliminarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarEliminarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarEliminarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBodyLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnHistorialPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(323, 323, 323))
         );
         pnlBodyLayout.setVerticalGroup(
             pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBodyLayout.createSequentialGroup()
                 .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnEditarEliminarBiblioteca, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                    .addComponent(btnRegistrarBiblioteca)
-                    .addComponent(btnRegistrarCategoria))
-                .addGap(67, 67, 67)
-                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEditarEliminarCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                    .addComponent(btnRegistrarLibro)
-                    .addComponent(btnEditarEliminarLibro))
-                .addGap(67, 67, 67)
-                .addComponent(btnHistorialPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80))
+                .addGap(74, 74, 74)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistrarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarEliminarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistrarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarEliminarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistrarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarEliminarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(88, 88, 88)
+                .addComponent(btnHistorialPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(140, 140, 140))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -306,15 +313,15 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
     }//GEN-LAST:event_lblSalirMouseClicked
 
     private void btnEditarEliminarBibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEliminarBibliotecaActionPerformed
-        ListaUsuarios listaUsuarios = new ListaUsuarios();
-        listaUsuarios.setVisible(true);
-        dispose();
+        ListaBibliotecas listaBibliotecas = new ListaBibliotecas();
+        listaBibliotecas.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnEditarEliminarBibliotecaActionPerformed
 
     private void btnRegistrarBibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarBibliotecaActionPerformed
-        RegistroUsuario registroUsuario = new RegistroUsuario();
-        registroUsuario.setVisible(true);
-        dispose();
+        RegistroBiblioteca nuevaBiblioteca = new RegistroBiblioteca();
+        nuevaBiblioteca.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnRegistrarBibliotecaActionPerformed
 
     private void btnEditarEliminarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEliminarCategoriaActionPerformed
@@ -323,6 +330,9 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
 
     private void btnRegistrarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarLibroActionPerformed
         // TODO add your handling code here:
+        RegistroLibro nuevoLibro = new RegistroLibro();
+        nuevoLibro.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnRegistrarLibroActionPerformed
 
     private void btnEditarEliminarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEliminarLibroActionPerformed
@@ -335,6 +345,9 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
 
     private void btnRegistrarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarCategoriaActionPerformed
         // TODO add your handling code here:
+        RegistroCategoria nuevaCategoria = new RegistroCategoria();
+        nuevaCategoria.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnRegistrarCategoriaActionPerformed
 
     /**

@@ -62,9 +62,10 @@ public class RegistroUsuario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        pnlBody.setBackground(new java.awt.Color(44, 62, 80));
+        pnlBody.setBackground(new java.awt.Color(239, 248, 248));
+        pnlBody.setForeground(new java.awt.Color(23, 135, 137));
 
-        pnlHeader.setBackground(new java.awt.Color(23, 165, 137));
+        pnlHeader.setBackground(new java.awt.Color(23, 135, 137));
 
         lblTitulo.setBackground(java.awt.Color.white);
         lblTitulo.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
@@ -141,7 +142,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnlHeaderLayout.createSequentialGroup()
                         .addComponent(lblTitulo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 531, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblMinimizar)
                         .addGap(18, 18, 18)
                         .addComponent(lblCerrar)
@@ -163,25 +164,26 @@ public class RegistroUsuario extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnGuardar.setBackground(new java.awt.Color(34, 167, 240));
+        btnGuardar.setBackground(new java.awt.Color(23, 135, 137));
         btnGuardar.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuardar.setText("Ingresar");
+        btnGuardar.setText("Registrar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
 
+        lblNombre.setBackground(new java.awt.Color(23, 135, 137));
         lblNombre.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(236, 240, 241));
+        lblNombre.setForeground(new java.awt.Color(23, 165, 137));
         lblNombre.setText("Nombre:");
 
         txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setForeground(new java.awt.Color(0, 0, 0));
 
         lblUser.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        lblUser.setForeground(new java.awt.Color(236, 240, 241));
+        lblUser.setForeground(new java.awt.Color(23, 135, 137));
         lblUser.setText("Usuario:");
 
         txtUser.setBackground(new java.awt.Color(255, 255, 255));
@@ -193,22 +195,23 @@ public class RegistroUsuario extends javax.swing.JFrame {
         });
 
         lblPassword.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        lblPassword.setForeground(new java.awt.Color(236, 240, 241));
+        lblPassword.setForeground(new java.awt.Color(23, 135, 137));
         lblPassword.setText("Contraseña:");
 
+        lblPassword2.setBackground(new java.awt.Color(23, 63, 65));
         lblPassword2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        lblPassword2.setForeground(new java.awt.Color(236, 240, 241));
-        lblPassword2.setText("<html>Vuelve a escribir la Contraseña:</html>");
+        lblPassword2.setForeground(new java.awt.Color(23, 135, 137));
+        lblPassword2.setText("Vuelve a escribir la Contraseña:");
 
         lblComunidad.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        lblComunidad.setForeground(new java.awt.Color(236, 240, 241));
+        lblComunidad.setForeground(new java.awt.Color(23, 135, 137));
         lblComunidad.setText("Comunidad:");
 
         txtComunidad.setBackground(new java.awt.Color(255, 255, 255));
         txtComunidad.setForeground(new java.awt.Color(0, 0, 0));
 
         lblComunidad1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        lblComunidad1.setForeground(new java.awt.Color(236, 240, 241));
+        lblComunidad1.setForeground(new java.awt.Color(23, 135, 137));
         lblComunidad1.setText("Rol:");
 
         cbRol.setBackground(new java.awt.Color(255, 255, 255));
@@ -226,9 +229,9 @@ public class RegistroUsuario extends javax.swing.JFrame {
             }
         });
 
-        lblGestionarUsuarios1.setBackground(new java.awt.Color(255, 255, 255));
+        lblGestionarUsuarios1.setBackground(new java.awt.Color(23, 135, 137));
         lblGestionarUsuarios1.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        lblGestionarUsuarios1.setForeground(new java.awt.Color(255, 255, 255));
+        lblGestionarUsuarios1.setForeground(new java.awt.Color(23, 135, 137));
         lblGestionarUsuarios1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblGestionarUsuarios1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LibrarySystem/Icons/back-white.png"))); // NOI18N
         lblGestionarUsuarios1.setText("Atras");
@@ -244,39 +247,41 @@ public class RegistroUsuario extends javax.swing.JFrame {
             pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlBodyLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBodyLayout.createSequentialGroup()
-                            .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblNombre)
-                                .addComponent(lblUser)
-                                .addComponent(lblPassword))
-                            .addGap(44, 44, 44))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBodyLayout.createSequentialGroup()
-                            .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblComunidad)
-                                .addComponent(lblPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                    .addGroup(pnlBodyLayout.createSequentialGroup()
-                        .addComponent(lblComunidad1)
-                        .addGap(116, 116, 116)))
-                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cbRol, 0, 470, Short.MAX_VALUE)
-                    .addComponent(txtNombre)
-                    .addComponent(txtUser)
-                    .addComponent(txtPassword)
-                    .addComponent(txtPassword2)
-                    .addComponent(txtComunidad))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(pnlBodyLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblGestionarUsuarios1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBodyLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnlBodyLayout.createSequentialGroup()
+                .addContainerGap(161, Short.MAX_VALUE)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBodyLayout.createSequentialGroup()
+                        .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblUser)
+                            .addComponent(lblNombre))
+                        .addGap(108, 108, 108)
+                        .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBodyLayout.createSequentialGroup()
+                            .addComponent(lblPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(1, 1, 1))
+                        .addGroup(pnlBodyLayout.createSequentialGroup()
+                            .addComponent(lblPassword)
+                            .addGap(77, 77, 77)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnlBodyLayout.createSequentialGroup()
+                            .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblComunidad)
+                                .addComponent(lblComunidad1))
+                            .addGap(77, 77, 77)
+                            .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtComunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbRol, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(196, Short.MAX_VALUE))
         );
         pnlBodyLayout.setVerticalGroup(
             pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,48 +289,45 @@ public class RegistroUsuario extends javax.swing.JFrame {
                 .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblGestionarUsuarios1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(58, 58, 58)
                 .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombre)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUser)
-                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassword)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNombre))
+                .addGap(31, 31, 31)
                 .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPassword2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBodyLayout.createSequentialGroup()
-                        .addComponent(txtPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                    .addComponent(lblUser)
+                    .addGroup(pnlBodyLayout.createSequentialGroup()
+                        .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPassword))))
+                .addGap(33, 33, 33)
                 .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblComunidad)
-                    .addComponent(txtComunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                    .addComponent(txtPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPassword2))
+                .addGap(18, 18, 18)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtComunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblComunidad))
+                .addGap(30, 30, 30)
                 .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbRol, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblComunidad1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGap(61, 61, 61)
                 .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(103, 103, 103))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlBody, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(pnlBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -341,8 +343,14 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         try{
-            Usuario usuario = new Usuario
-            (
+            if (txtNombre.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Debe registrar nombre.");
+            }else if (txtUser.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Debe ingresar usuario.");
+            }else if(txtPassword.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Debe ingresar contraseña.");
+            }else{
+                Usuario usuario = new Usuario(
                 txtNombre.getText(),
                 txtUser.getText(),
                 txtPassword.getText(),
@@ -353,7 +361,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
             usuarioDB.insertarUsuario(usuario);
             
             JOptionPane.showMessageDialog(null, "Usuario registrado correctamente");
-            
+            }
         }catch (SQLException ex) {
                 Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -375,12 +383,11 @@ public class RegistroUsuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtUserFocusLost
 
-    private void lblGestionarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuariosMouseClicked
-
-    }//GEN-LAST:event_lblGestionarUsuariosMouseClicked
-
     private void lblGestionarBibliotecasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarBibliotecasMouseClicked
         // TODO add your handling code here:
+        GestionarBiblioteca gestionar = new GestionarBiblioteca();
+        gestionar.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblGestionarBibliotecasMouseClicked
 
     private void lblSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseClicked
@@ -393,7 +400,9 @@ public class RegistroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_lblSalirMouseClicked
 
     private void lblGestionarUsuarios1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuarios1MouseClicked
-        // TODO add your handling code here:
+       GestionarUsuarios atras = new GestionarUsuarios();
+       atras.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_lblGestionarUsuarios1MouseClicked
 
     private void txtPassword2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPassword2FocusLost
@@ -404,6 +413,12 @@ public class RegistroUsuario extends javax.swing.JFrame {
             btnGuardar.setEnabled(false);
         }
     }//GEN-LAST:event_txtPassword2FocusLost
+
+    private void lblGestionarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuariosMouseClicked
+        GestionarUsuarios gestionarUsuario = new GestionarUsuarios();
+        gestionarUsuario.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblGestionarUsuariosMouseClicked
 
     /**
      * @param args the command line arguments

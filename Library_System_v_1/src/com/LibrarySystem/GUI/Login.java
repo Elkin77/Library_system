@@ -46,9 +46,9 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        pnlBody.setBackground(new java.awt.Color(52, 73, 94));
+        pnlBody.setBackground(new java.awt.Color(239, 248, 248));
 
-        pnlHeader.setBackground(new java.awt.Color(23, 165, 137));
+        pnlHeader.setBackground(new java.awt.Color(23, 135, 137));
 
         lblTitulo.setBackground(java.awt.Color.white);
         lblTitulo.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
@@ -100,15 +100,15 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        lblUser.setBackground(new java.awt.Color(255, 255, 255));
+        lblUser.setBackground(new java.awt.Color(23, 135, 137));
         lblUser.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        lblUser.setForeground(new java.awt.Color(255, 255, 255));
+        lblUser.setForeground(new java.awt.Color(23, 135, 137));
         lblUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUser.setText("Digite su Usuario:");
 
         lblPassword.setBackground(new java.awt.Color(255, 255, 255));
         lblPassword.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
+        lblPassword.setForeground(new java.awt.Color(23, 135, 137));
         lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPassword.setText("Digite su Contraseña:");
 
@@ -122,7 +122,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        bnt_ingresar.setBackground(new java.awt.Color(23, 165, 137));
+        bnt_ingresar.setBackground(new java.awt.Color(23, 135, 137));
         bnt_ingresar.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         bnt_ingresar.setForeground(new java.awt.Color(255, 255, 255));
         bnt_ingresar.setText("Ingresar");
@@ -157,12 +157,12 @@ public class Login extends javax.swing.JFrame {
                         .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(input_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(input_password, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 121, Short.MAX_VALUE)))
+                        .addGap(0, 121, Short.MAX_VALUE))
+                    .addGroup(pnlBodyLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(bnt_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(pnlBodyLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bnt_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlBodyLayout.setVerticalGroup(
             pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
