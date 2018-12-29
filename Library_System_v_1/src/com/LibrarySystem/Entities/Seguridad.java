@@ -43,10 +43,12 @@ public class Seguridad {
                     if (lista_usuarios.get(i).getRol().equals("Administrador")) {
                         PaginaPrincipalAdmin ventana_admin = new PaginaPrincipalAdmin();
                         ventana_admin.setVisible(true);
+                        ventana_admin.usuario = lista_usuarios.get(i).getUser();
                         break;
                     } else {
                         PaginaPrincipalUsuario ventana_usuario = new PaginaPrincipalUsuario();
                         ventana_usuario.setVisible(true);
+                        ventana_usuario.usuario = lista_usuarios.get(i).getUser();
                         break;
                     }
 

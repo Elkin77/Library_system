@@ -30,6 +30,9 @@ public class GestionUsuarios extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    
+    String usuario;
+    
     public GestionUsuarios() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);

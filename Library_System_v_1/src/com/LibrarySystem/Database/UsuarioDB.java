@@ -128,6 +128,37 @@ public class UsuarioDB {
         return usuario;
     }
     
+    public Usuario obtenerUsuarioByIdUser(int IdUser) throws SQLException{
+        Usuario usuario = new Usuario();
+        try{
+            cnx = new ConectionDB().obtener();
+            CallableStatement procedure = cnx.prepareCall("{call PA_Usuario_SelectByIdUser(?)}");
+            procedure.setInt("id_userIn", IdUser);
+            procedure.execute();
+            ResultSet rs = procedure.getResultSet();
+            
+            while(rs.next()){
+                usuario = new Usuario(
+                        rs.getInt("id_usuario"),
+                        rs.getString("nombre"),
+                        rs.getString("user"),
+                        rs.getString("password"),
+                        rs.getString("nombre_comunidad"),
+                        rs.getString("rol")
+                );
+            }
+            
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
+         } catch (ClassNotFoundException ex) {
+            throw new ClassCastException(ex.getMessage());
+         }
+//        finally{
+//            ConectionDB.cerrar();
+//        }
+        return usuario;
+    }
+    
     public void eliminarUsuario(String user) throws SQLException{
         try{
             cnx = new ConectionDB().obtener();

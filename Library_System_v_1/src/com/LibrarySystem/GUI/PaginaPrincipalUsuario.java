@@ -33,6 +33,9 @@ public class PaginaPrincipalUsuario extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    
+    public String usuario;
+    
     public PaginaPrincipalUsuario() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -339,7 +342,9 @@ public class PaginaPrincipalUsuario extends javax.swing.JFrame {
                 if(boton.getName().equals("Ver Más")){
                     int idLibro = (int) tbl_libros.getValueAt(row, 0);
                     DetallesLibro detalleLibro = new DetallesLibro();
-                    detalleLibro.mostrarDetalle((int) tbl_libros.getValueAt(row, 0));
+                    detalleLibro.idLibro = (int) tbl_libros.getValueAt(row, 0);
+                    detalleLibro.usuario = usuario;
+                    detalleLibro.mostrarDetalle();
                     detalleLibro.setVisible(true);
                     this.dispose();
                     

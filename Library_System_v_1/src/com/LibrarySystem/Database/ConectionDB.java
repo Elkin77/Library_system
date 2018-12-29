@@ -25,7 +25,7 @@ public class ConectionDB {
       if (cnx == null) {
          try {
             Class.forName("com.mysql.jdbc.Driver");
-            cnx = (Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/SystemLibrary", "brayan", "uniminuto");
+            cnx = (Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/systemlibrary", "root", "");
          } catch (SQLException ex) {
             throw new SQLException(ex);
          } catch (ClassNotFoundException ex) {

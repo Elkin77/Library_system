@@ -19,6 +19,9 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    
+    String usuario;
+    
     public GestionarBiblioteca() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -321,12 +324,14 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
 
     private void btnEditarEliminarBibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEliminarBibliotecaActionPerformed
         ListaBibliotecas listaBibliotecas = new ListaBibliotecas();
+        listaBibliotecas.usuario = usuario;
         listaBibliotecas.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnEditarEliminarBibliotecaActionPerformed
 
     private void btnRegistrarBibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarBibliotecaActionPerformed
         RegistroBiblioteca nuevaBiblioteca = new RegistroBiblioteca();
+        nuevaBiblioteca.usuario = usuario;
         nuevaBiblioteca.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegistrarBibliotecaActionPerformed
@@ -334,6 +339,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
     private void btnEditarEliminarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEliminarCategoriaActionPerformed
         // TODO add your handling code here:
         EditarCategoria categoria = new EditarCategoria();
+        categoria.usuario = usuario;
         categoria.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnEditarEliminarCategoriaActionPerformed
@@ -341,6 +347,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
     private void btnRegistrarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarLibroActionPerformed
         // TODO add your handling code here:
         RegistroLibro nuevoLibro = new RegistroLibro();
+        nuevoLibro.usuario = usuario;
         nuevoLibro.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegistrarLibroActionPerformed
@@ -348,6 +355,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
     private void btnEditarEliminarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEliminarLibroActionPerformed
         // TODO add your handling code here:
         EditarLibro libro = new EditarLibro ();
+        libro.usuario = usuario;
         libro.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnEditarEliminarLibroActionPerformed
@@ -359,6 +367,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
     private void btnRegistrarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarCategoriaActionPerformed
         // TODO add your handling code here:
         RegistroCategoria nuevaCategoria = new RegistroCategoria();
+        nuevaCategoria.usuario = usuario;
         nuevaCategoria.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegistrarCategoriaActionPerformed

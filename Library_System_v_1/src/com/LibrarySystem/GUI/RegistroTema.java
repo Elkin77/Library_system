@@ -28,6 +28,9 @@ public class RegistroTema extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    
+    String usuario;
+    
     public RegistroTema() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);

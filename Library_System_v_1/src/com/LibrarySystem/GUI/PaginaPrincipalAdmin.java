@@ -32,6 +32,9 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    
+    public String usuario;
+    
     public PaginaPrincipalAdmin() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -330,6 +333,7 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
     private void lblGestionarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuariosMouseClicked
         GestionarUsuarios gestionarUsuario = new GestionarUsuarios();
         gestionarUsuario.setVisible(true);
+        gestionarUsuario.usuario = usuario;
         this.dispose();
     }//GEN-LAST:event_lblGestionarUsuariosMouseClicked
 
@@ -337,6 +341,7 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         
             GestionarBiblioteca gestionar = new GestionarBiblioteca();
+            gestionar.usuario = usuario;
             gestionar.setVisible(true);
             this.dispose();
         
@@ -365,7 +370,9 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
                 if (boton.getName().equals("Ver Más")) {
                     // para agregar logica
                     DetallesLibro libro = new DetallesLibro();
-                    libro.mostrarDetalle((int) tbl_libros.getValueAt(row, 0));
+                    libro.idLibro = (int) tbl_libros.getValueAt(row, 0);
+                    libro.usuario = usuario;
+                    libro.mostrarDetalle();
                     libro.setVisible(true);
                     this.dispose();
 

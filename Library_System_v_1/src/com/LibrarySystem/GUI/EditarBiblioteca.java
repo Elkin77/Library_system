@@ -14,6 +14,9 @@ public class EditarBiblioteca extends javax.swing.JFrame {
     /**
      * Creates new form EditarBiblioteca
      */
+    
+    String usuario;
+    
     public EditarBiblioteca() {
         initComponents();
     }

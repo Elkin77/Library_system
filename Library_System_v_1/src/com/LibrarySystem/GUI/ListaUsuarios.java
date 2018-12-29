@@ -30,6 +30,9 @@ public class ListaUsuarios extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    
+    String usuario;
+    
     public ListaUsuarios() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -328,6 +331,7 @@ public class ListaUsuarios extends javax.swing.JFrame {
 
     private void lblGestionarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuariosMouseClicked
         GestionarUsuarios gestionarUsuario = new GestionarUsuarios();
+        gestionarUsuario.usuario = usuario;
         gestionarUsuario.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblGestionarUsuariosMouseClicked
@@ -335,6 +339,7 @@ public class ListaUsuarios extends javax.swing.JFrame {
     private void lblGestionarBibliotecasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarBibliotecasMouseClicked
         // TODO add your handling code here:
         GestionarBiblioteca gestionar = new GestionarBiblioteca();
+        gestionar.usuario = usuario;
         gestionar.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblGestionarBibliotecasMouseClicked
@@ -351,6 +356,7 @@ public class ListaUsuarios extends javax.swing.JFrame {
     private void lblGestionarUsuarios1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuarios1MouseClicked
         // TODO add your handling code here:
         GestionarUsuarios atras = new GestionarUsuarios();
+        atras.usuario = usuario;
         atras.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblGestionarUsuarios1MouseClicked

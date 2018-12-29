@@ -32,6 +32,9 @@ public class GestionBiblioteca extends javax.swing.JFrame {
     /**
      * Creates new form GestionBiblioteca
      */
+    
+    String usuario;
+    
     public GestionBiblioteca() {
         initComponent();
         this.setExtendedState(MAXIMIZED_BOTH);

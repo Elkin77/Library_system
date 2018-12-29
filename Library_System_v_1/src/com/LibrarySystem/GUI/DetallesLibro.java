@@ -6,11 +6,15 @@
 package com.LibrarySystem.GUI;
 
 import com.LibrarySystem.Database.LibroDB;
+import com.LibrarySystem.Database.PrestamoDB;
+import com.LibrarySystem.Database.UsuarioDB;
 import com.LibrarySystem.Entities.Libro;
+import com.LibrarySystem.Entities.Prestamo;
 import com.LibrarySystem.Entities.Seguridad;
 import com.LibrarySystem.Entities.Usuario;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -25,6 +29,8 @@ public class DetallesLibro extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    int idLibro;
+    String usuario;
     
     public DetallesLibro() {
 
@@ -32,7 +38,7 @@ public class DetallesLibro extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
     }
     
-    public void mostrarDetalle (int idLibro){
+    public void mostrarDetalle (){
         ArrayList<Libro> list_libro = new ArrayList<>();
         LibroDB libro = new  LibroDB ();
         try {
@@ -463,8 +469,28 @@ public class DetallesLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_lblAutorMouseClicked
 
     private void btnTomarPrestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTomarPrestadoActionPerformed
-
-
+        Usuario user;
+        try {
+            user = new UsuarioDB().obtenerUsuarioByUser(usuario);
+            Date tiempo = new Date();
+            Prestamo prestamo = new Prestamo(tiempo, tiempo, user.getIdUsuario(),idLibro);
+            
+            new PrestamoDB().insertarPrestamo(prestamo);
+            
+            JOptionPane.showMessageDialog(null, "Prestamo registrado correctamente");
+            
+            if(user.getRol().equals("Usuario")){
+                PaginaPrincipalUsuario pagPrincipalUsuario = new PaginaPrincipalUsuario();
+                pagPrincipalUsuario.setVisible(true);
+            }else{
+                PaginaPrincipalAdmin pagPrincipalAdmin = new PaginaPrincipalAdmin();
+                pagPrincipalAdmin.setVisible(true);
+            }
+            dispose();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DetallesLibro.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnTomarPrestadoActionPerformed
 
     /**

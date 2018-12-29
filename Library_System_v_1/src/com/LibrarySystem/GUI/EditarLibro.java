@@ -28,6 +28,9 @@ public class EditarLibro extends javax.swing.JFrame {
     /**
      * Creates new form EditarLibro
      */
+    
+    String usuario;
+    
     public EditarLibro() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -343,6 +346,7 @@ public class EditarLibro extends javax.swing.JFrame {
     private void btn_atras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atras1ActionPerformed
         // TODO add your handling code here:
         GestionarBiblioteca gestionar = new GestionarBiblioteca();
+        gestionar.usuario = usuario;
         gestionar.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_atras1ActionPerformed
@@ -357,6 +361,7 @@ public class EditarLibro extends javax.swing.JFrame {
 
     private void lblGestionarUsuarios1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuarios1MouseClicked
         GestionarUsuarios gestionarUsuario = new GestionarUsuarios();
+        gestionarUsuario.usuario = usuario;
         gestionarUsuario.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblGestionarUsuarios1MouseClicked
@@ -364,6 +369,7 @@ public class EditarLibro extends javax.swing.JFrame {
     private void lblGestionarBibliotecas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarBibliotecas1MouseClicked
         // TODO add your handling code here:
         GestionarBiblioteca gestionar = new GestionarBiblioteca();
+        gestionar.usuario = usuario;
         gestionar.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblGestionarBibliotecas1MouseClicked

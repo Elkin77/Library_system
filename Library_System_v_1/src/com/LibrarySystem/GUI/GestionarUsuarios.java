@@ -19,6 +19,9 @@ public class GestionarUsuarios extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    
+    String usuario;
+    
     public GestionarUsuarios() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -235,6 +238,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
 
     private void lblGestionarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuariosMouseClicked
         GestionarUsuarios gestionarUsuario = new GestionarUsuarios();
+        gestionarUsuario.usuario = usuario;
         gestionarUsuario.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblGestionarUsuariosMouseClicked
@@ -242,6 +246,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
     private void lblGestionarBibliotecasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarBibliotecasMouseClicked
         // TODO add your handling code here:
         GestionarBiblioteca gestionar = new GestionarBiblioteca();
+        gestionar.usuario = usuario;
         gestionar.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblGestionarBibliotecasMouseClicked
@@ -257,18 +262,21 @@ public class GestionarUsuarios extends javax.swing.JFrame {
 
     private void btnEditarEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEliminarUsuarioActionPerformed
         ListaUsuarios listaUsuarios = new ListaUsuarios();
+        listaUsuarios.usuario = usuario;
         listaUsuarios.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnEditarEliminarUsuarioActionPerformed
 
     private void btnRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarUsuarioActionPerformed
         RegistroUsuario registroUsuario = new RegistroUsuario();
+        registroUsuario.usuario = usuario;
         registroUsuario.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnRegistrarUsuarioActionPerformed
 
     private void lblGestionarUsuarios1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuarios1MouseClicked
         PaginaPrincipalAdmin atras = new PaginaPrincipalAdmin();
+        atras.usuario = usuario;
         atras.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblGestionarUsuarios1MouseClicked

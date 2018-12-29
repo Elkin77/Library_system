@@ -5,8 +5,9 @@
  */
 package com.LibrarySystem.Entities;
 
-import java.sql.Date;
+
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -21,13 +22,13 @@ public class Prestamo {
     private int id_libro;
     private ArrayList<String> lista_libros;
 
-    public Prestamo(int id_prestamo, Date fecha_prestamo, Date fecha_entrega, int id_usuario, int id_libro, ArrayList<String> lista_libros) {
+    public Prestamo(int id_prestamo, Date fecha_prestamo, Date fecha_entrega, int id_usuario, int id_libro) {
         this.id_prestamo = id_prestamo;
         this.fecha_prestamo = fecha_prestamo;
         this.fecha_entrega = fecha_entrega;
         this.id_usuario = id_usuario;
         this.id_libro = id_libro;
-        this.lista_libros = lista_libros;
+        //this.lista_libros = lista_libros;
     }
 
     public Prestamo(Date fecha_prestamo, Date fecha_entrega, int id_usuario, int id_libro, ArrayList<String> lista_libros) {
@@ -35,7 +36,6 @@ public class Prestamo {
         this.fecha_entrega = fecha_entrega;
         this.id_usuario = id_usuario;
         this.id_libro = id_libro;
-        this.lista_libros = lista_libros;
     }
 
     public Prestamo(Date fecha_prestamo, Date fecha_entrega, int id_usuario, int id_libro) {
