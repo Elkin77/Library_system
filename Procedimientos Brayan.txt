@@ -1,0 +1,94 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_Usuario_Insert`(IN `nombreIn` VARCHAR(50), IN `userIn` VARCHAR(50), IN `passwordIn` VARCHAR(50), IN `nombre_comunidadIn` VARCHAR(100), IN `rolIn` VARCHAR(50))
+    NO SQL
+INSERT INTO usuario
+(
+	nombre,
+    user,
+    password,
+    nombre_comunidad,
+    rol
+)
+VALUES
+(
+    nombreIn,
+    userIn,
+    passwordIn,
+    nombre_comunidadIn,
+    rolIn
+)$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_Usuario_Update`(IN `nombreIn` VARCHAR(50), IN `userIn` VARCHAR(50), IN `passwordIn` VARCHAR(50), IN `nombre_comunidadIn` INT(100), IN `rolIn` VARCHAR(100))
+    NO SQL
+UPDATE usuario
+SET nombre = nombreIn,
+	user = userIn,
+    password = passwordIn,
+    nombre_comunidad = nombre_comunidadIn,
+    rol = rolIn
+WHERE user = userIn$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_Usuario_SelectByUser`(IN `userIn` VARCHAR(50))
+    NO SQL
+SELECT * FROM usuario WHERE user = userIn$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_Usuario_Delete`(IN `userIn` VARCHAR(50))
+    NO SQL
+DELETE FROM usuario WHERE user = userIn$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_Prestamo_Insert`(IN `fecha_prestamoIn` DATE, IN `fecha_entregaIn` DATE, IN `id_usuarioIn` INT, IN `id_libroIn` INT)
+    NO SQL
+INSERT INTO usuario
+(
+    fecha_prestamo,
+    fecha_entrega,
+    id_usuario,
+    id_libro
+)
+VALUES
+(
+    fecha_prestamoIn,
+    fecha_entregaIn,
+    id_usuarioIn,
+    id_libroIn
+)$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_Prestamo_SelectALL`()
+    NO SQL
+SELECT * FROM prestamo$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_Prestamo_SelectByUser`(IN `userIn` VARCHAR(50))
+    NO SQL
+SELECT * FROM prestamo p
+INNER JOIN usuario u ON u.id_usuario = p.id_usuario
+WHERE u.user = userIn$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_Prestamo_Update`(IN `id_prestamoIn` INT, IN `fecha_prestamoIn` DATE, IN `fecha_entregaIn` DATE, IN `id_usuarioIn` INT, IN `id_libroIn` INT)
+    NO SQL
+UPDATE usuario
+SET fecha_prestamo = fecha_prestamoIn,
+	fecha_entrega = fecha_entregaIn,
+    id_usuario = id_usuarioIn,
+    id_libro = id_libroIn
+WHERE id_prestamo = id_prestamoIn$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PA_Usuario_SelectByIdUser`(IN `id_userIn` VARCHAR(50))
+    NO SQL
+SELECT * FROM usuario WHERE id_user = id_userIn$$
+DELIMITER ;
