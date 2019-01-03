@@ -28,10 +28,10 @@ public class PrestamoDB {
         try {
             cnx = ConectionDB.obtener();
             CallableStatement procedure = cnx.prepareCall("{call PA_Prestamo_Insert(?,?,?,?)}");
-            procedure.setDate("nombreIn", (Date) prestamo.getFecha_prestamo());
-            procedure.setDate("descripcionIn", (Date) prestamo.getFecha_entrega());
-            procedure.setInt("ubicacionIn", prestamo.getId_usuario());
-            procedure.setInt("autorIn", prestamo.getId_libro());
+            procedure.setString("fecha_prestamoIn", prestamo.getFecha_prestamo());
+            procedure.setString("fecha_entregaIn", prestamo.getFecha_entrega());
+            procedure.setInt("id_usuarioIn", prestamo.getId_usuario());
+            procedure.setInt("id_libroIn", prestamo.getId_libro());
 
             procedure.execute();
 
@@ -55,8 +55,8 @@ public class PrestamoDB {
             while (rs.next()) {
                 Prestamo prestamo = new Prestamo(
                         rs.getInt("id_prestamo"),
-                        rs.getDate("fecha_prestamo"),
-                        rs.getDate("fecha_entrega"),
+                        rs.getString("fecha_prestamo"),
+                        rs.getString("fecha_entrega"),
                         rs.getInt("id_usuario"),
                         rs.getInt("id_prestamo")
                 );
@@ -84,8 +84,8 @@ public class PrestamoDB {
             while (rs.next()) {
                 Prestamo prestamo = new Prestamo(
                         rs.getInt("id_prestamo"),
-                        rs.getDate("fecha_prestamo"),
-                        rs.getDate("fecha_entrega"),
+                        rs.getString("fecha_prestamo"),
+                        rs.getString("fecha_entrega"),
                         rs.getInt("id_usuario"),
                         rs.getInt("id_prestamo")
                 );
@@ -106,8 +106,8 @@ public class PrestamoDB {
             cnx = new ConectionDB().obtener();
             CallableStatement procedure = cnx.prepareCall("{call PA_Prestamo_Update(?,?,?,?,?)}");
             procedure.setInt("id_prestamoIn", prestamo.getId_prestamo());
-            procedure.setDate("fecha_prestamoIn", (Date) prestamo.getFecha_prestamo());
-            procedure.setDate("fecha_entregaIn", (Date) prestamo.getFecha_entrega());
+            procedure.setString("fecha_prestamoIn",prestamo.getFecha_prestamo());
+            procedure.setString("fecha_entregaIn",prestamo.getFecha_entrega());
             procedure.setInt("id_usuarioIn", prestamo.getId_usuario());
             procedure.setInt("id_libroIn", prestamo.getId_libro());
             procedure.execute();

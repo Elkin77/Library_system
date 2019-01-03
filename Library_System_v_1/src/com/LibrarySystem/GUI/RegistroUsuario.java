@@ -364,9 +364,25 @@ public class RegistroUsuario extends javax.swing.JFrame {
             usuarioDB.insertarUsuario(usuario);
             
             JOptionPane.showMessageDialog(null, "Usuario registrado correctamente");
+            
+            txtNombre.setText("");
+            txtUser.setText("");
+            txtPassword.setText("");
+            txtComunidad.setText("");
+            txtPassword2.setText("");
+            
             }
         }catch (SQLException ex) {
                 Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Se ha producido un error, "
+                        + "el usuario ya existe o no hay una conexión establecida "
+                        + "a la base de datos. Comuniquese con un administrador"
+                        + "el administrador.");
+                txtNombre.setText("");
+                txtUser.setText("");
+                txtPassword.setText("");
+                txtComunidad.setText("");
+                txtPassword2.setText("");
             }
     }//GEN-LAST:event_btnGuardarActionPerformed
 

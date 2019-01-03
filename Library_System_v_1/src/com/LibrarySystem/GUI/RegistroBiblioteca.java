@@ -262,7 +262,7 @@ public class RegistroBiblioteca extends javax.swing.JFrame {
         if(input_nombre.getText().isEmpty() || input_codigo.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Error, por favor complete los campos");
         }else{
-            Biblioteca  new_biblioteca = new Biblioteca(nombre,codigo_registro);
+            Biblioteca  new_biblioteca = new Biblioteca(nombre,0,codigo_registro);
             validator = new_biblioteca.registrarBiblioteca(new_biblioteca);
             if(validator == true){
                 JOptionPane.showMessageDialog(null, "Registro guardado correctamente.");

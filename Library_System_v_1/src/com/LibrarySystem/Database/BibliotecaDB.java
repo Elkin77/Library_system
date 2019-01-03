@@ -26,7 +26,7 @@ public class BibliotecaDB {
         try{
             cnx = ConectionDB.obtener();
             CallableStatement procedure = cnx.prepareCall("{call PA_Biblioteca_Insert(?,?,?)}");
-                procedure.setString("nombreIn", new_biblioteca.getNombre());
+            procedure.setString("nombreIn", new_biblioteca.getNombre());
             procedure.setInt("num_librosIn", new_biblioteca.getNum_libros());
             procedure.setString("codigo_registroIn", new_biblioteca.getCodigo_registro());
             

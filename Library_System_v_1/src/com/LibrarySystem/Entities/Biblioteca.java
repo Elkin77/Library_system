@@ -32,6 +32,13 @@ public class Biblioteca {
         this.lista_categorias = lista_categorias;
     }
 
+    public Biblioteca(String nombre, int num_libros, String codigo_registro) {
+        this.nombre = nombre;
+        this.num_libros = num_libros;
+        this.codigo_registro = codigo_registro;
+    }
+    
+
     public Biblioteca(String nombre, int num_libros, ArrayList<String> lista_libros, ArrayList<String> lista_categorias) {
         this.nombre = nombre;
         this.num_libros = num_libros;

@@ -357,7 +357,8 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_lblSalirMouseClicked
 
     private void tbl_librosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_librosMouseClicked
-       int column = tbl_libros.getColumnModel().getColumnIndexAtX(evt.getX());
+        JOptionPane.showMessageDialog(null, "Llegue!");
+        int column = tbl_libros.getColumnModel().getColumnIndexAtX(evt.getX());
         int row = evt.getY() / tbl_libros.getRowHeight();
 
         if (row < tbl_libros.getRowCount() && row >= 0
@@ -367,7 +368,7 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
                 ((JButton) value).doClick();
                 JButton boton = (JButton) value;
 
-                if (boton.getName().equals("Ver Más")) {
+                if (boton.getName().equals("ver_mas")) {
                     // para agregar logica
                     DetallesLibro libro = new DetallesLibro();
                     libro.idLibro = (int) tbl_libros.getValueAt(row, 0);
@@ -382,7 +383,7 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_tbl_librosMouseClicked
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-
+        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked

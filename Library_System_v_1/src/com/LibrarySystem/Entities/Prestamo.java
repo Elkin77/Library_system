@@ -16,13 +16,13 @@ import java.util.Date;
 public class Prestamo {
 
     private int id_prestamo;
-    private Date fecha_prestamo;
-    private Date fecha_entrega;
+    private String fecha_prestamo;
+    private String fecha_entrega;
     private int id_usuario;
     private int id_libro;
     private ArrayList<String> lista_libros;
 
-    public Prestamo(int id_prestamo, Date fecha_prestamo, Date fecha_entrega, int id_usuario, int id_libro) {
+    public Prestamo(int id_prestamo, String fecha_prestamo, String fecha_entrega, int id_usuario, int id_libro) {
         this.id_prestamo = id_prestamo;
         this.fecha_prestamo = fecha_prestamo;
         this.fecha_entrega = fecha_entrega;
@@ -31,14 +31,14 @@ public class Prestamo {
         //this.lista_libros = lista_libros;
     }
 
-    public Prestamo(Date fecha_prestamo, Date fecha_entrega, int id_usuario, int id_libro, ArrayList<String> lista_libros) {
+        public Prestamo(String fecha_prestamo, String fecha_entrega, int id_usuario, int id_libro, ArrayList<String> lista_libros) {
         this.fecha_prestamo = fecha_prestamo;
         this.fecha_entrega = fecha_entrega;
         this.id_usuario = id_usuario;
         this.id_libro = id_libro;
     }
 
-    public Prestamo(Date fecha_prestamo, Date fecha_entrega, int id_usuario, int id_libro) {
+    public Prestamo(String fecha_prestamo, String fecha_entrega, int id_usuario, int id_libro) {
         this.fecha_prestamo = fecha_prestamo;
         this.fecha_entrega = fecha_entrega;
         this.id_usuario = id_usuario;
@@ -53,19 +53,19 @@ public class Prestamo {
         this.id_prestamo = id_prestamo;
     }
 
-    public Date getFecha_prestamo() {
+    public String getFecha_prestamo() {
         return fecha_prestamo;
     }
 
-    public void setFecha_prestamo(Date fecha_prestamo) {
+    public void setFecha_prestamo(String fecha_prestamo) {
         this.fecha_prestamo = fecha_prestamo;
     }
 
-    public Date getFecha_entrega() {
+    public String getFecha_entrega() {
         return fecha_entrega;
     }
 
-    public void setFecha_entrega(Date fecha_entrega) {
+    public void setFecha_entrega(String fecha_entrega) {
         this.fecha_entrega = fecha_entrega;
     }
 
