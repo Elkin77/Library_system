@@ -229,6 +229,11 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
         btnHistorialPrestamos.setForeground(new java.awt.Color(255, 255, 255));
         btnHistorialPrestamos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LibrarySystem/Icons/historial.png"))); // NOI18N
         btnHistorialPrestamos.setText("<html><center>Ver Historial de Prestamos</center></html>");
+        btnHistorialPrestamos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnHistorialPrestamosMouseClicked(evt);
+            }
+        });
         btnHistorialPrestamos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHistorialPrestamosActionPerformed(evt);
@@ -371,6 +376,13 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
         nuevaCategoria.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegistrarCategoriaActionPerformed
+
+    private void btnHistorialPrestamosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHistorialPrestamosMouseClicked
+        HistorialPrestamosAdmin historial = new HistorialPrestamosAdmin();
+        historial.usuario = usuario;
+        historial.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnHistorialPrestamosMouseClicked
 
     /**
      * @param args the command line arguments

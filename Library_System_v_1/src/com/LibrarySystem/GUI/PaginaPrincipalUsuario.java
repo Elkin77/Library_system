@@ -79,7 +79,7 @@ public class PaginaPrincipalUsuario extends javax.swing.JFrame {
         modelo.setColumnIdentifiers(new Object[]{"ID", "Nombre", "Descripcion",
             "Ubicación", "Autor", "Portada", "Biblioteca", "Categoria", "Acción"});
         JButton btnVerMas = new JButton("Ver Más");
-        btnVerMas.setName("ver_mas");
+        btnVerMas.setName("Ver Más");
         for (int i = 0; i < list_libros.size(); i++) {
             //cbRol.setSelectedIndex((lstUsuarios.get(i).getRol().equals("Usuario"))?0:1);
             

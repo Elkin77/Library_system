@@ -12,8 +12,10 @@ import com.LibrarySystem.Entities.Libro;
 import com.LibrarySystem.Entities.Prestamo;
 import com.LibrarySystem.Entities.Seguridad;
 import com.LibrarySystem.Entities.Usuario;
+import com.sun.org.apache.xerces.internal.impl.dv.xs.DateTimeDV;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -440,8 +442,9 @@ public class DetallesLibro extends javax.swing.JFrame {
         try {
             System.out.println("USUARIO ->" + usuario);
             user = new UsuarioDB().obtenerUsuarioByUser(usuario);
-            Date tiempo = new Date();
-            Prestamo prestamo = new Prestamo(tiempo.toString(), tiempo.toString(), user.getIdUsuario(),idLibro);
+            Calendar tiempo = Calendar.getInstance();
+            String horaActual = (tiempo.get(Calendar.YEAR)+ "-" + (tiempo.get(Calendar.MONTH) + 1) + "-" + tiempo.get(Calendar.DATE));
+            Prestamo prestamo = new Prestamo(horaActual, horaActual, user.getIdUsuario(),idLibro);
             JOptionPane.showMessageDialog(null, "el user es, "+ user.getIdUsuario() + "el libro es: " + idLibro);
             new PrestamoDB().insertarPrestamo(prestamo);
             
