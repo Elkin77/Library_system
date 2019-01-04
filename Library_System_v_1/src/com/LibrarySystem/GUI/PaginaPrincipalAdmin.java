@@ -223,7 +223,7 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
                     .addComponent(lblGestionarUsuarios)
                     .addComponent(lblGestionarBibliotecas)
                     .addComponent(lblSalir))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tbl_libros.setBackground(new java.awt.Color(239, 248, 248));
@@ -250,12 +250,13 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbl_libros);
 
-        cbBiblioteca.setBackground(new java.awt.Color(255, 255, 255));
-        cbBiblioteca.setForeground(new java.awt.Color(0, 0, 0));
         cbBiblioteca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Administrador" }));
+        cbBiblioteca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbBibliotecaActionPerformed(evt);
+            }
+        });
 
-        cbCategoria.setBackground(new java.awt.Color(255, 255, 255));
-        cbCategoria.setForeground(new java.awt.Color(0, 0, 0));
         cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Administrador" }));
 
         btnBuscar.setBackground(new java.awt.Color(23, 135, 137));
@@ -396,6 +397,23 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
             Logger.getLogger(PaginaPrincipalUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnBuscarMouseClicked
+
+    private void cbBibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbBibliotecaActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Categoria> listCategorias = new ArrayList<>();
+        Categoria categoria = new Categoria();
+        String array[];
+
+        if ((String) cbBiblioteca.getSelectedItem() != null) {
+            String seleccion = (String) cbBiblioteca.getSelectedItem();
+            array = seleccion.split(" ");
+            listCategorias = categoria.listarCategoriasBiblioteca(Integer.parseInt(array[0]));
+            cbCategoria.removeAllItems();
+            for (int i = 0; i < listCategorias.size(); i++) {
+                cbCategoria.addItem(listCategorias.get(i).getId_categoria() + "-" + listCategorias.get(i).getNombre());
+            }
+        }
+    }//GEN-LAST:event_cbBibliotecaActionPerformed
 
     /**
      * @param args the command line arguments

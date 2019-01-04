@@ -61,9 +61,11 @@ public class UsuarioDB {
          } catch (ClassNotFoundException ex) {
             throw new ClassCastException(ex.getMessage());
          }
+        /*
         finally{
             ConectionDB.cerrar();
         }
+        */
     }
     
     public ArrayList<Usuario> obtenerAllUsuarios() throws SQLException{ 

@@ -36,26 +36,25 @@ public class LibroDB {
 
             procedure.execute();
 
-            ConectionDB.cerrar();
-
+            //ConectionDB.cerrar();
         } catch (SQLException ex) {
             throw new SQLException(ex);
         } catch (ClassNotFoundException ex) {
             throw new ClassCastException(ex.getMessage());
         }
     }
-    
-    public ArrayList<Libro> obtenerLibroByLibro(int id_libro) throws SQLException{
+
+    public ArrayList<Libro> obtenerLibroByLibro(int id_libro) throws SQLException {
         ArrayList<Libro> listlibros = new ArrayList<>();
         Libro libro = new Libro();
-        try{
+        try {
             cnx = new ConectionDB().obtener();
             CallableStatement procedure = cnx.prepareCall("{call PA_Libro_SelectByLibro(?)}");
             procedure.setInt("id_libroIn", id_libro);
             procedure.execute();
             ResultSet rs = procedure.getResultSet();
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 libro = new Libro(
                         rs.getInt("id_libro"),
                         rs.getString("nombre"),
@@ -68,17 +67,18 @@ public class LibroDB {
                 );
                 listlibros.add(libro);
             }
-            
+
         } catch (SQLException ex) {
             throw new SQLException(ex);
-         } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex) {
             throw new ClassCastException(ex.getMessage());
-         }
+        }
 //        finally{
 //            ConectionDB.cerrar();
 //        }
         return listlibros;
     }
+
     public ArrayList<Libro> obtenerAllLibros() throws SQLException {
         ArrayList<Libro> listlibros = new ArrayList<>();
         try {
@@ -125,13 +125,17 @@ public class LibroDB {
             throw new SQLException(ex);
         } catch (ClassNotFoundException ex) {
             throw new ClassCastException(ex.getMessage());
+            /*
         } finally {
             ConectionDB.cerrar();
         }
+             */
+        }
+
     }
 
     public void eliminarLibro(int id_libro) throws SQLException {
-        
+
         try {
             cnx = new ConectionDB().obtener();
             CallableStatement procedure = cnx.prepareCall("{call PA_Libro_Delete(?)}");
@@ -148,21 +152,21 @@ public class LibroDB {
 //            ConectionDB.cerrar();
 //        }
     }
-    
-    public ArrayList<Libro> obtenerLibroByParameters(int idBiblioteca, int idCategoria, String nombreLibro) throws SQLException{
+
+    public ArrayList<Libro> obtenerLibroByParameters(int idBiblioteca, int idCategoria, String nombreLibro) throws SQLException {
         ArrayList<Libro> listlibros = new ArrayList<>();
         Libro libro = new Libro();
-        try{
+        try {
             cnx = new ConectionDB().obtener();
             CallableStatement procedure = cnx.prepareCall("{call PA_Libro_SelectByParameters(?,?,?)}");
             procedure.setInt("id_bibliotecaIn", idBiblioteca);
             procedure.setInt("id_categoriaIn", idCategoria);
             procedure.setString("nombreIn", nombreLibro);
-            
+
             procedure.execute();
             ResultSet rs = procedure.getResultSet();
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 libro = new Libro(
                         rs.getInt("id_libro"),
                         rs.getString("nombre"),
@@ -175,12 +179,12 @@ public class LibroDB {
                 );
                 listlibros.add(libro);
             }
-            
+
         } catch (SQLException ex) {
             throw new SQLException(ex);
-         } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex) {
             throw new ClassCastException(ex.getMessage());
-         }
+        }
 //        finally{
 //            ConectionDB.cerrar();
 //        }

@@ -21,15 +21,13 @@ public class RegistroBiblioteca extends javax.swing.JFrame {
     /**
      * Creates new form RegistroBiblioteca
      */
-    
     String usuario;
-    
+
     public RegistroBiblioteca() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -259,24 +257,26 @@ public class RegistroBiblioteca extends javax.swing.JFrame {
         String nombre = input_nombre.getText();
         String codigo_registro = input_codigo.getText();
         boolean validator = false;
-        if(input_nombre.getText().isEmpty() || input_codigo.getText().isEmpty()){
+        if (input_nombre.getText().isEmpty() || input_codigo.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Error, por favor complete los campos");
-        }else{
-            Biblioteca  new_biblioteca = new Biblioteca(nombre,0,codigo_registro);
+        } else {
+            Biblioteca new_biblioteca = new Biblioteca(nombre, 0, codigo_registro);
             validator = new_biblioteca.registrarBiblioteca(new_biblioteca);
-            if(validator == true){
+            if (validator == true) {
                 JOptionPane.showMessageDialog(null, "Registro guardado correctamente.");
-            }else{
+                input_nombre.setText("");
+                input_codigo.setText("");
+            } else {
                 JOptionPane.showMessageDialog(null, "Errorrr");
             }
         }
-        
-        
+
+
     }//GEN-LAST:event_btn_registrarActionPerformed
 
     private void input_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_nombreActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_input_nombreActionPerformed
 
     private void lblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarMouseClicked
@@ -304,7 +304,7 @@ public class RegistroBiblioteca extends javax.swing.JFrame {
 
     private void lblSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseClicked
         int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Alerta!", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
-        if(resp == 0){
+        if (resp == 0) {
             Login login = new Login();
             login.setVisible(true);
             dispose();
@@ -319,7 +319,6 @@ public class RegistroBiblioteca extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_atrasActionPerformed
 
-    
     /**
      * @param args the command line arguments
      */

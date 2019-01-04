@@ -32,7 +32,7 @@ public class BibliotecaDB {
             
             procedure.execute();
             
-            ConectionDB.cerrar();
+            //ConectionDB.cerrar();
             
         } catch (SQLException ex) {
             throw new SQLException(ex);

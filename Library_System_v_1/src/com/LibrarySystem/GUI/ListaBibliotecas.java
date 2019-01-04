@@ -126,7 +126,7 @@ public class ListaBibliotecas extends javax.swing.JFrame {
             DefaultTableModel modelo = new DefaultTableModel()
             {
                 public boolean isCellEditable(int row, int column){
-                    return (column == 0 || column == 2 || column >= 5)? false: true;
+                    return (column == 0 || column == 2 || column >= 4)? false: true;
                 }
             };
             

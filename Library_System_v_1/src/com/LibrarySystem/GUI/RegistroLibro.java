@@ -43,18 +43,11 @@ public class RegistroLibro extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         ArrayList<Biblioteca> listBibliotecas = new ArrayList<>();
-        ArrayList<Categoria> listCategorias = new ArrayList<>();
         Biblioteca biblioteca = new Biblioteca();
-        Categoria categoria = new Categoria();
         listBibliotecas = biblioteca.listarBibliotecas();
-        listCategorias = categoria.listarCategorias();
         combo_box_biblioteca.removeAllItems();
-        combo_box_categoria.removeAllItems();
         for (int i = 0; i < listBibliotecas.size(); i++) {
             combo_box_biblioteca.addItem(listBibliotecas.get(i).getId_biblioteca() + "-" + listBibliotecas.get(i).getNombre());
-        }
-        for (int i = 0; i < listCategorias.size(); i++) {
-            combo_box_categoria.addItem(listCategorias.get(i).getId_categoria() + "-" + listCategorias.get(i).getNombre());
         }
     }
 
@@ -245,6 +238,11 @@ public class RegistroLibro extends javax.swing.JFrame {
         jLabel9.setText("Biblioteca");
 
         combo_box_biblioteca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_box_biblioteca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_box_bibliotecaActionPerformed(evt);
+            }
+        });
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -463,7 +461,7 @@ public class RegistroLibro extends javax.swing.JFrame {
                 archivo = jfcAbrirArchivo.getSelectedFile();
                 ruta = archivo.getAbsolutePath();
                 nombreArchivo = archivo.getName();
-                nuevaRuta = System.getProperty("user.dir") + "\\src\\portadas\\" + nombreArchivo;
+                nuevaRuta = System.getProperty("user.dir") + "\\src\\com\\LIbrarySystem\\" + nombreArchivo;
                 System.out.println("ruta:" + nuevaRuta);
                 imagen = new ImageIcon(ruta);
 
@@ -486,7 +484,7 @@ public class RegistroLibro extends javax.swing.JFrame {
 
     private void lblSalir1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalir1MouseClicked
         int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Alerta!", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
-        if(resp == 0){
+        if (resp == 0) {
             Login login = new Login();
             login.setVisible(true);
             dispose();
@@ -523,6 +521,23 @@ public class RegistroLibro extends javax.swing.JFrame {
         gestionar.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_atras1ActionPerformed
+
+    private void combo_box_bibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_box_bibliotecaActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Categoria> listCategorias = new ArrayList<>();
+        Categoria categoria = new Categoria();
+        String array[];
+
+        if ((String) combo_box_biblioteca.getSelectedItem() != null) {
+            String seleccion = (String) combo_box_biblioteca.getSelectedItem();
+            array = seleccion.split("-");
+            listCategorias = categoria.listarCategoriasBiblioteca(Integer.parseInt(array[0]));
+            combo_box_categoria.removeAllItems();
+            for (int i = 0; i < listCategorias.size(); i++) {
+                combo_box_categoria.addItem(listCategorias.get(i).getId_categoria() + "-" + listCategorias.get(i).getNombre());
+            }
+        }
+    }//GEN-LAST:event_combo_box_bibliotecaActionPerformed
 
     /**
      * @param args the command line arguments

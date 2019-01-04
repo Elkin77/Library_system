@@ -19,9 +19,8 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    
     String usuario;
-    
+
     public GestionarBiblioteca() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -311,16 +310,24 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
     }//GEN-LAST:event_lblMinimizarMouseClicked
 
     private void lblGestionarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarUsuariosMouseClicked
-        
+        GestionarUsuarios gestionarUsuario = new GestionarUsuarios();
+        gestionarUsuario.setVisible(true);
+        gestionarUsuario.usuario = usuario;
+        this.dispose();
     }//GEN-LAST:event_lblGestionarUsuariosMouseClicked
 
     private void lblGestionarBibliotecasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarBibliotecasMouseClicked
         // TODO add your handling code here:
+        GestionarBiblioteca gestionar = new GestionarBiblioteca();
+        gestionar.usuario = usuario;
+        gestionar.setVisible(true);
+        this.dispose();
+
     }//GEN-LAST:event_lblGestionarBibliotecasMouseClicked
 
     private void lblSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseClicked
         int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Alerta!", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
-        if(resp == 0){
+        if (resp == 0) {
             Login login = new Login();
             login.setVisible(true);
             dispose();
@@ -359,7 +366,7 @@ public class GestionarBiblioteca extends javax.swing.JFrame {
 
     private void btnEditarEliminarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEliminarLibroActionPerformed
         // TODO add your handling code here:
-        EditarLibro libro = new EditarLibro ();
+        EditarLibro libro = new EditarLibro();
         libro.usuario = usuario;
         libro.setVisible(true);
         this.dispose();
