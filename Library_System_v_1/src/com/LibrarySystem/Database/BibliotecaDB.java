@@ -67,6 +67,34 @@ public class BibliotecaDB {
         return listBibliotecas;
     }
     
+    public Biblioteca obtenerBibliotecaById(int idBiblioteca) throws SQLException{ 
+        Biblioteca biblioteca;
+        try{
+            cnx = ConectionDB.obtener();
+            CallableStatement procedure = cnx.prepareCall("{call PA_Biblioteca_SelectById(?)}");
+            procedure.setInt("id_bibliotecaIn", idBiblioteca);
+            procedure.execute();
+            ResultSet rs = procedure.getResultSet();
+            
+            rs.next();
+            
+            biblioteca = new Biblioteca(
+                        rs.getInt("id_biblioteca"),
+                        rs.getString("nombre"),
+                        rs.getString("codigo_registro")
+                );
+            
+            
+            //ConectionDB.cerrar();
+            
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
+         } catch (ClassNotFoundException ex) {
+            throw new ClassCastException(ex.getMessage());
+         }
+        return biblioteca;
+    }
+    
     public void actualizarBiblioteca(Biblioteca b) throws SQLException{
         try{
             cnx = new ConectionDB().obtener();

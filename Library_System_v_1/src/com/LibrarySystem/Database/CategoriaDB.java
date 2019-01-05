@@ -71,6 +71,34 @@ public class CategoriaDB {
         return listCategorias;
     }
 
+    public Categoria obtenerCategoriaById(int idCategoria) throws SQLException {
+        Categoria categoria;
+        try {
+            cnx = ConectionDB.obtener();
+            CallableStatement procedure = cnx.prepareCall("{call PA_Categoria_SelectById(?)}");
+            procedure.setInt("id_categoriaIn", idCategoria);
+            procedure.execute();
+            ResultSet rs = procedure.getResultSet();
+            
+            rs.next();
+            
+            categoria = new Categoria(
+                        rs.getInt("id_categoria"),
+                        rs.getString("nombre"),
+                        rs.getString("descripcion"),
+                        rs.getString("codigo_registro"),
+                        rs.getInt("id_biblioteca")
+                );
+            
+            //ConectionDB.cerrar();
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
+        } catch (ClassNotFoundException ex) {
+            throw new ClassCastException(ex.getMessage());
+        }
+        return categoria;
+    }
+    
     public ArrayList<Categoria> obtenerCategoriasBiblioteca(int id_biblioteca) throws SQLException {
         ArrayList<Categoria> listCategorias = new ArrayList<>();
         try {

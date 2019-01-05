@@ -41,11 +41,11 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         ArrayList<Libro> list_libros = new ArrayList<Libro>();
         try {
             list_libros = new LibroDB().obtenerAllLibros();
+            cargarTabla(list_libros);
+            cargarComboBox();
         } catch (SQLException ex) {
             Logger.getLogger(PaginaPrincipalUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        cargarTabla(list_libros);
-        cargarComboBox();
     }
     
     private void cargarComboBox(){
@@ -67,7 +67,7 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         }
     }
     
-    public void cargarTabla(ArrayList<Libro> list_libros) {
+    public void cargarTabla(ArrayList<Libro> list_libros) throws SQLException {
         tbl_libros.removeAll();
         tbl_libros.setDefaultRenderer(Object.class, new Render());
         DefaultTableModel modelo = new DefaultTableModel() {
@@ -78,7 +78,7 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
         modelo.setColumnIdentifiers(new Object[]{"ID", "Nombre", "Descripcion",
             "Ubicación", "Autor", "Portada", "Biblioteca", "Categoria", "Acción"});
         JButton btnVerMas = new JButton("Ver Más");
-        btnVerMas.setName("ver_mas");
+        btnVerMas.setName("Ver Más");
         for (int i = 0; i < list_libros.size(); i++) {
             //cbRol.setSelectedIndex((lstUsuarios.get(i).getRol().equals("Usuario"))?0:1);
             
@@ -89,8 +89,8 @@ public class PaginaPrincipalAdmin extends javax.swing.JFrame {
                 list_libros.get(i).getUbicacion(),
                 list_libros.get(i).getAutor(),
                 list_libros.get(i).getFoto(),
-                list_libros.get(i).getId_biblioteca(),
-                list_libros.get(i).getId_categoria(),
+                (new BibliotecaDB().obtenerBibliotecaById(list_libros.get(i).getId_biblioteca())).getNombre(),
+                (new CategoriaDB().obtenerCategoriaById(list_libros.get(i).getId_categoria())).getNombre(),
                 btnVerMas,
             };
             modelo.addRow(libros);
